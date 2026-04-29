@@ -1,0 +1,178 @@
+import { motion } from "motion/react";
+import { Link } from "react-router";
+import { CheckCircle2 } from "lucide-react";
+
+export default function ExecutiveLeadership() {
+  return (
+    <div className="pt-24 pb-20 bg-white min-h-screen font-sans text-slate-900">
+      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+        
+        {/* TOP SECTION: Hero Title & Desc */}
+        <div className="mb-10 lg:w-2/3 mt-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Executive Leadership Programme</h1>
+          <p className="text-lg font-medium text-slate-700 mb-6">(CISO-in-a-Box)</p>
+          <p className="text-lg text-slate-600 leading-relaxed max-w-3xl">
+            Transform from finance, operations, or mid-level management into a confident cyber security leader. Master crisis command, board communication, and regulatory navigation through intensive live-fire scenarios with FTSE 100 CISO faculty.
+          </p>
+        </div>
+
+        {/* Image and Register Box */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-12">
+          <div className="lg:col-span-8">
+            <div className="w-full rounded-2xl overflow-hidden border border-orange-100 shadow-[0_4px_24px_rgb(234,88,12,0.1)]">
+              <img 
+                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200" 
+                alt="Executive Boardroom" 
+                className="w-full h-auto object-cover" 
+              />
+            </div>
+          </div>
+          <div className="lg:col-span-4 flex flex-col gap-6">
+            <div className="bg-white rounded-2xl border border-orange-200/80 p-8 shadow-[0_8px_30px_rgb(234,88,12,0.06)]">
+              <div className="flex items-center justify-between mb-6">
+                <span className="text-slate-500 font-medium text-sm">Next Cohort Starts</span>
+                <span className="px-3 py-1 text-blue-500 border border-blue-200 rounded-full text-xs font-semibold">2 Weeks</span>
+              </div>
+
+              <div className="space-y-5 mb-8">
+                <div>
+                  <div className="font-bold text-slate-900">Duration</div>
+                  <div className="text-slate-500 text-sm">2 Weeks</div>
+                </div>
+                <div>
+                  <div className="font-bold text-slate-900">Format</div>
+                  <div className="text-slate-500 text-sm">Intensive</div>
+                </div>
+                <div>
+                  <div className="font-bold text-slate-900">Faculty</div>
+                  <div className="text-slate-500 text-sm">FTSE 100 CISOs</div>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <Link
+                  to="/register"
+                  className="block w-full py-3.5 text-center bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors shadow-lg shadow-orange-900/20 active:scale-[0.98]"
+                >
+                  Register Now
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Content Section layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 relative items-start mt-12">
+          <div className="lg:col-span-8 flex flex-col gap-12">
+            <div>
+              <h2 className="text-3xl font-bold mb-12">Programme Overview</h2>
+              <div className="text-slate-600 space-y-5 leading-relaxed text-lg">
+                <p>
+                  The Executive Leadership Programme equips professionals with essential leadership skills to drive strategic decisions, lead teams effectively, and manage organizational change. The programme emphasizes practical leadership, executive communication, and ethical decision-making to help participants lead with confidence and impact.
+                </p>
+              </div>
+            </div>
+
+            {/* CURRICULUM STRUCTURE Section */}
+            <div>
+              <h2 className="text-3xl font-bold mb-12">Curriculum Structure</h2>
+              <div className="space-y-4">
+                
+                {[
+                  {
+                    week: "Week 1: Strategic Foundation",
+                    bullets: ["Strategic security governance", "Building security culture", "Vendor risk management", "Regulatory navigation"]
+                  },
+                  {
+                    week: "Week 2: Executive Command",
+                    bullets: ["Incident command simulations", "Board-level reporting", "Team leadership under pressure", "Strategic risk governance"]
+                  }
+                ].map((mod, i) => (
+                  <div key={i} className="bg-white rounded-xl border border-orange-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-lg mb-4">{mod.week}</h4>
+                    <ul className="list-disc pl-5 text-slate-600 text-sm space-y-2">
+                      {mod.bullets.map((b, idx) => <li key={idx}>{b}</li>)}
+                    </ul>
+                  </div>
+                ))}
+
+              </div>
+              <p className="text-[#cd5c30] text-center text-sm font-medium mt-6">
+                Combination of classroom learning and live crisis simulations
+              </p>
+            </div>
+          </div>
+
+          <div className="lg:col-span-4 flex flex-col gap-6 lg:sticky lg:top-28">
+            {/* Target Audience Card */}
+            <div className="bg-white rounded-2xl border border-orange-200/80 p-8 shadow-[0_8px_30px_rgb(234,88,12,0.06)]">
+              <h3 className="text-xl font-bold mb-6">Target Audience</h3>
+              <ul className="space-y-4">
+                {[
+                  "Mid-to-Senior Professionals",
+                  "Finance Leaders",
+                  "Operations Directors",
+                  "Executives transitioning to security leadership"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-[#cd5c30] shrink-0 mt-0.5" />
+                    <span className="text-slate-600 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Outcome Card */}
+            <div className="bg-white rounded-2xl border border-orange-200/80 p-8 shadow-[0_8px_30px_rgb(234,88,12,0.06)]">
+              <h3 className="text-xl font-bold mb-6">Outcome</h3>
+              <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                Graduate with confidence to step into CISO role or effectively oversee security function as non-technical executive.
+              </p>
+              <div className="text-[#cd5c30] text-sm font-semibold">Executive Security Leadership</div>
+            </div>
+          </div>
+        </div>
+
+        {/* CORE SKILLS Section */}
+        <div className="mt-12">
+          <h2 className="text-3xl font-bold mb-12">Core Skills</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { title: "Crisis Management", desc: "Lead incident response and crisis communication" },
+              { title: "Board Communication", desc: "Translate technical risk into executive language" },
+              { title: "Legal Defensibility", desc: "Navigate regulatory requirements and compliance" },
+              { title: "Budget Planning", desc: "Strategic resource allocation and ROI justification" }
+            ].map((skill, i) => (
+              <div key={i} className="bg-white rounded-xl border border-orange-200 p-8 shadow-sm text-center">
+                <h4 className="font-bold text-lg mb-3 text-slate-900">{skill.title}</h4>
+                <p className="text-slate-500 text-sm">{skill.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* APPLICATION PROCESS Section */}
+        <div className="mt-12 mb-20 max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold mb-12 text-center">Application Process</h2>
+          <p className="text-slate-600 text-center max-w-2xl mx-auto mb-12">
+            Our selective admissions process ensures every cohort member is ready to maximize this intensive executive experience.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[
+              { step: "Application", desc: "Submit career background and leadership experience" },
+              { step: "Assessment", desc: "Executive interview and readiness evaluation" },
+              { step: "Acceptance", desc: "Cohort placement and programme preparation" },
+              { step: "Transformation", desc: "2-week intensive executive development" }
+            ].map((process, i) => (
+              <div key={i} className="bg-white rounded-xl border border-orange-200 p-6 shadow-sm text-center">
+                <h4 className="font-bold text-lg mb-3">{process.step}</h4>
+                <p className="text-slate-500 text-sm max-w-[180px] mx-auto">{process.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}

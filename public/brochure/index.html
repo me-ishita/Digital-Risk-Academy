@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to Investment Banking and Digital Risk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root,
+    [data-theme="light"] {
+      --color-bg: #f7f4ef;
+      --color-surface: #fbf9f4;
+      --color-surface-2: #f1ece4;
+      --color-surface-offset: #e8e0d3;
+      --color-border: rgba(40, 37, 29, .12);
+      --color-text: #211d17;
+      --color-text-muted: #6d675f;
+      --color-text-faint: #9b948b;
+      --color-text-inverse: #f8f5ef;
+      --color-primary: #8b6a2b;
+      --color-primary-hover: #6f531f;
+      --color-secondary: #13364a;
+      --shadow-sm: 0 1px 2px rgba(17, 17, 17, .05);
+      --shadow-md: 0 12px 36px rgba(23, 18, 10, .10);
+      --radius-sm: .375rem;
+      --radius-md: .75rem;
+      --radius-lg: 1.25rem;
+      --radius-xl: 1.75rem;
+      --space-1: .25rem;
+      --space-2: .5rem;
+      --space-3: .75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+      --text-xs: clamp(.75rem, .7rem + .25vw, .875rem);
+      --text-sm: clamp(.875rem, .8rem + .35vw, 1rem);
+      --text-base: clamp(1rem, .95rem + .25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + .75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(2.75rem, 1.2rem + 4vw, 5.2rem);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', sans-serif;
+      --content: 1500px;
+      --hero-grad: radial-gradient(circle at top left, rgba(139, 106, 43, .15), transparent 35%), radial-gradient(circle at 80% 20%, rgba(19, 54, 74, .12), transparent 30%), linear-gradient(180deg, #f7f4ef 0%, #f1ece4 100%);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #151311;
+      --color-surface: #1c1916;
+      --color-surface-2: #241f1a;
+      --color-surface-offset: #2d261e;
+      --color-border: rgba(248, 245, 239, .12);
+      --color-text: #f2eee8;
+      --color-text-muted: #c7beb1;
+      --color-text-faint: #8e8578;
+      --color-text-inverse: #171411;
+      --color-primary: #c8a45b;
+      --color-primary-hover: #dbb870;
+      --color-secondary: #7fb0cd;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, .3);
+      --shadow-md: 0 12px 36px rgba(0, 0, 0, .35);
+      --hero-grad: radial-gradient(circle at top left, rgba(200, 164, 91, .18), transparent 35%), radial-gradient(circle at 80% 20%, rgba(127, 176, 205, .14), transparent 30%), linear-gradient(180deg, #151311 0%, #1c1916 100%);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.65;
+      background: var(--color-bg);
+      color: var(--color-text)
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    button {
+      font: inherit;
+      border: 0;
+      background: none;
+      cursor: pointer
+    }
+
+    .container {
+      width: min(calc(100% - 4rem), var(--content));
+      margin-inline: auto
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto
+    }
+
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      background: var(--color-surface);
+      padding: .75rem 1rem;
+      border-radius: var(--radius-sm);
+      z-index: 1000
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: color-mix(in oklab, var(--color-bg) 82%, transparent);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--color-border)
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-4) 0;
+      gap: var(--space-4)
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .9rem
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #000;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0
+    }
+
+    .brand-wordmark {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: .01em
+    }
+
+    .brand-sub {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      background: linear-gradient(to right, #d6d1a8, #6fa6e6, #4f7fd6, #8a6fb0, #c97c5c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3)
+    }
+
+    .theme-toggle,
+    .ghost-link {
+      min-height: 44px;
+      padding: 0 .95rem;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: var(--color-surface);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem
+    }
+
+    .hero {
+      background: var(--hero-grad);
+      padding: clamp(4rem, 8vw, 7rem) 0 var(--space-20);
+      position: relative;
+      overflow: hidden
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -15% auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 106, 43, .14), transparent 70%);
+      pointer-events: none
+    }
+
+    .eyebrow {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      color: var(--color-primary);
+      font-weight: 700;
+      margin-bottom: var(--space-5)
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-display);
+      line-height: 1.05;
+      font-weight: 700
+    }
+
+    h1 {
+      font-size: var(--text-3xl);
+      max-width: 18ch;
+      letter-spacing: -.02em
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: var(--space-12);
+      align-items: center
+    }
+
+    .hero-copy p {
+      font-size: var(--text-lg);
+      max-width: 55rem;
+      color: var(--color-text-muted);
+      margin-top: var(--space-6)
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-8)
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      min-height: 48px;
+      padding: .95rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      box-shadow: var(--shadow-md)
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-hover)
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface)
+    }
+
+    .hero-card {
+      background: color-mix(in oklab, var(--color-surface) 90%, transparent);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-12);
+      box-shadow: var(--shadow-md);
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center
+    }
+
+    .hero-card .meta {
+      display: grid;
+      gap: var(--space-8)
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-6);
+      padding-bottom: var(--space-6);
+      border-bottom: 1px solid var(--color-border)
+    }
+
+    .meta-row:last-child {
+      border-bottom: 0;
+      padding-bottom: 0
+    }
+
+    .meta-label {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--color-text-faint);
+      font-weight: 600;
+      flex-shrink: 0
+    }
+
+    .meta-value {
+      font-weight: 600;
+      text-align: right;
+      font-size: var(--text-base);
+      line-height: 1.4;
+      max-width: 25ch
+    }
+
+    .section {
+      padding: clamp(3.5rem, 7vw, 6rem) 0
+    }
+
+    .section.alt {
+      background: var(--color-surface)
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: var(--space-10);
+      align-items: start;
+      margin-bottom: var(--space-10)
+    }
+
+    .section-head p {
+      color: var(--color-text-muted);
+      max-width: 70rem
+    }
+
+    h2 {
+      font-size: var(--text-2xl)
+    }
+
+    .value-grid,
+    .module-grid,
+    .outcome-grid {
+      display: grid;
+      gap: var(--space-6)
+    }
+
+    .value-grid {
+      grid-template-columns: repeat(3, 1fr)
+    }
+
+    .module-grid {
+      grid-template-columns: repeat(4, 1fr)
+    }
+
+    .outcome-grid {
+      grid-template-columns: repeat(3, 1fr)
+    }
+
+    .card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-sm)
+    }
+
+    .alt .card {
+      background: var(--color-surface-2)
+    }
+
+    .kicker {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--color-primary);
+      font-weight: 700;
+      margin-bottom: var(--space-3)
+    }
+
+    h3 {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-4)
+    }
+
+    .card p,
+    .card li {
+      color: var(--color-text-muted)
+    }
+
+    ul {
+      list-style: none;
+      display: grid;
+      gap: var(--space-3)
+    }
+
+    li {
+      position: relative;
+      padding-left: 1.1rem
+    }
+
+    li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      position: absolute;
+      left: 0;
+      top: .7em
+    }
+
+    .stat-band {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-10)
+    }
+
+    .stat {
+      padding: var(--space-6);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      border: 1px solid var(--color-border)
+    }
+
+    .stat strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-2)
+    }
+
+    .audience-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6)
+    }
+
+    .cta {
+      padding: clamp(4rem, 8vw, 6rem) 0
+    }
+
+    .cta-panel {
+      background: linear-gradient(135deg, color-mix(in oklab, var(--color-primary) 12%, var(--color-surface)), color-mix(in oklab, var(--color-secondary) 9%, var(--color-surface)));
+      border: 1px solid var(--color-border);
+      border-radius: calc(var(--radius-xl) + .25rem);
+      padding: clamp(2rem, 5vw, 4rem);
+      display: block;
+      box-shadow: var(--shadow-md)
+    }
+
+    .cta-panel p {
+      color: var(--color-text-muted);
+      max-width: 90rem;
+      margin-top: var(--space-4)
+    }
+
+    .footer {
+      padding: var(--space-8) 0 var(--space-12);
+      color: var(--color-text-faint);
+      font-size: var(--text-sm)
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      border-top: 1px solid var(--color-border);
+      padding-top: var(--space-6)
+    }
+
+    .note {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted)
+    }
+
+    @media (max-width: 960px) {
+
+      .section-head,
+      .cta-panel,
+      .audience-wrap,
+      .value-grid,
+      .module-grid,
+      .outcome-grid,
+      .stat-band {
+        grid-template-columns: 1fr
+      }
+
+      h1 {
+        max-width: 14ch
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-8);
+        align-items: stretch;
+      }
+
+      .hero-card {
+        min-height: 480px;
+        padding: var(--space-10);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header">
+  <div class="container header-inner">
+    <div class="brand" aria-label="Programme brand">
+
+      <div class="brand-mark" aria-hidden="true">
+        <img src="brand logo.jpeg" alt="Logo" style="width:100%; height:100%; object-fit:contain;">
+      </div>
+
+      <div>
+        <div class="brand-wordmark"></div>
+        <div class="brand-sub">Digital Risk Academy</div>
+      </div>
+
+    </div>
+
+    <a href="/programs/investment-banking" style="display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;font-weight:600;color:var(--color-text-muted);text-decoration:none;padding:.45rem .9rem;border:1px solid var(--color-border);border-radius:999px;background:var(--color-surface);transition:background .18s,color .18s;" onmouseover="this.style.background='var(--color-surface-2)';this.style.color='var(--color-text)'" onmouseout="this.style.background='var(--color-surface)';this.style.color='var(--color-text-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
+      Back to Programme
+    </a>
+
+  </div>
+</header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Live online programme</div>
+          <h1>Introduction to Investment Banking and Digital Risk</h1>
+          <p>A premium four-week experience for ambitious students who want to understand how investment banks operate,
+            how digital risk shapes decision-making, and how modern financial institutions protect resilience, trust,
+            and performance.</p>
+          <!-- Buttons removed -->
+
+        </div>
+        <aside class="hero-card" aria-label="Programme highlights">
+          <div class="meta">
+            <div class="meta-row">
+              <div>
+                <div class="meta-label">Format</div>
+              </div>
+              <div class="meta-value">Live online</div>
+            </div>
+            <div class="meta-row">
+              <div>
+                <div class="meta-label">Duration</div>
+              </div>
+              <div class="meta-value">4 weeks</div>
+            </div>
+            <div class="meta-row">
+              <div>
+                <div class="meta-label">Designed for</div>
+              </div>
+              <div class="meta-value">Students & early-career talent</div>
+            </div>
+            <div class="meta-row">
+              <div>
+                <div class="meta-label">Learning style</div>
+              </div>
+              <div class="meta-value">Practitioner-led, case-based, career-focused</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="overview">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Why it matters</div>
+            <h2>A modern edge for financial services careers</h2>
+          </div>
+          <p>Investment banks increasingly depend on resilient technology, disciplined risk management, and strong
+            governance as they serve clients across complex global markets. This programme helps students understand
+            both the commercial engine of banking and the digital risks that can disrupt it, from cyber threats and data
+            issues to third-party failure and operational disruption.</p>
+        </div>
+        <div class="value-grid">
+          <article class="card">
+            <div class="kicker">Commercial understanding</div>
+            <h3>Learn how investment banks create value</h3>
+            <p>Build fluency in the structure of investment banking, key products, core business lines, and the way
+              front-office, middle-office, and support teams work together.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">Digital risk insight</div>
+            <h3>Understand what can threaten continuity</h3>
+            <p>Explore cyber, data, operational, and third-party risks, and see how firms monitor, assess, and respond
+              to disruption in a highly regulated sector.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">Career advantage</div>
+            <h3>Develop language employers recognise</h3>
+            <p>Gain the vocabulary, judgement, and confidence valued in banking, consulting, operational resilience, and
+              technology risk roles.</p>
+          </article>
+        </div>
+        <div class="stat-band" aria-label="Programme benefits">
+          <div class="stat"><strong>4 weeks</strong><span>Structured live learning journey</span></div>
+          <div class="stat"><strong>4 modules</strong><span>From banking fundamentals to final project</span></div>
+          <div class="stat"><strong>Live delivery</strong><span>Interactive sessions with practitioners</span></div>
+          <div class="stat"><strong>Applied project</strong><span>Professional presentation and team-based
+              analysis</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="modules">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Programme structure</div>
+            <h2>Module breakdown</h2>
+          </div>
+          <p>The course is designed to move from core banking knowledge into practical risk and resilience thinking,
+            ending with a final applied exercise that brings business understanding and digital risk judgement together.
+          </p>
+        </div>
+        <div class="module-grid">
+          <article class="card">
+            <div class="kicker">Week 1</div>
+            <h3>How investment banking works</h3>
+            <ul>
+              <li>What investment banks do and how they serve clients.</li>
+              <li>Advisory, markets, trading, research, and support functions.</li>
+              <li>How front office, middle office, and back office interact.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="kicker">Week 2</div>
+            <h3>Risk and digital exposure</h3>
+            <ul>
+              <li>Core banking risks and the foundations of risk management.</li>
+              <li>Cyber, data, process, and technology vulnerabilities.</li>
+              <li>Why digital risk matters to performance, confidence, and reputation.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="kicker">Week 3</div>
+            <h3>Operational resilience and controls</h3>
+            <ul>
+              <li>Critical services, disruption planning, and control environments.</li>
+              <li>Third-party dependencies and response planning.</li>
+              <li>How resilience supports continuity under stress.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="kicker">Week 4</div>
+            <h3>Governance and final project</h3>
+            <ul>
+              <li>Risk governance, escalation, and professional reporting.</li>
+              <li>Decision-making in a regulated financial environment.</li>
+              <li>Final group presentation linking banking activity to digital risk.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Student outcomes</div>
+            <h2>What participants leave with</h2>
+          </div>
+          <p>The learning experience is designed to feel selective, practical, and career-defining. Students do not just
+            learn terminology; they build the professional understanding to discuss how banking, risk, and resilience
+            connect in real institutions.</p>
+        </div>
+        <div class="outcome-grid">
+          <article class="card">
+            <h3>Professional fluency</h3>
+            <p>Explain how investment banking functions operate and how value is created across the business.</p>
+          </article>
+          <article class="card">
+            <h3>Risk awareness</h3>
+            <p>Recognise major digital and operational risks that can affect services, clients, and market confidence.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Career readiness</h3>
+            <p>Present ideas clearly, use industry-relevant language, and approach case material with stronger
+              commercial judgement.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container audience-wrap">
+        <article class="card">
+          <div class="kicker">Ideal audience</div>
+          <h3>Who should join</h3>
+          <ul>
+            <li>University students exploring banking, finance, consulting, or risk careers.</li>
+            <li>Graduates who want stronger commercial understanding before interviews or internships.</li>
+            <li>Early-career professionals interested in resilience, cyber, and digital transformation.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="kicker">Learning experience</div>
+          <h3>What makes it premium</h3>
+          <ul>
+            <li>Live sessions rather than passive self-study.</li>
+            <li>Practitioner-led discussion with real-world framing.</li>
+            <li>Case-based learning aligned to modern financial services challenges.</li>
+            <li>A final project that strengthens teamwork and presentation skills.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta" id="apply">
+      <div class="container">
+        <div class="cta-panel">
+          <div class="eyebrow">Next step</div>
+          <h2>A distinctive start for the next generation of financial services talent</h2>
+          <p>This programme is designed for students who want more than a general introduction. It offers a sharper,
+            more contemporary understanding of investment banking and digital risk — and a stronger platform for future
+            applications, interviews, and early-career progression.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <!-- Footer content removed -->
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
