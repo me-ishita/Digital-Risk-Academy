@@ -1,14 +1,12 @@
+"use client";
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { useState } from "react";
-
+import { BarChart3, Shield, Brain, Briefcase, Users, Globe } from "lucide-react";
 import {
     Video,
     FileText,
-    Users,
     Layers,
-    Brain,
-    Briefcase,
     CheckCircle,
     Wallet2Icon,
     ArrowLeft
@@ -16,10 +14,51 @@ import {
 import MediaPlayer from "../../components/MediaPlayer";
 import BrochureModal from "@/app/components/BrochureModal";
 import InfoBar from "@/app/components/InfoBar";
+import Speaker1 from "@/assets/Speaker1.jpeg";
+import Speaker2 from "@/assets/Speaker2.jpeg";
+import Speaker3 from "@/assets/Speaker3.jpeg";
+
+
+const faculty: Faculty[] = [
+    {
+        name: "Paul L Young",
+        role: "Former CFO, Bank of America Europe/US | Former Managing Director, JPMorgan Chase",
+        image: Speaker1,
+        short:
+            "Senior banking executive with 30+ years of leadership across global financial institutions.",
+        full:
+            "Learn directly from a senior banking executive with over 30 years of leadership across Bank of America and JPMorgan Chase. Paul brings deep expertise in investment banking, finance, risk, valuations, and regulatory strategy—offering students real-world insights into global banking leadership and high-level financial decision-making.",
+    },
+    {
+        name: "Devesh Mehta",
+        role: "Former EMEA CFO & CAO, Nomura International",
+        image: Speaker2,
+        short:
+            "Former Nomura executive with expertise in finance, operations, and strategic transformation.",
+        full:
+            "Gain practical investment banking knowledge from a former Nomura executive who led finance, operations, and strategic transformation across EMEA. Devesh offers first-hand expertise in banking structures, financial strategy, governance, and executive leadership within one of the world’s leading financial institutions.",
+    },
+    {
+        name: "Terry Learmouth",
+        role: "Former Co-Group Technology Officer & Wholesale CIO EMEA, Nomura",
+        image: Speaker3,
+        short:
+            "Technology leader with 26+ years in enterprise systems, cyber resilience, and banking tech.",
+        full:
+            "Understand the digital backbone of modern investment banking from a senior Nomura technology leader with nearly 26 years of experience. Terry specializes in enterprise technology, cyber resilience, cloud transformation, and operational strategy—bringing critical insight into the systems powering global financial markets.",
+    },
+];
+type Faculty = {
+    name: string;
+    role: string;
+    image: any;
+    short: string;
+    full: string;
+};
 
 export default function InvestmentBankingProgram() {
     const [openModal, setOpenModal] = useState(false);
-
+    const [selected, setSelected] = useState<Faculty | null>(null);
     return (
         <div className="pt-20 relative">
             {/* Back Button */}
@@ -117,156 +156,518 @@ export default function InvestmentBankingProgram() {
             </section>
 
             <InfoBar />
-            <div className="h-[80px]" />   
+            <div className="h-[80px]" />
 
-            {/* ================= PREMIUM COMPACT PROGRAM INFO ================= */}
-            <section className="py-12 sm:py-16 bg-white">
-                <div className="container mx-auto px-4 sm:px-6">
+            <section className="bg-white py-16 px-6">
+                <div className="max-w-6xl mx-auto">
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-
-                        {/* ===== CARD ===== */}
-                        {[
-                            {
-                                title: "Programme Overview",
-                                image:
-                                    "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3",
-                                content:
-                                    "A one-month, practitioner-led programme designed for students and early professionals, delivered by experts from UK investment banking and digital risk domains.",
-                            },
-                            {
-                                title: "Programme Structure",
-                                image:
-                                    "https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1200",
-                                list: [
-                                    "Live online classes",
-                                    "Case studies & simulations",
-                                    "Group projects",
-                                    "Real-world scenarios",
-                                    "Mentorship & guidance",
-                                ],
-                            },
-                            {
-                                title: "Key Learning Areas",
-                                image:
-                                    "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200",
-                                list: [
-                                    "Investment Banking Fundamentals",
-                                    "Mergers and Acquisitions & Valuation",
-                                    "Governance, Risk & Compliance",
-                                    "Digital & Cyber Risk",
-                                    "AI in Financial Services",
-                                ],
-                            },
-                        ].map((card, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 40 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                whileHover={{
-                                    rotateX: 6,
-                                    rotateY: -6,
-                                    scale: 1.04,
-                                }}
-                                transition={{
-                                    type: "spring",
-                                    stiffness: 200,
-                                    damping: 15,
-                                    delay: i * 0.1,
-                                }}
-                                style={{ transformStyle: "preserve-3d" }}
-                                className="relative group min-h-[320px] sm:min-h-[360px] rounded-2xl overflow-hidden border border-white/10 shadow-lg hover:shadow-orange-500/20 transition"
-                            >
-                                {/* Background Image */}
-                                <div className="absolute inset-0">
-                                    <img
-                                        src={card.image}
-                                        className="w-full h-full object-cover scale-105 group-hover:scale-110 transition duration-700"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-black/30" />
-                                </div>
-
-                                {/* Glow Effect */}
-                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-orange-500/10 via-transparent to-blue-500/10" />
-
-                                {/* Content */}
-                                <div className="relative z-10 p-5 sm:p-6 text-white h-full flex flex-col justify-start">
-
-                                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3">
-                                        {card.title}
-                                    </h2>
-
-                                    {card.content && (
-                                        <p className="text-sm sm:text-base font-semibold text-white leading-relaxed">
-                                            {card.content}
-                                        </p>
-                                    )}
-
-                                    {card.content && (
-                                        <a
-                                            href="/brochure/index.html"
-                                            className="inline-flex items-center gap-2 mt-5 px-5 py-2.5 bg-white/15 backdrop-blur-sm border border-white/25 text-white rounded-full font-semibold text-sm hover:bg-white/25 transition-colors"
-                                        >
-                                            <FileText className="w-4 h-4" />
-                                            View Brochure
-                                        </a>
-                                    )}
-
-                                    {card.list && (
-                                        <ul className="mt-3 space-y-3 text-sm md:text-base font-semibold text-white leading-relaxed">
-                                            {card.list.map((item, idx) => {
-                                                const icons = [
-                                                    Video,
-                                                    FileText,
-                                                    Users,
-                                                    Layers,
-                                                    Brain,
-                                                    Briefcase,
-                                                ];
-
-                                                const Icon = icons[idx % icons.length];
-
-                                                return (
-                                                    <li key={idx} className="flex items-start gap-3">
-                                                        <div className="p-1.5 rounded-md bg-orange-500/20 border border-orange-500/30">
-                                                            <Icon className="w-4 h-4 text-orange-400" />
-                                                        </div>
-                                                        <span>{item}</span>
-                                                    </li>
-                                                );
-                                            })}
-                                        </ul>
-                                    )}
-                                </div>
-                            </motion.div>
-                        ))}
-
+                    {/* HEADER */}
+                    <div className="mb-12">
+                        <h1 className="text-3xl font-semibold mb-4">
+                            Investment Banking Programme
+                        </h1>
+                        <h2 className="text-3xl font-semibold text-slate-900 mb-3 text-center">
+                            Programme Overview
+                        </h2>
+                        <p className="text-gray-600 leading-relaxed max-w-3xl items-center mx-auto">
+                            A one-month, practitioner-led programme designed for ambitious students
+                            and early-career professionals. Delivered by industry experts from UK
+                            investment banking and digital risk domains, this programme bridges the
+                            gap between academic knowledge and real-world financial expertise.
+                        </p>
+                        <p className="text-gray-600 leading-relaxed max-w-3xl mt-4 items-center mx-auto">
+                            Through live sessions, simulations, and mentorship, participants gain
+                            hands-on exposure to the tools, strategies, and thinking patterns used
+                            by modern investment bankers.
+                        </p>
                     </div>
+
+                    {/* WHAT YOU WILL LEARN */}
+                    <div>
+                        <h2 className="text-3xl font-semibold mb-8 text-slate-950 text-center">
+                            What You Will Learn
+                        </h2>
+
+                        <div className="grid md:grid-cols-2 gap-6">
+
+                            {/* CARD 1 */}
+                            <div className="border border-gray-200 rounded-xl p-6 bg-white hover:shadow-md transition">
+                                <h3 className="font-semibold text-lg mb-3 text-slate-900">
+                                    Investment Banking Fundamentals
+                                </h3>
+                                <ul className="text-gray-600 text-sm space-y-2">
+                                    <li>• Structure of financial markets and instruments</li>
+                                    <li>• Role and functions of investment banks</li>
+                                    <li>• Deal lifecycle and capital raising processes</li>
+                                </ul>
+                            </div>
+
+                            {/* CARD 2 */}
+                            <div className="border border-gray-200 rounded-xl p-6 bg-white hover:shadow-md transition">
+                                <h3 className="font-semibold text-lg mb-3 text-slate-900 ">
+                                    Mergers & Acquisitions and Valuation
+                                </h3>
+                                <ul className="text-gray-600 text-sm space-y-2">
+                                    <li>• Discounted Cash Flow (DCF) modelling</li>
+                                    <li>• Comparable and precedent transaction analysis</li>
+                                    <li>• M&A deal structuring fundamentals</li>
+                                </ul>
+                            </div>
+
+                            {/* CARD 3 */}
+                            <div className="border border-gray-200 rounded-xl p-6 bg-white hover:shadow-md transition">
+                                <h3 className="font-semibold text-lg mb-3 text-slate-900">
+                                    Governance, Risk & Compliance (GRC)
+                                </h3>
+                                <ul className="text-gray-600 text-sm space-y-2">
+                                    <li>• Global regulatory frameworks and standards</li>
+                                    <li>• Financial governance practices</li>
+                                    <li>• Risk identification and compliance strategies</li>
+                                </ul>
+                            </div>
+
+                            {/* CARD 4 */}
+                            <div className="border border-gray-200 rounded-xl p-6 bg-white hover:shadow-md transition">
+                                <h3 className="font-semibold text-lg mb-3 text-slate-900">
+                                    AI in Financial Services
+                                </h3>
+                                <ul className="text-gray-600 text-sm space-y-2">
+                                    <li>• AI applications in banking and finance</li>
+                                    <li>• Fraud detection and predictive analytics</li>
+                                    <li>• Algorithmic decision-making and automation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
-            {/* ================= FINAL CTA ================= */}
-            <section className="py-16 sm:py-20 bg-gradient-to-r from-orange-500 to-blue-600 text-center text-white">
-                <div className="container mx-auto px-4 sm:px-6">
+            <section className="bg-white px-6">
+                <div className="max-w-6xl mx-auto">
 
-                    <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6">
-                        Start Your Investment Banking Journey
-                    </h2>
+                    {/* WHO IS THIS FOR - SINGLE BOX */}
+                    <div className="mb-14">
+                        <h2 className="text-3xl font-semibold mb-6 text-slate-900 text-center">
+                            Who Is This Programme For?
+                        </h2>
 
-                    <p className="mb-6 sm:mb-8 text-base sm:text-lg">
-                        Limited seats available for the June cohort
-                    </p>
+                        <div className="border border-gray-200 rounded-xl p-6 bg-white hover:shadow-sm transition">
+                            <ul className="grid md:grid-cols-2 gap-x-8 gap-y-3 text-sm text-gray-600">
+                                <li>• Students pursuing finance, business, economics, or related fields</li>
+                                <li>• Early-career professionals aiming to enter investment banking</li>
+                                <li>• Aspiring financial analysts seeking practical exposure</li>
+                                <li>• Career switchers transitioning into finance or fintech</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                    <Link
-                        to="/register"
-                        className="inline-block w-full sm:w-auto text-center min-h-[52px] px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-orange-600 rounded-lg font-semibold hover:bg-slate-100 active:scale-[0.99] transition"
-                    >
-                        Enroll Now
-                    </Link>
+                    {/* PROGRAMME HIGHLIGHTS */}
+                    <section className="bg-gray-50 py-20 px-6">
+                        <div className="max-w-6xl mx-auto text-center">
+
+                            {/* HEADING */}
+                            <h2 className="text-3xl font-semibold text-slate-900 mb-14">
+                                Programme highlights
+                            </h2>
+
+                            {/* GRID */}
+                            <div className="grid md:grid-cols-3 gap-y-12">
+
+                                {/* ITEM */}
+                                <div className="px-6 md:border-r border-gray-200">
+                                    <div className="flex justify-center mb-4">
+                                        <svg className="h-8 w-8 text-slate-700" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
+                                            <rect x="3" y="4" width="18" height="12" rx="2" />
+                                            <path d="M8 20h8M12 16v4" />
+                                        </svg>
+                                    </div>
+                                    <h3 className="font-medium text-slate-900 mb-2">
+                                        Live interactive classes
+                                    </h3>
+                                    <p className="text-sm text-gray-600 leading-relaxed">
+                                        Learn directly from industry experts through live sessions designed
+                                        to simulate real investment banking environments.
+                                    </p>
+                                </div>
+
+                                {/* ITEM */}
+                                <div className="px-6 md:border-r border-gray-200">
+                                    <div className="flex justify-center mb-4">
+                                        <svg className="h-8 w-8 text-slate-700" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
+                                            <path d="M4 19V5M10 19V9M16 19V13M22 19H2" />
+                                        </svg>
+                                    </div>
+                                    <h3 className="font-medium text-slate-900 mb-2">
+                                        Real-world case studies
+                                    </h3>
+                                    <p className="text-sm text-gray-600 leading-relaxed">
+                                        Analyze global banking scenarios and real M&A deals to understand
+                                        practical decision-making.
+                                    </p>
+                                </div>
+
+                                {/* ITEM */}
+                                <div className="px-6">
+                                    <div className="flex justify-center mb-4">
+                                        <svg className="h-8 w-8 text-slate-700" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
+                                            <path d="M16 11c1.66 0 3-1.79 3-4s-1.34-4-3-4-3 1.79-3 4 1.34 4 3 4z" />
+                                            <path d="M8 11c1.66 0 3-1.79 3-4S9.66 3 8 3 5 4.79 5 7s1.34 4 3 4z" />
+                                            <path d="M2 21c0-3 3-5 6-5M22 21c0-3-3-5-6-5" />
+                                        </svg>
+                                    </div>
+                                    <h3 className="font-medium text-slate-900 mb-2">
+                                        Mentorship & guidance
+                                    </h3>
+                                    <p className="text-sm text-gray-600 leading-relaxed">
+                                        Receive personalised career guidance and insights from experienced
+                                        finance professionals.
+                                    </p>
+                                </div>
+
+                                {/* ROW 2 */}
+
+                                <div className="px-6 md:border-r border-gray-200 md:mt-12">
+                                    <div className="flex justify-center mb-4">
+                                        <svg className="h-8 w-8 text-slate-700" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
+                                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-6-3.46a2 2 0 0 0-2 0l-6 3.46A2 2 0 0 0 5 8v8a2 2 0 0 0 1 1.73l6 3.46a2 2 0 0 0 2 0l6-3.46A2 2 0 0 0 21 16z" />
+                                        </svg>
+                                    </div>
+                                    <h3 className="font-medium text-slate-900 mb-2">
+                                        Simulations & projects
+                                    </h3>
+                                    <p className="text-sm text-gray-600 leading-relaxed">
+                                        Work on hands-on simulations and projects that reflect real
+                                        investment banking workflows.
+                                    </p>
+                                </div>
+
+                                <div className="px-6 md:border-r border-gray-200 md:mt-12">
+                                    <div className="flex justify-center mb-4">
+                                        <svg className="h-8 w-8 text-slate-700" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" />
+                                        </svg>
+                                    </div>
+                                    <h3 className="font-medium text-slate-900 mb-2">
+                                        Global exposure
+                                    </h3>
+                                    <p className="text-sm text-gray-600 leading-relaxed">
+                                        Gain insights into UK and international financial markets and
+                                        industry practices.
+                                    </p>
+                                </div>
+
+                                <div className="px-6 md:mt-12">
+                                    <div className="flex justify-center mb-4">
+                                        <svg className="h-8 w-8 text-slate-700" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
+                                            <rect x="4" y="3" width="16" height="18" rx="2" />
+                                            <path d="M8 7h8M8 11h8M8 15h5" />
+                                        </svg>
+                                    </div>
+                                    <h3 className="font-medium text-slate-900 mb-2">
+                                        Certificate of completion
+                                    </h3>
+                                    <p className="text-sm text-gray-600 leading-relaxed">
+                                        Earn a recognised certificate validating your investment banking
+                                        expertise.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* EXECUTIVE STRATEGY + IMMERSIVE LEARNING */}
+                    <section className="bg-white py-20 px-6">
+                        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+                            {/* LEFT IMAGE */}
+                            <div>
+                                <img
+                                    src="https://images.unsplash.com/photo-1551836022-d5d88e9218df"
+                                    alt="strategy"
+                                    className="rounded-lg w-full object-cover"
+                                />
+                            </div>
+
+                            {/* RIGHT CONTENT */}
+                            <div>
+                                <h2 className="text-3xl font-semibold text-slate-900 mb-6">
+                                    Executive strategy activities
+                                </h2>
+
+                                <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                                    Throughout the Investment Banking Programme, you will apply core financial
+                                    concepts through a series of practical simulations, strategic exercises,
+                                    and guided projects. These activities are designed to bridge theory with
+                                    execution—developing both technical expertise and leadership capabilities
+                                    required in modern financial environments.
+                                </p>
+
+                                {/* ITEM 1 */}
+                                <div className="flex items-start gap-3 mb-5">
+                                    <div className="mt-1">
+                                        <div className="h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center">
+                                            <div className="h-2 w-2 bg-gray-500 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-sm font-medium text-slate-900 mb-1">
+                                            Investment pitch simulations
+                                        </h3>
+                                        <p className="text-sm text-gray-600 leading-relaxed">
+                                            Develop and present investment strategies by analysing financial data,
+                                            evaluating opportunities, and pitching to simulated stakeholders.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* ITEM 2 */}
+                                <div className="flex items-start gap-3 mb-5">
+                                    <div className="mt-1">
+                                        <div className="h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center">
+                                            <div className="h-2 w-2 bg-gray-500 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-sm font-medium text-slate-900 mb-1">
+                                            M&A deal negotiation roleplays
+                                        </h3>
+                                        <p className="text-sm text-gray-600 leading-relaxed">
+                                            Participate in structured deal-making scenarios, focusing on valuation,
+                                            negotiation tactics, and stakeholder alignment.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* ITEM 3 */}
+                                <div className="flex items-start gap-3 mb-5">
+                                    <div className="mt-1">
+                                        <div className="h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center">
+                                            <div className="h-2 w-2 bg-gray-500 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-sm font-medium text-slate-900 mb-1">
+                                            Risk assessment frameworks
+                                        </h3>
+                                        <p className="text-sm text-gray-600 leading-relaxed">
+                                            Apply structured risk models to evaluate financial, operational,
+                                            and regulatory challenges across different scenarios.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* ITEM 4 */}
+                                <div className="flex items-start gap-3">
+                                    <div className="mt-1">
+                                        <div className="h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center">
+                                            <div className="h-2 w-2 bg-gray-500 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-sm font-medium text-slate-900 mb-1">
+                                            Portfolio strategy building
+                                        </h3>
+                                        <p className="text-sm text-gray-600 leading-relaxed">
+                                            Design diversified portfolio strategies by balancing risk, return,
+                                            and market conditions using real-world financial insights.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        {/* DIVIDER */}
+                        <div className="border-t border-gray-200 my-16"></div>
+
+                        {/* IMMERSIVE LEARNING (INLINE, NOT NEW SECTION) */}
+                        <div className="grid md:grid-cols-2 gap-12 items-center">
+
+                            {/* LEFT CONTENT */}
+                            <div>
+                                <h2 className="text-3xl font-semibold text-slate-900 mb-5">
+                                    Immersive learning
+                                </h2>
+
+                                <p className="text-sm text-gray-600 leading-relaxed mb-6">
+                                    Experience a practical and engaging learning journey that goes beyond
+                                    traditional classroom methods through live sessions, collaboration,
+                                    and real-world applications. You will:
+                                </p>
+
+                                {/* POINTS */}
+                                <div className="space-y-4">
+
+                                    {/* ITEM */}
+                                    <div className="flex items-start gap-3">
+                                        <svg className="h-4 w-4 text-gray-500 mt-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                            <path d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <p className="text-sm text-gray-600 leading-relaxed">
+                                            <span className="font-medium text-slate-900">
+                                                Engage with global peers, guest speakers and faculty
+                                            </span>{" "}
+                                            to gain diverse perspectives and deeper industry insights
+                                        </p>
+                                    </div>
+
+                                    {/* ITEM */}
+                                    <div className="flex items-start gap-3">
+                                        <svg className="h-4 w-4 text-gray-500 mt-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                            <path d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <p className="text-sm text-gray-600 leading-relaxed">
+                                            <span className="font-medium text-slate-900">
+                                                Collaborate with cohort members
+                                            </span>{" "}
+                                            to exchange ideas and strengthen learning through peer interaction
+                                        </p>
+                                    </div>
+
+                                    {/* ITEM */}
+                                    <div className="flex items-start gap-3">
+                                        <svg className="h-4 w-4 text-gray-500 mt-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                            <path d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <p className="text-sm text-gray-600 leading-relaxed">
+                                            <span className="font-medium text-slate-900">
+                                                Apply programme concepts
+                                            </span>{" "}
+                                            through simulations and strategic exercises to build practical capabilities
+                                        </p>
+                                    </div>
+
+                                    {/* ITEM */}
+                                    <div className="flex items-start gap-3">
+                                        <svg className="h-4 w-4 text-gray-500 mt-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                            <path d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <p className="text-sm text-gray-600 leading-relaxed">
+                                            <span className="font-medium text-slate-900">
+                                                Receive guidance from mentors
+                                            </span>{" "}
+                                            to align your learning journey with career goals
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            {/* RIGHT IMAGE */}
+                            <div>
+                                <img
+                                    src="https://images.unsplash.com/photo-1552664730-d307ca884978"
+                                    alt="immersive learning"
+                                    className="rounded-lg w-full object-cover"
+                                />
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <section className="bg-gray-50 py-20 px-6">
+                        <div className="max-w-6xl mx-auto">
+
+                            {/* HEADING */}
+                            <div className="text-center mb-14">
+                                <h2 className="text-3xl font-semibold text-slate-900 mb-4">
+                                    Meet the faculty
+                                </h2>
+                                <p className="text-sm text-gray-600 max-w-3xl mx-auto">
+                                    Learn from experienced industry leaders who bring deep expertise
+                                    and real-world insights into every session.
+                                </p>
+                            </div>
+
+                            {/* FACULTY LIST */}
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                                {faculty.map((item, i) => (
+                                    <div
+                                        key={i}
+                                        className="flex items-start gap-5 border border-gray-200 rounded-xl p-5 bg-white hover:shadow-sm transition"
+                                    >
+
+                                        {/* IMAGE */}
+                                        <img
+                                            src={item.image?.src || item.image}
+                                            alt={item.name}
+                                            className="h-16 w-16 rounded-full object-cover flex-shrink-0"
+                                        />
+
+                                        {/* CONTENT */}
+                                        <div>
+                                            <h3 className="text-sm font-semibold text-slate-900">
+                                                {item.name}
+                                            </h3>
+
+                                            <p className="text-xs text-gray-700 mb-2 leading-snug">
+                                                {item.role}
+                                            </p>
+
+                                            <p className="text-xs text-gray-600 line-clamp-3">
+                                                {item.short}
+                                            </p>
+
+                                            <button
+                                                onClick={() => setSelected(item)}
+                                                className="text-xs text-blue-700 mt-2 hover:underline"
+                                            >
+                                                More info
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                ))}
+
+                            </div>
+                        </div>
+
+                        {/* MODAL */}
+                        {selected && (
+                            <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+
+                                <div className="bg-white max-w-2xl w-full rounded-lg p-8 relative">
+
+                                    {/* CLOSE */}
+                                    <button
+                                        onClick={() => setSelected(null)}
+                                        className="absolute top-4 right-4 text-gray-500 hover:text-black"
+                                    >
+                                        ✕
+                                    </button>
+                                    {/* IMAGE */}
+                                    <div className="flex justify-center mb-4">
+                                        <img
+                                            src={selected.image?.src || selected.image}
+                                            alt={selected.name}
+                                            className="h-24 w-24 rounded-full object-cover"
+                                        />
+                                    </div>
+
+                                    {/* TEXT */}
+                                    <div className="text-center">
+                                        <h3 className="text-lg font-semibold text-slate-900">
+                                            {selected.name}
+                                        </h3>
+                                        <p className="text-sm text-gray-700 mb-4">
+                                            {selected.role}
+                                        </p>
+                                        <p className="text-sm text-gray-600 leading-relaxed">
+                                            {selected.full}
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        )}
+                    </section>
 
                 </div>
             </section>
-
         </div>
 
     );
