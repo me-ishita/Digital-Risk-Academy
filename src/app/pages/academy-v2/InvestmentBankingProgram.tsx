@@ -1,5 +1,7 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
+import { useState } from "react";
+
 import {
     Video,
     FileText,
@@ -8,11 +10,16 @@ import {
     Brain,
     Briefcase,
     CheckCircle,
+    Wallet2Icon,
     ArrowLeft
 } from "lucide-react";
 import MediaPlayer from "../../components/MediaPlayer";
+import BrochureModal from "@/app/components/BrochureModal";
+import InfoBar from "@/app/components/InfoBar";
 
 export default function InvestmentBankingProgram() {
+    const [openModal, setOpenModal] = useState(false);
+
     return (
         <div className="pt-20 relative">
             {/* Back Button */}
@@ -73,20 +80,26 @@ export default function InvestmentBankingProgram() {
 
                             <div className="flex flex-col sm:flex-row gap-3">
                                 <Link
-                                    to="/register"
+                                    to="#"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setOpenModal(true);
+                                    }}
                                     className="inline-block w-full sm:w-auto text-center min-h-[52px] px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-xl hover:shadow-orange-500/40 active:scale-[0.99] transition"
                                 >
-                                    Enroll Now
+                                    Register Now
                                 </Link>
-                                <a
-                                    href="/brochure/index.html"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                <BrochureModal
+                                    isOpen={openModal}
+                                    onClose={() => setOpenModal(false)}
+                                />
+                                <Link
+                                    to="/register"
                                     className="inline-flex items-center justify-center gap-2 min-h-[52px] px-6 sm:px-8 py-3.5 sm:py-4 bg-slate-800/70 border border-slate-600 text-slate-200 rounded-lg font-semibold hover:bg-slate-700/80 hover:border-slate-500 active:scale-[0.99] transition backdrop-blur-sm"
                                 >
-                                    <FileText className="w-4 h-4" />
-                                    View Brochure
-                                </a>
+                                    <Wallet2Icon className="w-4 h-4" />
+                                    Enroll and Pay
+                                </Link>
                             </div>
                         </div>
 
@@ -102,6 +115,9 @@ export default function InvestmentBankingProgram() {
                     </div>
                 </div>
             </section>
+
+            <InfoBar />
+            <div className="h-[80px]" />   
 
             {/* ================= PREMIUM COMPACT PROGRAM INFO ================= */}
             <section className="py-12 sm:py-16 bg-white">
@@ -252,5 +268,6 @@ export default function InvestmentBankingProgram() {
             </section>
 
         </div>
+
     );
 }

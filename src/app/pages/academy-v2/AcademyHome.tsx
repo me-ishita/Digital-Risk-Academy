@@ -1259,7 +1259,7 @@ export function AcademyHome() {
         </div>
       </section>
 
-      {/* Our Speakers */}
+      {/* Our Speakers 
 
       <section className="relative py-16 sm:py-20 md:py-24 bg-white text-slate-900">
         <motion.div
@@ -1281,6 +1281,7 @@ export function AcademyHome() {
 
         <FlippingCards />
       </section>
+      */}
 
       {/* Quotes Slideshow */}
       <QuoteSlideshowSection />
