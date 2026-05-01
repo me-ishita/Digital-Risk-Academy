@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import {
   Users,
-  ArrowRight,
+  ArrowLeft,
   Landmark,
   Briefcase,
 } from "lucide-react";
@@ -10,6 +10,15 @@ import {
 export function AcademyPrograms() {
   return (
     <div className="pt-20">
+      <div className="absolute top-6 left-4 z-50">
+                      <Link
+                          to="/"
+                          className="flex items-center justify-center w-10 h-10 bg-slate-900/50 backdrop-blur-md border border-slate-800 text-slate-300 rounded-full hover:text-white hover:border-slate-700 transition-all shadow-lg"
+                          aria-label="Back to Academy"
+                      >
+                          <ArrowLeft className="w-5 h-5" />
+                      </Link>
+                  </div>
       {/* Hero */}
       <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white to-slate-100 relative">
         <div className="container mx-auto px-4 sm:px-6">

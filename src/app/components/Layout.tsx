@@ -8,6 +8,7 @@ export function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const isProgramPage = location.pathname.startsWith("/programs");
   const brandName = "Digital Risk Academy";
 
   useEffect(() => {
@@ -27,13 +28,14 @@ export function Layout() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          mobileMenuOpen
-            ? "bg-slate-950/95 backdrop-blur-lg border-b border-slate-800"
-            : scrolled
-            ? "bg-slate-950/95 backdrop-blur-lg border-b border-slate-800"
-            : "bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${mobileMenuOpen
+            ? "bg-slate-950/80 backdrop-blur-xl border-b border-white/5"
+            : isProgramPage
+              ? "bg-slate-950/95 backdrop-blur-lg border-b border-slate-800"
+              : scrolled
+                ? "bg-slate-950/95 backdrop-blur-lg border-b border-slate-800"
+                : "bg-transparent"
+          }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
@@ -129,7 +131,7 @@ export function Layout() {
                 >
                   Certifications
                 </Link>
-                
+
                 <Link
                   to="/news"
                   className="block py-2 text-base text-slate-300 hover:text-orange-500"

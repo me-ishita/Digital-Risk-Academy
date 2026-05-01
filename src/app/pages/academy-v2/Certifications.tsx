@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { Award, CheckCircle, ArrowRight, BookOpen } from "lucide-react";
+import { Award, CheckCircle, ArrowRight, ArrowLeft } from "lucide-react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -19,6 +19,15 @@ const staggerContainer = {
 export function Certifications() {
   return (
     <div className="pt-20">
+      <div className="absolute top-6 left-4 z-50">
+                <Link
+                    to="/"
+                    className="flex items-center justify-center w-10 h-10 bg-slate-900/50 backdrop-blur-md border border-slate-800 text-slate-300 rounded-full hover:text-white hover:border-slate-700 transition-all shadow-lg"
+                    aria-label="Back to Academy"
+                >
+                    <ArrowLeft className="w-5 h-5" />
+                </Link>
+            </div>
       <section className="relative py-16 sm:py-20 md:py-24 bg-gradient-to-br from-slate-950 via-orange-950/20 to-slate-900">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div

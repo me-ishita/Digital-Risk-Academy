@@ -1,12 +1,20 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ArrowLeft } from "lucide-react";
 
 export default function ExecutiveLeadership() {
   return (
     <div className="pt-24 pb-20 bg-white min-h-screen font-sans text-slate-900">
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
-        
+        <div className="absolute top-6 left-4 z-50">
+          <Link
+            to="/programs"
+            className="flex items-center justify-center w-10 h-10 bg-slate-900/50 backdrop-blur-md border border-slate-800 text-slate-300 rounded-full hover:text-white hover:border-slate-700 transition-all shadow-lg"
+            aria-label="Back to Academy"
+          >
+            <ArrowLeft className="w-5 h-5" />
+          </Link>
+        </div>
         {/* TOP SECTION: Hero Title & Desc */}
         <div className="mb-10 lg:w-2/3 mt-4">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Executive Leadership Programme</h1>
@@ -20,10 +28,10 @@ export default function ExecutiveLeadership() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-12">
           <div className="lg:col-span-8">
             <div className="w-full rounded-2xl overflow-hidden border border-orange-100 shadow-[0_4px_24px_rgb(234,88,12,0.1)]">
-              <img 
-                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200" 
-                alt="Executive Boardroom" 
-                className="w-full h-auto object-cover" 
+              <img
+                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200"
+                alt="Executive Boardroom"
+                className="w-full h-auto object-cover"
               />
             </div>
           </div>
@@ -77,7 +85,7 @@ export default function ExecutiveLeadership() {
             <div>
               <h2 className="text-3xl font-bold mb-12">Curriculum Structure</h2>
               <div className="space-y-4">
-                
+
                 {[
                   {
                     week: "Week 1: Strategic Foundation",

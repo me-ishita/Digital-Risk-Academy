@@ -1,12 +1,21 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { CheckCircle2, Trophy, ShieldCheck, UserCheck, Zap } from "lucide-react";
+import { CheckCircle2, Trophy, ShieldCheck, UserCheck, Zap, ArrowLeft } from "lucide-react";
 
 export default function CNISCC() {
   return (
+
     <div className="pt-24 pb-20 bg-white min-h-screen font-sans text-slate-900">
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
-        
+        <div className="absolute top-6 left-4 z-50">
+          <Link
+            to="/programs"
+            className="flex items-center justify-center w-10 h-10 bg-slate-900/50 backdrop-blur-md border border-slate-800 text-slate-300 rounded-full hover:text-white hover:border-slate-700 transition-all shadow-lg"
+            aria-label="Back to Academy"
+          >
+            <ArrowLeft className="w-5 h-5" />
+          </Link>
+        </div>
         {/* TOP SECTION: Hero Title & Desc */}
         <div className="mb-10 lg:w-3/4 mt-4">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Civil Nuclear Industry Security Controller Course</h1>
@@ -22,16 +31,16 @@ export default function CNISCC() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-12">
           <div className="lg:col-span-8">
             <div className="w-full rounded-2xl overflow-hidden border border-orange-100 shadow-[0_4px_24px_rgb(234,88,12,0.1)]">
-              <img 
-                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200" 
-                alt="Nuclear Security Training Boardroom" 
-                className="w-full h-auto object-cover" 
+              <img
+                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200"
+                alt="Nuclear Security Training Boardroom"
+                className="w-full h-auto object-cover"
               />
             </div>
           </div>
           <div className="lg:col-span-4 flex flex-col gap-6">
             <div className="bg-white rounded-2xl border border-orange-200/80 p-8 shadow-[0_8px_30px_rgb(234,88,12,0.06)]">
-              
+
               <div className="flex items-center justify-between mb-8">
                 <span className="text-slate-500 font-medium text-sm">Next Cohort</span>
                 <span className="px-3 py-1 text-blue-500 border border-blue-200 rounded-full text-xs font-semibold">2 Days</span>
@@ -70,7 +79,7 @@ export default function CNISCC() {
 
         {/* Content Section layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 relative items-start mt-12">
-          
+
           <div className="lg:col-span-8 flex flex-col gap-12">
             {/* OVERVIEW */}
             <div>
