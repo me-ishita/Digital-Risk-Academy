@@ -57,7 +57,7 @@ export default function InfoBar() {
                             Eligibility
                         </p>
                         <p className="text-lg font-semibold">
-                            Min. 2 years experience
+                            Students & Professionals
                         </p>
                     </div>
 
