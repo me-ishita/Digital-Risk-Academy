@@ -2,13 +2,15 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { useState } from "react";
+import { useRef } from "react";
 import { BarChart3, Shield, Brain, Briefcase, Users, Globe } from "lucide-react";
 import {
     Video,
     FileText,
     Layers,
     CheckCircle,
-    Wallet2Icon,
+    Wallet2,
+    Download,
     ArrowLeft
 } from "lucide-react";
 import MediaPlayer from "../../components/MediaPlayer";
@@ -17,36 +19,47 @@ import InfoBar from "@/app/components/InfoBar";
 import Speaker1 from "@/assets/Speaker1.jpeg";
 import Speaker2 from "@/assets/Speaker2.jpeg";
 import Speaker3 from "@/assets/Speaker3.jpeg";
+import Speaker4 from "@/assets/Speaker4.jpeg";
 
 
 const faculty: Faculty[] = [
     {
-        name: "Paul L Young",
-        role: "Former CFO, Bank of America Europe/US | Former Managing Director, JPMorgan Chase",
+        name: "Devesh Mehta",
+        role: "Ex-EMEA CFO & CAO, Nomura International",
         image: Speaker1,
+        short:
+            "Ex-Nomura executive with expertise in finance, operations, and strategic transformation.",
+        full:
+            "Gain practical investment banking knowledge from a former Nomura executive who led finance, operations, and strategic transformation across EMEA. Devesh offers first-hand expertise in banking structures, financial strategy, governance, and executive leadership within one of the world’s leading financial institutions.",
+    },
+    {
+        name: "Paul Young",
+        role: "Ex-CFO, Bank of America Europe/US | Ex-Managing Director, JPMorgan Chase",
+        image: Speaker2,
         short:
             "Senior banking executive with 30+ years of leadership across global financial institutions.",
         full:
             "Learn directly from a senior banking executive with over 30 years of leadership across Bank of America and JPMorgan Chase. Paul brings deep expertise in investment banking, finance, risk, valuations, and regulatory strategy—offering students real-world insights into global banking leadership and high-level financial decision-making.",
     },
     {
-        name: "Devesh Mehta",
-        role: "Former EMEA CFO & CAO, Nomura International",
-        image: Speaker2,
+        name: "Melissa Dembrosky",
+        role: "Ex-Managing Director – Head of Programme Delivery, Cloud and Modernization (CIB), J.P. Morgan",
+        image: Speaker4,
         short:
-            "Former Nomura executive with expertise in finance, operations, and strategic transformation.",
+            "Senior J.P. Morgan executive with expertise in technology transformation, cloud modernization, and investment banking systems.",
         full:
-            "Gain practical investment banking knowledge from a former Nomura executive who led finance, operations, and strategic transformation across EMEA. Devesh offers first-hand expertise in banking structures, financial strategy, governance, and executive leadership within one of the world’s leading financial institutions.",
+            "Learn from a senior J.P. Morgan executive with extensive experience leading large-scale technology transformation across global investment banking. Melissa brings deep expertise in markets technology, cloud modernization, front-office systems, regulatory transformation, and enterprise-scale programme delivery—offering students valuable insight into the operational and technological frameworks that power modern investment banking."
     },
     {
         name: "Terry Learmouth",
-        role: "Former Co-Group Technology Officer & Wholesale CIO EMEA, Nomura",
+        role: "Ex-Co-Group Technology Officer & Wholesale CIO EMEA, Nomura",
         image: Speaker3,
         short:
             "Technology leader with 26+ years in enterprise systems, cyber resilience, and banking tech.",
         full:
             "Understand the digital backbone of modern investment banking from a senior Nomura technology leader with nearly 26 years of experience. Terry specializes in enterprise technology, cyber resilience, cloud transformation, and operational strategy—bringing critical insight into the systems powering global financial markets.",
     },
+
 ];
 type Faculty = {
     name: string;
@@ -59,6 +72,26 @@ type Faculty = {
 export default function InvestmentBankingProgram() {
     const [openModal, setOpenModal] = useState(false);
     const [selected, setSelected] = useState<Faculty | null>(null);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const sliderRef = useRef<HTMLDivElement | null>(null);
+
+    const scroll = (direction: "left" | "right") => {
+        const container = sliderRef.current;
+        if (!container) return;
+
+        const card = container.querySelector(".card") as HTMLElement;
+        if (!card) return;
+
+        const gap = 24; // gap-6 = 24px
+        const scrollAmount = (card.offsetWidth + gap) * 2; // move 2 cards exactly
+
+        container.scrollBy({
+            left: direction === "left" ? -scrollAmount : scrollAmount,
+            behavior: "smooth",
+        });
+    };
+
     return (
         <div className="pt-20 relative">
             {/* Back Button */}
@@ -110,10 +143,10 @@ export default function InvestmentBankingProgram() {
                                     £500
                                 </span>
                                 <span className="text-3xl sm:text-4xl font-bold text-orange-400">
-                                    £380
+                                    £375
                                 </span>
                                 <span className="text-xs sm:text-sm bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full">
-                                    Early Access Offer
+                                    Early access offer • 25% off
                                 </span>
                             </div>
 
@@ -136,8 +169,8 @@ export default function InvestmentBankingProgram() {
                                     to="/register"
                                     className="inline-flex items-center justify-center gap-2 min-h-[52px] px-6 sm:px-8 py-3.5 sm:py-4 bg-slate-800/70 border border-slate-600 text-slate-200 rounded-lg font-semibold hover:bg-slate-700/80 hover:border-slate-500 active:scale-[0.99] transition backdrop-blur-sm"
                                 >
-                                    <Wallet2Icon className="w-4 h-4" />
-                                    Enroll and Pay
+                                    <Wallet2 className="w-4 h-4" />
+                                    Pay and Enroll
                                 </Link>
                             </div>
                         </div>
@@ -247,18 +280,26 @@ export default function InvestmentBankingProgram() {
                 <div className="max-w-6xl mx-auto">
 
                     {/* WHO IS THIS FOR - SINGLE BOX */}
-                    <div className="mb-14">
-                        <h2 className="text-3xl font-semibold mb-6 text-slate-900 text-center">
+                    <div className="mb-16">
+                        <h2 className="text-3xl font-semibold mb-8 text-slate-900 text-center">
                             Who Is This Programme For?
                         </h2>
 
-                        <div className="border border-gray-200 rounded-xl p-6 bg-white hover:shadow-sm transition">
-                            <ul className="grid md:grid-cols-2 gap-x-8 gap-y-3 text-sm text-gray-600">
-                                <li>• Students pursuing finance, business, economics, or related fields</li>
-                                <li>• Early-career professionals aiming to enter investment banking</li>
-                                <li>• Aspiring financial analysts seeking practical exposure</li>
-                                <li>• Career switchers transitioning into finance or fintech</li>
+                        <div className="border border-gray-200 rounded-xl p-7 bg-white hover:shadow-sm transition max-w-4xl mx-auto">
+
+                            <ul className="grid md:grid-cols-2 gap-x-10 gap-y-5 text-sm text-gray-700">
+
+                                <li className="flex items-start gap-3">
+                                    <span className="text-slate-700 mt-1">▸</span>
+                                    Students in finance, business, or economics aiming to build careers in investment banking
+                                </li>
+
+                                <li className="flex items-start gap-3">
+                                    <span className="text-slate-700 mt-1">▸</span>
+                                    Early-career professionals seeking entry into investment banking roles
+                                </li>
                             </ul>
+
                         </div>
                     </div>
 
@@ -574,7 +615,7 @@ export default function InvestmentBankingProgram() {
                             {/* HEADING */}
                             <div className="text-center mb-14">
                                 <h2 className="text-3xl font-semibold text-slate-900 mb-4">
-                                    Meet the faculty
+                                    Meet our Speakers
                                 </h2>
                                 <p className="text-sm text-gray-600 max-w-3xl mx-auto">
                                     Learn from experienced industry leaders who bring deep expertise
@@ -582,48 +623,75 @@ export default function InvestmentBankingProgram() {
                                 </p>
                             </div>
 
-                            {/* FACULTY LIST */}
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {/* SPEAKERS SLIDER */}
+                            <div className="relative group">
 
-                                {faculty.map((item, i) => (
-                                    <div
-                                        key={i}
-                                        className="flex items-start gap-5 border border-gray-200 rounded-xl p-5 bg-white hover:shadow-sm transition"
-                                    >
+                                {/* LEFT ARROW */}
+                                <button
+                                    onClick={() => scroll("left")}
+                                    className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full w-9 h-9 flex items-center justify-center text-gray-600 text-lg shadow-sm opacity-0 group-hover:opacity-100 transition"
+                                >
+                                    ‹
+                                </button>
 
-                                        {/* IMAGE */}
-                                        <img
-                                            src={item.image?.src || item.image}
-                                            alt={item.name}
-                                            className="h-16 w-16 rounded-full object-cover flex-shrink-0"
-                                        />
+                                {/* RIGHT ARROW */}
+                                <button
+                                    onClick={() => scroll("right")}
+                                    className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full w-9 h-9 flex items-center justify-center text-gray-600 text-lg shadow-sm opacity-0 group-hover:opacity-100 transition"
+                                >
+                                    ›
+                                </button>
 
-                                        {/* CONTENT */}
-                                        <div>
-                                            <h3 className="text-sm font-semibold text-slate-900">
-                                                {item.name}
-                                            </h3>
+                                {/* SLIDER */}
+                                <div
+                                    ref={sliderRef}
+                                    className="overflow-x-auto scrollbar-hide"
+                                >
+                                    <div className="flex gap-6 snap-x snap-mandatory px-8">
 
-                                            <p className="text-xs text-gray-700 mb-2 leading-snug">
-                                                {item.role}
-                                            </p>
-
-                                            <p className="text-xs text-gray-600 line-clamp-3">
-                                                {item.short}
-                                            </p>
-
-                                            <button
-                                                onClick={() => setSelected(item)}
-                                                className="text-xs text-blue-700 mt-2 hover:underline"
+                                        {faculty.map((item, i) => (
+                                            <div
+                                                key={i}
+                                                className="min-w-[85%] md:min-w-[48%] snap-start flex items-start gap-5 border border-gray-200 rounded-xl p-5 bg-white hover:shadow-sm transition"
                                             >
-                                                More info
-                                            </button>
-                                        </div>
+
+                                                {/* IMAGE */}
+                                                <img
+                                                    src={item.image?.src || item.image}
+                                                    alt={item.name}
+                                                    className="h-16 w-16 rounded-full object-cover flex-shrink-0"
+                                                />
+
+                                                {/* CONTENT */}
+                                                <div>
+                                                    <h3 className="text-sm font-semibold text-slate-900">
+                                                        {item.name}
+                                                    </h3>
+
+                                                    <p className="text-xs text-gray-700 mb-2 leading-snug">
+                                                        {item.role}
+                                                    </p>
+
+                                                    <p className="text-xs text-gray-600 line-clamp-3">
+                                                        {item.short}
+                                                    </p>
+
+                                                    <button
+                                                        onClick={() => setSelected(item)}
+                                                        className="text-xs text-blue-700 mt-2 hover:underline"
+                                                    >
+                                                        More info
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                        ))}
 
                                     </div>
-                                ))}
+                                </div>
 
                             </div>
+
                         </div>
 
                         {/* MODAL */}
@@ -666,8 +734,190 @@ export default function InvestmentBankingProgram() {
                         )}
                     </section>
 
+                    <section className="w-full bg-[#f5f6f8] py-8">
+                        <div className="max-w-4xl mx-auto px-6 text-center">
+
+                            {/* TITLE */}
+                            <h2 className="text-3xl md:text-3xl font-semibold text-gray-800 mb-4">
+                                Application Details
+                            </h2>
+
+                            {/* SUBTEXT */}
+                            <p className="text-gray-600 text-lg mb-10">
+                                The current tuition fee benefit is available as displayed below.
+                                The full programme fee is{" "}
+                                <span className="font-semibold">£500</span> as of the start date.
+                            </p>
+
+                            {/* CARD */}
+                            <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+
+                                {/* TOP STRIP */}
+                                <div className="bg-gray-700 text-white text-lg font-semibold py-3 tracking-wide">
+                                    SAVE 25%
+                                </div>
+
+                                {/* CONTENT */}
+                                <div className="py-10 px-6">
+
+                                    <p className="text-gray-500 text-sm tracking-widest uppercase mb-3">
+                                        Programme Fee
+                                    </p>
+
+                                    <p className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                                        £375
+                                    </p>
+
+                                    <p className="text-gray-600 text-base">
+                                        Pay by{" "}
+                                        <span className="font-medium text-gray-800">
+                                            10 May 2026
+                                        </span>{" "}
+                                        at 11:59 PM
+                                    </p>
+                                    <div className="mt-10 flex justify-center">
+                                        <Link
+                                            to="/register"
+                                            className="inline-flex items-center gap-2 whitespace-nowrap bg-gray-700 text-white px-8 py-3.5 rounded-md text-base font-semibold tracking-wide hover:bg-indigo-900 transition shadow-md"
+                                        >
+                                            <Wallet2 className="w-4 h-4" />
+                                            Pay and Enroll
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    {/* CERTIFICATE */}
+
+                    <section className="w-full bg-[#f5f6f8] py-16">
+                        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-6">
+                                    Certificate
+                                </h2>
+
+                                <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                                    Upon successful completion of this programme, you will receive a
+                                    verified digital certificate of completion via email from
+                                    <span className="font-semibold"> Digital Risk Academy</span>.
+                                </p>
+
+                                <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                                    You will also gain recognition as part of our professional network,
+                                    helping strengthen your career credibility and industry presence.
+                                </p>
+
+                                <div className="flex justify-end">
+                                    <button
+                                        onClick={() => setIsOpen(true)}
+                                        className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-sm font-semibold tracking-wide 
+    bg-gradient-to-r from-indigo-700 to-blue-700 text-white 
+    hover:shadow-lg hover:shadow-blue-500/30 
+    transition duration-300 active:scale-[0.98]"
+                                    >
+                                        <Download className="w-4 h-4" />
+                                        DOWNLOAD BROCHURE
+                                    </button>
+                                </div>
+                            </div>
+                            {/* MODAL */}
+                            <BrochureModal
+                                isOpen={isOpen}
+                                onClose={() => setIsOpen(false)}
+                            />
+
+
+                            {/* RIGHT CERTIFICATE */}
+
+                            <div className="flex justify-center">
+                                <div className="relative w-[340px] md:w-[400px] h-[540px] bg-[#f8f8f8] border border-gray-300 shadow-xl px-6 py-6">
+
+                                    {/* HEADER */}
+                                    <div className="mb-4">
+                                        <p className="text-indigo-900 text-lg tracking-[0.3em] font-bold">
+                                            DIGITAL RISK ACADEMY
+                                        </p>
+                                    </div>
+
+                                    {/* TOP LINE */}
+                                    <div className="border-t border-indigo-400 mb-4"></div>
+
+                                    {/* CONTENT GRID */}
+                                    <div className="grid grid-cols-[20px_1fr] h-[380px]">
+
+                                        {/* LEFT VERTICAL LINE */}
+                                        <div className="border-r border-indigo-400"></div>
+
+                                        {/* RIGHT CONTENT */}
+                                        <div className="pl-6 flex flex-col justify-between">
+
+                                            {/* TOP CONTENT */}
+                                            <div>
+                                                <h3 className="text-indigo-700 font-semibold text-lg mb-10">
+                                                    Certificate of Completion
+                                                </h3>
+
+                                                <p className="text-2xl font-semibold text-gray-900 mb-2 text-left">
+                                                    Your Name
+                                                </p>
+
+                                                <p className="text-sm text-gray-600 text-left mb-6">
+                                                    has successfully completed the <br />
+                                                    Executive Education Programme
+                                                </p>
+
+                                                <p className="text-sm font-medium text-gray-800 text-left">
+                                                    Investment Banking Programme
+                                                </p>
+
+                                                <p className="text-xs text-gray-500 text-left">
+                                                    Month Year
+                                                </p>
+                                            </div>
+
+                                            {/* SIGNATURES */}
+                                            <div className="flex justify-between text-[10px] text-gray-600 mt-6">
+
+                                                <div>
+                                                    <p className="font-semibold">Programme Faculty</p>
+                                                </div>
+
+                                                <div className="text-right">
+                                                    <p className="font-semibold">Academic Lead</p>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    {/* BOTTOM LINE */}
+                                    <div className="border-t border-indigo-400 mt-4"></div>
+
+                                    {/* FOOTER */}
+                                    <div className="flex justify-between items-center text-[10px] text-gray-500 mt-3">
+                                        <span>Digital Risk Academy</span>
+                                        <span>digitalrisk.academy</span>
+                                    </div>
+
+                                    {/* WATERMARK */}
+                                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                        <span className="text-gray-300 text-6xl font-bold rotate-[-30deg] opacity-20 tracking-widest">
+                                            SAMPLE
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                 </div>
             </section>
+
         </div>
 
     );

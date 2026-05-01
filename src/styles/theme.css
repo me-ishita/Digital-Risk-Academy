@@ -151,11 +151,16 @@
 }
 
 .input-glass {
-  @apply w-full px-4 py-3 rounded-lg 
-  bg-white/10 border border-white/20 
-  text-white placeholder-white/60 
-  focus:outline-none focus:ring-2 focus:ring-blue-400/40 
-  backdrop-blur-md;
+  @apply w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400/40 backdrop-blur-md;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 @layer base {

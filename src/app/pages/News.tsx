@@ -131,13 +131,7 @@ export function News() {
             <Newspaper className="w-3.5 h-3.5" />
             Top News
           </span>
-          <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold text-white">
-            Top News Across Investment Banking, Digital Risk, and Cyber Risk
-          </h1>
-          <p className="mt-4 text-slate-300 text-base sm:text-lg">
-            Ten curated stories. Open any card to read a full page summary, key takeaways, and access the original article.
-          </p>
-        </div>
+                  </div>
 
         {loading ? (
           <div className="text-center text-slate-400 py-20">Loading top news...</div>
@@ -161,12 +155,7 @@ export function News() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                     <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                      <span
-                        className={`inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] border rounded-full px-2.5 py-1 bg-white/95 ${categoryAccent[article.category]}`}
-                      >
-                        <Icon className="w-3 h-3" />
-                        {article.category}
-                      </span>
+                    
                       <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/90">
                         {article.source}
                       </span>

@@ -124,13 +124,7 @@ export function Research() {
             <FileSearch className="w-3.5 h-3.5" />
             Top Research
           </span>
-          <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold text-white">
-            Top Research Across Investment Banking, Digital Risk and Cyber Risk
-          </h1>
-          <p className="mt-4 text-slate-300 text-base sm:text-lg">
-            Ten selected papers. Open any card to view a full-page summary, key findings, and a link to the source paper.
-          </p>
-        </div>
+                 </div>
 
         {loading ? (
           <div className="text-center text-slate-400 py-20">Loading top research...</div>
