@@ -21,6 +21,7 @@ import Speaker1 from "@/assets/Speaker1.jpeg";
 import Speaker2 from "@/assets/Speaker2.jpeg";
 import Speaker3 from "@/assets/Speaker3.jpeg";
 import Speaker4 from "@/assets/Speaker4.jpeg";
+import Certificate from "../../../assets/Certificate_Sample.png";
 
 const faculty: Faculty[] = [
     {
@@ -784,7 +785,7 @@ export default function InvestmentBankingProgram() {
 
                             <div className="w-[340px] md:w-[600px]">
                                 <img
-                                    src="/src/assets/Certificate_Sample.png"
+                                    src={Certificate}
                                     alt="Professional Certificate"
                                     className="w-full h-auto rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.25)] border border-gray-200 hover:scale-[1.02] transition duration-500"
                                 />

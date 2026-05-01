@@ -129,12 +129,7 @@ export function Layout() {
                 >
                   Certifications
                 </Link>
-                <Link
-                  to="/resources"
-                  className="block py-2 pl-4 text-sm text-slate-400 hover:text-orange-500"
-                >
-                  Resources
-                </Link>
+                
                 <Link
                   to="/news"
                   className="block py-2 text-base text-slate-300 hover:text-orange-500"
