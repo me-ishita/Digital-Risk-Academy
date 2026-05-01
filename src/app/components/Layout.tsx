@@ -70,7 +70,6 @@ export function Layout() {
                   <Link to="/" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Academy Home</Link>
                   <Link to="/programs" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">All Programmes</Link>
                   <Link to="/certifications" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Certifications</Link>
-                  <Link to="/resources" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Resources</Link>
                 </div>
               </div>
 
@@ -86,7 +85,7 @@ export function Layout() {
               </Link>
 
               <Link to="/register" className="px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full transition-all duration-300 shadow-md hover:shadow-orange-500/40">
-                Login / Signup
+                Register
               </Link>
             </div>
 
@@ -152,7 +151,7 @@ export function Layout() {
                   to="/register"
                   className="block mt-4 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl text-center font-semibold"
                 >
-                  Login / Signup
+                  Register
                 </Link>
               </motion.div>
             )}
@@ -239,7 +238,7 @@ function Footer() {
               </li>
               <li>
                 <Link to="/register" className="text-slate-400 hover:text-white transition-colors">
-                  Login / Signup
+                  Register
                 </Link>
               </li>
             </ul>

@@ -13,6 +13,7 @@ import {
     Download,
     ArrowLeft
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import MediaPlayer from "../../components/MediaPlayer";
 import BrochureModal from "@/app/components/BrochureModal";
 import InfoBar from "@/app/components/InfoBar";
@@ -73,7 +74,7 @@ export default function InvestmentBankingProgram() {
     const [openModal, setOpenModal] = useState(false);
     const [selected, setSelected] = useState<Faculty | null>(null);
     const [isOpen, setIsOpen] = useState(false);
-
+    const navigate = useNavigate();
     const sliderRef = useRef<HTMLDivElement | null>(null);
 
     const scroll = (direction: "left" | "right") => {
@@ -152,26 +153,13 @@ export default function InvestmentBankingProgram() {
 
                             <div className="flex flex-col sm:flex-row gap-3">
                                 <Link
-                                    to="#"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        setOpenModal(true);
-                                    }}
+                                    to="/register"
                                     className="inline-block w-full sm:w-auto text-center min-h-[52px] px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-xl hover:shadow-orange-500/40 active:scale-[0.99] transition"
                                 >
                                     Register Now
                                 </Link>
-                                <BrochureModal
-                                    isOpen={openModal}
-                                    onClose={() => setOpenModal(false)}
-                                />
-                                <Link
-                                    to="/register"
-                                    className="inline-flex items-center justify-center gap-2 min-h-[52px] px-6 sm:px-8 py-3.5 sm:py-4 bg-slate-800/70 border border-slate-600 text-slate-200 rounded-lg font-semibold hover:bg-slate-700/80 hover:border-slate-500 active:scale-[0.99] transition backdrop-blur-sm"
-                                >
-                                    <Wallet2 className="w-4 h-4" />
-                                    Pay and Enroll
-                                </Link>
+
+
                             </div>
                         </div>
 
@@ -734,65 +722,11 @@ export default function InvestmentBankingProgram() {
                         )}
                     </section>
 
-                    <section className="w-full bg-[#f5f6f8] py-8">
-                        <div className="max-w-4xl mx-auto px-6 text-center">
 
-                            {/* TITLE */}
-                            <h2 className="text-3xl md:text-3xl font-semibold text-gray-800 mb-4">
-                                Application Details
-                            </h2>
-
-                            {/* SUBTEXT */}
-                            <p className="text-gray-600 text-lg mb-10">
-                                The current tuition fee benefit is available as displayed below.
-                                The full programme fee is{" "}
-                                <span className="font-semibold">£500</span> as of the start date.
-                            </p>
-
-                            {/* CARD */}
-                            <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
-
-                                {/* TOP STRIP */}
-                                <div className="bg-gray-700 text-white text-lg font-semibold py-3 tracking-wide">
-                                    SAVE 25%
-                                </div>
-
-                                {/* CONTENT */}
-                                <div className="py-10 px-6">
-
-                                    <p className="text-gray-500 text-sm tracking-widest uppercase mb-3">
-                                        Programme Fee
-                                    </p>
-
-                                    <p className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                                        £375
-                                    </p>
-
-                                    <p className="text-gray-600 text-base">
-                                        Pay by{" "}
-                                        <span className="font-medium text-gray-800">
-                                            10 May 2026
-                                        </span>{" "}
-                                        at 11:59 PM
-                                    </p>
-                                    <div className="mt-10 flex justify-center">
-                                        <Link
-                                            to="/register"
-                                            className="inline-flex items-center gap-2 whitespace-nowrap bg-gray-700 text-white px-8 py-3.5 rounded-md text-base font-semibold tracking-wide hover:bg-indigo-900 transition shadow-md"
-                                        >
-                                            <Wallet2 className="w-4 h-4" />
-                                            Pay and Enroll
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </section>
 
                     {/* CERTIFICATE */}
 
-                    <section className="w-full bg-[#f5f6f8] py-16">
+                    <section className="w-full bg-white py-16">
                         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                             <div>
                                 <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-6">
@@ -812,7 +746,7 @@ export default function InvestmentBankingProgram() {
 
                                 <div className="flex justify-end">
                                     <button
-                                        onClick={() => setIsOpen(true)}
+                                        onClick={() => navigate("/register")}
                                         className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-sm font-semibold tracking-wide 
     bg-gradient-to-r from-indigo-700 to-blue-700 text-white 
     hover:shadow-lg hover:shadow-blue-500/30 
@@ -914,6 +848,62 @@ export default function InvestmentBankingProgram() {
                             </div>
                         </div>
                     </section>
+
+
+                </div>
+            </section>
+            <section className="w-full bg-[#f5f6f8] py-8">
+                <div className="max-w-4xl mx-auto px-6 text-center">
+
+                    {/* TITLE */}
+                    <h2 className="text-3xl md:text-3xl font-semibold text-gray-800 mb-4">
+                        Application Details
+                    </h2>
+
+                    {/* SUBTEXT */}
+                    <p className="text-gray-600 text-lg mb-10">
+                        The current tuition fee benefit is available as displayed below.
+                        The full programme fee is{" "}
+                        <span className="font-semibold">£500</span> as of the start date.
+                    </p>
+
+                    {/* CARD */}
+                    <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+
+                        {/* TOP STRIP */}
+                        <div className="bg-gray-700 text-white text-lg font-semibold py-3 tracking-wide">
+                            SAVE 25%
+                        </div>
+
+                        {/* CONTENT */}
+                        <div className="py-10 px-6">
+
+                            <p className="text-gray-500 text-sm tracking-widest uppercase mb-3">
+                                Programme Fee
+                            </p>
+
+                            <p className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                                £375
+                            </p>
+
+                            <p className="text-gray-600 text-base">
+                                Pay by{" "}
+                                <span className="font-medium text-gray-800">
+                                    10 May 2026
+                                </span>{" "}
+                                at 11:59 PM
+                            </p>
+                            <div className="mt-10 flex justify-center">
+                                <Link
+                                    to="/register"
+                                    className="inline-flex items-center gap-2 whitespace-nowrap bg-gray-700 text-white px-8 py-3.5 rounded-md text-base font-semibold tracking-wide hover:bg-indigo-900 transition shadow-md"
+                                >
+                                    <Wallet2 className="w-4 h-4" />
+                                    Pay and Enroll
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </section>
