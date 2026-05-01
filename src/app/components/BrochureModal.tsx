@@ -71,7 +71,11 @@ export default function BrochureModal({ isOpen, onClose }: Props) {
             />
 
             {/* MODAL BOX */}
-            <div className="relative w-full max-w-2xl rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-2xl p-6 sm:p-8 animate-fadeIn">
+            <div className="relative w-full max-w-2xl rounded-2xl 
+bg-gradient-to-br from-slate-900/80 via-slate-800/70 to-slate-900/80 
+backdrop-blur-2xl border border-white/10 
+shadow-[0_20px_60px_rgba(0,0,0,0.6)] 
+p-6 sm:p-8 animate-fadeIn text-white">
 
                 {/* CLOSE BUTTON */}
                 <button

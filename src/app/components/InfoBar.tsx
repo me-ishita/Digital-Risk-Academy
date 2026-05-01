@@ -2,11 +2,10 @@
 
 import { useState } from "react";
 import BrochureModal from "./BrochureModal";
-import { useNavigate } from "react-router-dom";
 
 export default function InfoBar() {
     const [isOpen, setIsOpen] = useState(false);
-    const navigate = useNavigate();
+
     return (
         <>
             <div className="sticky top-0 z-[100] w-full bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 border-b border-white/10 shadow-md">
@@ -57,14 +56,14 @@ export default function InfoBar() {
                             Eligibility
                         </p>
                         <p className="text-lg font-semibold">
-                            Students & Professionals
+                          Students & Professionals
                         </p>
                     </div>
 
                     {/* CTA */}
                     <div className="flex justify-end">
                         <button
-                            onClick={() => navigate("/register")}
+                            onClick={() => setIsOpen(true)}
                             className="bg-white text-blue-900 px-6 py-2.5 rounded-md text-xs font-semibold tracking-wide hover:bg-gray-100 transition"
                         >
                             DOWNLOAD BROCHURE
