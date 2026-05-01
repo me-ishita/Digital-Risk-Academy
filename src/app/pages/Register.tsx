@@ -36,7 +36,7 @@ export function Register() {
   const [infoMsg, setInfoMsg] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [payingWith, setPayingWith] = useState<'stripe' | 'paypal' | null>(null);
-
+  const [interest, setInterest] = useState("");
   const courseConfig =
     COURSE_DETAILS[selectedCourse] || COURSE_DETAILS["investment-banking"];
 
@@ -311,6 +311,23 @@ export function Register() {
                               placeholder="Your organization"
                             />
                           </div>
+                          <div>
+  <label htmlFor="interest" className="block text-sm font-medium mb-2">
+    Drop your interest
+  </label>
+  <select
+    id="interest"
+    value={interest}
+    onChange={(e) => setInterest(e.target.value)}
+    className={inputBase}
+  >
+    <option value="">Select your interest</option>
+    <option value="investment-banking">Investment Banking Programme</option>
+    <option value="digital-risk">Digital Risk Fundamentals</option>
+    <option value="cyber-resilience">Cyber Resilience Practitioner</option>
+    <option value="ai-risk">AI Risk Governance</option>
+  </select>
+</div>
                         </div>
 
                         <button

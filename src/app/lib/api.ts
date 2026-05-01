@@ -1,5 +1,4 @@
-export const APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbx6x4jWtWVcQus2_pVf1qBmOJB0v9UMSXUFr0jM1Yw0Au0kqSHKHRqMJmQov6X5GK0t/exec";
+export const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/hwf8nukfxk365tketghab9de3js5bd5p";
 
 export const COURSE_DETAILS: Record<
   string,
@@ -12,22 +11,20 @@ export const COURSE_DETAILS: Record<
     paypalLink: string;
     inrPrice: string;
     inrNoCodeLink: string;
-    messageLink: string;
   }
 > = {
   "investment-banking": {
-    label: "Investment Banking & Digital Risk Programme",
-    price: "£380",
-    amount: 380,
+    label: "Investment Banking Programme",
+    price: "£375",
+    amount: 375,
     currency: "GBP",
     noCodeLink: "https://buy.stripe.com/eVqcN4auagKEfRt12qcV201",
     paypalLink: "https://www.paypal.com/ncp/payment/3JEJ3YC3ZV5AS",
     inrPrice: "₹40,000",
     inrNoCodeLink: "",
-    messageLink: "https://buy.stripe.com/3cIeVc6dUbqkbBd3aycV200",
   },
   "grc-fundamentals": {
-    label: "GRC Fundamentals",
+    label: "Digital Risk Fundamentals",
     price: "£150",
     amount: 150,
     currency: "GBP",
@@ -35,10 +32,9 @@ export const COURSE_DETAILS: Record<
     paypalLink: "https://www.paypal.com/ncp/payment/48F2W5NGGJPUY",
     inrPrice: "₹16,000",
     inrNoCodeLink: "",
-    messageLink: "https://buy.stripe.com/eVqcN4auagKEfRt12qcV201",
   },
   "cyber-risk": {
-    label: "Cyber Risk Programme",
+    label: "Cyber Resilience Practitioner ",
     price: "£200",
     amount: 200,
     currency: "GBP",
@@ -46,10 +42,9 @@ export const COURSE_DETAILS: Record<
     paypalLink: "https://www.paypal.com/ncp/payment/ZB3MRQF3CAL48",
     inrPrice: "₹21,000",
     inrNoCodeLink: "",
-    messageLink: "https://buy.stripe.com/cNi6oGeKqgKE0Wz5iGcV202"
   },
   "Data Privacy Basics": {
-    label: "Data Privacy Basics",
+    label: "AI Risk Governance",
     price: "£150",
     amount: 150,
     currency: "GBP",
@@ -57,7 +52,6 @@ export const COURSE_DETAILS: Record<
     paypalLink: "https://www.paypal.com/ncp/payment/WHSYSBS6HU2RN",
     inrPrice: "₹16,000",
     inrNoCodeLink: "",
-    messageLink: "https://buy.stripe.com/9B614m7hYcuo7kXdPccV203",
   },
   "test-1": {
     label: "Test Course (£1)",
@@ -68,15 +62,13 @@ export const COURSE_DETAILS: Record<
     paypalLink: "https://www.paypal.com/ncp/payment/2K52XRCPJE3QG",
     inrPrice: "₹100",
     inrNoCodeLink: "https://buy.stripe.com/3cIeVc6dUbqkbBd3aycV200",
-    messageLink: "https://buy.stripe.com/5kQ8wOfOu1PK7kX3aycV204",
   },
 };
 
-async function callAppsScript<T>(action: string, payload: object): Promise<T> {
-  const res = await fetch(APPS_SCRIPT_URL, {
+async function callPowerAutomate<T>(action: string, payload: object): Promise<T> {
+  const res = await fetch(MAKE_WEBHOOK_URL, {
     method: "POST",
-    // text/plain avoids the CORS preflight that Apps Script web apps don't handle.
-    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ action, ...payload }),
   });
   if (!res.ok) throw new Error("network_error");
@@ -93,7 +85,7 @@ export interface SignupRequest {
 }
 
 export async function signupUser(body: SignupRequest): Promise<{ ok: true }> {
-  return callAppsScript<{ ok: true }>("signup", body);
+  return callPowerAutomate<{ ok: true }>("signup", body);
 }
 
 export interface LoginResponse {
@@ -102,7 +94,16 @@ export interface LoginResponse {
 }
 
 export async function loginUser(email: string): Promise<LoginResponse> {
-  return callAppsScript<LoginResponse>("login", { email });
+  try {
+    const stored = localStorage.getItem("dra_session");
+    if (stored) {
+      const user = JSON.parse(stored) as LoginResponse["user"];
+      if (user.email?.toLowerCase() === email.trim().toLowerCase()) {
+        return { ok: true, user };
+      }
+    }
+  } catch { /* ignore corrupted localStorage */ }
+  throw new Error("not_found");
 }
 
 export type PaymentStatus = "done" | "failed";
@@ -120,7 +121,32 @@ export interface LogPaymentRequest {
 }
 
 export async function logPayment(body: LogPaymentRequest): Promise<{ ok: true }> {
-  return callAppsScript<{ ok: true }>("payment", body);
+  return callPowerAutomate<{ ok: true }>("payment", body);
+}
+
+export interface RegisterInterestRequest {
+  name: string;
+  email: string;
+  phone?: string;
+  organization?: string;
+  course: string;
+}
+
+export async function registerInterest(body: RegisterInterestRequest): Promise<{ ok: true }> {
+  return callPowerAutomate<{ ok: true }>("register_interest", body);
+}
+
+export interface RegisterBrochureRequest {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  workExperience: string;
+  organization?: string;
+}
+
+export async function registerBrochure(body: RegisterBrochureRequest): Promise<{ ok: true }> {
+  return callPowerAutomate<{ ok: true }>("register", body);
 }
 
 export interface RssItem {

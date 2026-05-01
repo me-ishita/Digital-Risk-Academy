@@ -742,28 +742,9 @@ export default function InvestmentBankingProgram() {
                                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                                     You will also gain recognition as part of our professional network,
                                     helping strengthen your career credibility and industry presence.
-                                </p>
-
-                                <div className="flex justify-end">
-                                    <button
-                                        onClick={() => navigate("/register")}
-                                        className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-sm font-semibold tracking-wide 
-    bg-gradient-to-r from-indigo-700 to-blue-700 text-white 
-    hover:shadow-lg hover:shadow-blue-500/30 
-    transition duration-300 active:scale-[0.98]"
-                                    >
-                                        <Download className="w-4 h-4" />
-                                        DOWNLOAD BROCHURE
-                                    </button>
-                                </div>
+                                </p>                            
                             </div>
-                            {/* MODAL */}
-                            <BrochureModal
-                                isOpen={isOpen}
-                                onClose={() => setIsOpen(false)}
-                            />
-
-
+                            
                             {/* RIGHT CERTIFICATE */}
 
                             <div className="flex justify-center">
