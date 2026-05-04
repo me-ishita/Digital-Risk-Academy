@@ -1,3 +1,5 @@
+import { SetStateAction } from "react";
+
 export const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/hwf8nukfxk365tketghab9de3js5bd5p";
 
 export const COURSE_DETAILS: Record<
@@ -23,7 +25,7 @@ export const COURSE_DETAILS: Record<
     inrPrice: "₹40,000",
     inrNoCodeLink: "",
   },
-  "grc-fundamentals": {
+  "digital-risk-fundamentals": {
     label: "Digital Risk Fundamentals",
     price: "£150",
     amount: 150,
@@ -34,7 +36,7 @@ export const COURSE_DETAILS: Record<
     inrNoCodeLink: "",
   },
   "cyber-risk": {
-    label: "Cyber Resilience Practitioner ",
+    label: "Cyber Resilience Practitioner",
     price: "£200",
     amount: 200,
     currency: "GBP",
@@ -43,7 +45,7 @@ export const COURSE_DETAILS: Record<
     inrPrice: "₹21,000",
     inrNoCodeLink: "",
   },
-  "Data Privacy Basics": {
+  "data-privacy-basics": {
     label: "AI Risk Governance",
     price: "£150",
     amount: 150,
@@ -90,7 +92,9 @@ export async function signupUser(body: SignupRequest): Promise<{ ok: true }> {
 
 export interface LoginResponse {
   ok: true;
-  user: { name: string; email: string; phone: string; organization: string };
+  user: {
+    course: SetStateAction<string>; name: string; email: string; phone: string; organization: string 
+};
 }
 
 export async function loginUser(email: string): Promise<LoginResponse> {

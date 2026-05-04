@@ -76,6 +76,13 @@ export function Layout() {
               </div>
 
               <Link
+                to="/about"
+                className="px-4 py-2 rounded-full border border-slate-700/60 text-slate-200 hover:border-orange-500/60 hover:text-white transition-all duration-200 bg-slate-900/40 backdrop-blur-sm"
+              >
+                About Us
+              </Link>
+
+              <Link
                 to="/news"
                 className="px-4 py-2 rounded-full border border-slate-700/60 text-slate-200 hover:border-orange-500/60 hover:text-white transition-all duration-200 bg-slate-900/40 backdrop-blur-sm"
               >
@@ -130,6 +137,13 @@ export function Layout() {
                   className="block py-2 pl-4 text-sm text-slate-400 hover:text-orange-500"
                 >
                   Certifications
+                </Link>
+
+                <Link
+                  to="/about"
+                  className="block py-2 text-base text-slate-300 hover:text-orange-500"
+                >
+                  About Us
                 </Link>
 
                 <Link
@@ -213,8 +227,8 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/resources" className="text-slate-400 hover:text-white transition-colors">
-                  Resources
+                <Link to="/about" className="text-slate-400 hover:text-white transition-colors">
+                  About Us
                 </Link>
               </li>
             </ul>

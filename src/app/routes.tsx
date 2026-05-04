@@ -12,6 +12,7 @@ import { Research } from "./pages/Research";
 import { NewsArticleDetail } from "./pages/NewsArticleDetail";
 import { ResearchPaperDetail } from "./pages/ResearchPaperDetail";
 import { NotFound } from "./pages/NotFound";
+import { About } from "./pages/About";
 import InvestmentBankingProgram from "./pages/academy-v2/InvestmentBankingProgram";
 import DigitalRiskFundamentals from "./pages/academy-v2/DigitalRiskFundamentals";
 import CyberResiliencePractitioner from "./pages/academy-v2/CyberResiliencePractitioner";
@@ -54,6 +55,7 @@ export const router = createBrowserRouter([
 
       { path: "certifications", element: <Certifications /> },
       { path: "resources", element: <Resources /> },
+      { path: "about", element: <About /> },
       { path: "news", element: <News /> },
       { path: "news/:id", element: <NewsArticleDetail /> },
       { path: "research", element: <Research /> },
