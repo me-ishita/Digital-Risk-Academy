@@ -29,12 +29,12 @@ export function Layout() {
     <div className="min-h-screen bg-slate-950 text-white">
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${mobileMenuOpen
-            ? "bg-slate-950/80 backdrop-blur-xl border-b border-white/5"
-            : isProgramPage
+          ? "bg-slate-950/80 backdrop-blur-xl border-b border-white/5"
+          : isProgramPage
+            ? "bg-slate-950/95 backdrop-blur-lg border-b border-slate-800"
+            : scrolled
               ? "bg-slate-950/95 backdrop-blur-lg border-b border-slate-800"
-              : scrolled
-                ? "bg-slate-950/95 backdrop-blur-lg border-b border-slate-800"
-                : "bg-transparent"
+              : "bg-transparent"
           }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -261,9 +261,29 @@ function Footer() {
             © 2026 Digital Risk Academy. All rights reserved.
           </p>
           <div className="flex items-center space-x-6">
-            <a href="#" className="text-slate-400 hover:text-white transition-colors">
+            {/* LinkedIn */}
+            <a
+              href="https://www.linkedin.com/company/digital-risk-academy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-slate-400 hover:text-blue-400 hover:scale-110 transition-all duration-200"
+            >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/digitalriskacademy?igsh=MW8wajZqYzRoMzVyZQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="text-slate-400 hover:text-pink-400 hover:scale-110 transition-all duration-200"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7.75 2h8.5C19.99 2 22 4.01 22 7.75v8.5C22 19.99 19.99 22 16.25 22h-8.5C4.01 22 2 19.99 2 16.25v-8.5C2 4.01 4.01 2 7.75 2zm0 2A3.75 3.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5A3.75 3.75 0 0020 16.25v-8.5A3.75 3.75 0 0016.25 4h-8.5zm9.75 1.5a.75.75 0 110 1.5.75.75 0 010-1.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z" />
               </svg>
             </a>
           </div>
