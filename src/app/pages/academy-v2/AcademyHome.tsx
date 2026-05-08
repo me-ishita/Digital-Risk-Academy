@@ -1074,7 +1074,7 @@ export function AcademyHome() {
       </section>
 
       {/* Audience Routing */}
-      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-slate-950 to-slate-900">
+      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="text-center mb-10 sm:mb-14 md:mb-16"
@@ -1200,7 +1200,7 @@ export function AcademyHome() {
       </section>
 
       {/* Future Learning Tracks */}
-      <section className="py-16 sm:py-20 md:py-24 bg-slate-950">
+      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="text-center mb-10 sm:mb-14 md:mb-16"
@@ -1259,33 +1259,6 @@ export function AcademyHome() {
         </div>
       </section>
 
-      {/* Our Speakers 
-
-      <section className="relative py-16 sm:py-20 md:py-24 bg-white text-slate-900">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-5xl md:text-6xl font-extrabold mb-6">
-            <span className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
-              Our Speakers
-            </span>
-          </h2>
-
-          <p className="text-base sm:text-lg text-slate-500 max-w-3xl mx-auto px-2">
-            Learn directly from global banking and technology leaders.
-          </p>
-        </motion.div>
-
-        <FlippingCards />
-      </section>
-      */}
-
-      {/* Quotes Slideshow */}
-      <QuoteSlideshowSection />
-
       {/* Validated Outcomes */}
       <section className="py-16 sm:py-20 md:py-24 bg-white text-slate-900">
         <div className="container mx-auto px-4 sm:px-6">
@@ -1322,6 +1295,9 @@ export function AcademyHome() {
           </motion.div>
         </div>
       </section>
+
+      {/* Quotes Slideshow */}
+      <QuoteSlideshowSection />
 
       {/* CTA Section */}
       <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-r from-orange-500 to-blue-600 relative overflow-hidden">
@@ -1553,7 +1529,7 @@ function QuoteSlideshowSection() {
   const quote = leaderQuotes[current];
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-slate-900/60">
+    <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
         <motion.div
           className="text-center mb-8 sm:mb-12"
