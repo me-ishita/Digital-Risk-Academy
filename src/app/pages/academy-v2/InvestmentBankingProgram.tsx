@@ -75,20 +75,30 @@ export default function InvestmentBankingProgram() {
     const [selected, setSelected] = useState<Faculty | null>(null);
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
+
     const sliderRef = useRef<HTMLDivElement | null>(null);
 
     const scroll = (direction: "left" | "right") => {
-        const container = sliderRef.current;
-        if (!container) return;
+        const slider = sliderRef.current;
 
-        const card = container.querySelector(".card") as HTMLElement;
-        if (!card) return;
+        if (!slider) return;
 
-        const gap = 24; // gap-6 = 24px
-        const scrollAmount = (card.offsetWidth + gap) * 2; // move 2 cards exactly
+        // first card element
+        const firstCard = slider.firstElementChild as HTMLDivElement;
 
-        container.scrollBy({
-            left: direction === "left" ? -scrollAmount : scrollAmount,
+        if (!firstCard) return;
+
+        // card width + gap
+        const cardWidth = firstCard.offsetWidth + 24;
+
+        // move 2 cards at a time
+        const scrollAmount = cardWidth * 2;
+
+        slider.scrollBy({
+            left:
+                direction === "right"
+                    ? scrollAmount
+                    : -scrollAmount,
             behavior: "smooth",
         });
     };
@@ -140,11 +150,11 @@ export default function InvestmentBankingProgram() {
 
                             {/* Pricing */}
                             <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-6 sm:mb-8">
-                                <span className="text-lg sm:text-2xl text-slate-400 line-through">
-                                    £500
+                                <span className="text-lg sm:text-4xl text-slate-400 line-through">
+                                    £360
                                 </span>
                                 <span className="text-3xl sm:text-4xl font-bold text-orange-400">
-                                    £375
+                                    £270
                                 </span>
                                 <span className="text-xs sm:text-sm bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full">
                                     Early access offer • 25% off
@@ -597,50 +607,66 @@ export default function InvestmentBankingProgram() {
                         </div>
                     </section>
 
-                    <section className="bg-gray-50 py-20 px-6">
-                        <div className="max-w-6xl mx-auto">
+                    {/* SPEAKERS SLIDER */}
+                    <section className="py-16 bg-white">
+
+                        <div className="max-w-7xl mx-auto px-4">
 
                             {/* HEADING */}
-                            <div className="text-center mb-14">
-                                <h2 className="text-3xl font-semibold text-slate-900 mb-4">
-                                    Meet our Speakers
-                                </h2>
-                                <p className="text-sm text-gray-600 max-w-3xl mx-auto">
-                                    Learn from experienced industry leaders who bring deep expertise
-                                    and real-world insights into every session.
-                                </p>
+                            <div className="flex items-center justify-between mb-8">
+                                <div>
+                                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+                                        Faculty & Speakers
+                                    </h2>
+                                    <p className="text-gray-600 mt-2">
+                                        Learn from experienced mentors and industry experts.
+                                    </p>
+                                </div>
                             </div>
 
-                            {/* SPEAKERS SLIDER */}
+                            {/* SLIDER */}
                             <div className="relative group">
 
-                                {/* LEFT ARROW */}
+                                {/* LEFT BUTTON */}
                                 <button
                                     onClick={() => scroll("left")}
-                                    className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full w-9 h-9 flex items-center justify-center text-gray-600 text-lg shadow-sm opacity-0 group-hover:opacity-100 transition"
+                                    className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white border border-gray-200 rounded-full w-10 h-10 flex items-center justify-center shadow-md text-xl text-gray-700 hover:bg-gray-50 transition opacity-0 group-hover:opacity-100"
                                 >
                                     ‹
                                 </button>
 
-                                {/* RIGHT ARROW */}
+                                {/* RIGHT BUTTON */}
                                 <button
                                     onClick={() => scroll("right")}
-                                    className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full w-9 h-9 flex items-center justify-center text-gray-600 text-lg shadow-sm opacity-0 group-hover:opacity-100 transition"
+                                    className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white border border-gray-200 rounded-full w-10 h-10 flex items-center justify-center shadow-md text-xl text-gray-700 hover:bg-gray-50 transition opacity-0 group-hover:opacity-100"
                                 >
                                     ›
                                 </button>
 
-                                {/* SLIDER */}
-                                <div
-                                    ref={sliderRef}
-                                    className="overflow-x-auto scrollbar-hide"
-                                >
-                                    <div className="flex gap-6 snap-x snap-mandatory px-8">
+                                {/* OUTER WRAPPER */}
+                                <div className="overflow-hidden">
+
+                                    {/* INNER SLIDER */}
+                                    <div
+                                        ref={sliderRef}
+                                        className="flex gap-6 overflow-x-hidden scroll-smooth"
+                                    >
 
                                         {faculty.map((item, i) => (
                                             <div
                                                 key={i}
-                                                className="min-w-[85%] md:min-w-[48%] snap-start flex items-start gap-5 border border-gray-200 rounded-xl p-5 bg-white hover:shadow-sm transition"
+                                                className="
+                                w-full 
+                                md:w-[calc(50%-12px)] 
+                                flex-shrink-0
+                                border border-gray-200
+                                rounded-xl
+                                p-5
+                                bg-white
+                                hover:shadow-md
+                                transition
+                                flex items-start gap-5
+                            "
                                             >
 
                                                 {/* IMAGE */}
@@ -651,7 +677,8 @@ export default function InvestmentBankingProgram() {
                                                 />
 
                                                 {/* CONTENT */}
-                                                <div>
+                                                <div className="flex-1">
+
                                                     <h3 className="text-sm font-semibold text-slate-900">
                                                         {item.name}
                                                     </h3>
@@ -666,10 +693,11 @@ export default function InvestmentBankingProgram() {
 
                                                     <button
                                                         onClick={() => setSelected(item)}
-                                                        className="text-xs text-blue-700 mt-2 hover:underline"
+                                                        className="text-xs text-blue-700 mt-3 hover:underline"
                                                     >
                                                         More info
                                                     </button>
+
                                                 </div>
 
                                             </div>
@@ -677,26 +705,25 @@ export default function InvestmentBankingProgram() {
 
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
 
                         {/* MODAL */}
                         {selected && (
-                            <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+                            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
 
-                                <div className="bg-white max-w-2xl w-full rounded-lg p-8 relative">
+                                <div className="bg-white max-w-2xl w-full rounded-2xl p-8 relative animate-in fade-in zoom-in duration-200">
 
                                     {/* CLOSE */}
                                     <button
                                         onClick={() => setSelected(null)}
-                                        className="absolute top-4 right-4 text-gray-500 hover:text-black"
+                                        className="absolute top-4 right-4 text-gray-500 hover:text-black text-lg"
                                     >
                                         ✕
                                     </button>
+
                                     {/* IMAGE */}
-                                    <div className="flex justify-center mb-4">
+                                    <div className="flex justify-center mb-5">
                                         <img
                                             src={selected.image?.src || selected.image}
                                             alt={selected.name}
@@ -706,80 +733,81 @@ export default function InvestmentBankingProgram() {
 
                                     {/* TEXT */}
                                     <div className="text-center">
-                                        <h3 className="text-lg font-semibold text-slate-900">
+
+                                        <h3 className="text-xl font-semibold text-slate-900">
                                             {selected.name}
                                         </h3>
+
                                         <p className="text-sm text-gray-700 mb-4">
                                             {selected.role}
                                         </p>
+
                                         <p className="text-sm text-gray-600 leading-relaxed">
                                             {selected.full}
                                         </p>
-                                    </div>
 
+                                    </div>
                                 </div>
                             </div>
                         )}
                     </section>
 
-
-
                     {/* CERTIFICATE */}
 
                     <section className="w-full bg-white py-16">
                         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-                           <div className="max-w-xl">
+                            <div className="max-w-xl">
 
-  <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-6">
-    Certificate
-  </h2>
+                                <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-6">
+                                    Certificate
+                                </h2>
 
-  <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-    Upon successful completion of this programme, you will receive a
-    verified digital certificate of completion from
-    <span className="font-semibold"> Digital Risk Academy</span>.
-  </p>
+                                <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                                    Upon successful completion of this programme, you will receive a
+                                    verified digital certificate of completion from
+                                    <span className="font-semibold"> Digital Risk Academy</span>.
+                                </p>
 
-  {/* POINTS */}
-  <div className="space-y-4 mb-8">
+                                {/* POINTS */}
+                                <div className="space-y-4 mb-8">
 
-    <div className="flex items-start gap-3">
-      <span className="text-orange-500 mt-1">✔</span>
-      <p className="text-gray-600">
-        Industry-recognised certification to validate your expertise
-      </p>
-    </div>
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-orange-500 mt-1">✔</span>
+                                        <p className="text-gray-600">
+                                            Industry-recognised certification to validate your expertise
+                                        </p>
+                                    </div>
 
-    <div className="flex items-start gap-3">
-      <span className="text-orange-500 mt-1">✔</span>
-      <p className="text-gray-600">
-        Strengthen your professional profile and career credibility
-      </p>
-    </div>
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-orange-500 mt-1">✔</span>
+                                        <p className="text-gray-600">
+                                            Strengthen your professional profile and career credibility
+                                        </p>
+                                    </div>
 
-    <div className="flex items-start gap-3">
-      <span className="text-orange-500 mt-1">✔</span>
-      <p className="text-gray-600">
-        Showcase your skills to employers and global opportunities
-      </p>
-    </div>
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-orange-500 mt-1">✔</span>
+                                        <p className="text-gray-600">
+                                            Showcase your skills to employers and global opportunities
+                                        </p>
+                                    </div>
 
-    <div className="flex items-start gap-3">
-      <span className="text-orange-500 mt-1">✔</span>
-      <p className="text-gray-600">
-        Become part of the Digital Risk Academy professional network
-      </p>
-    </div>
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-orange-500 mt-1">✔</span>
+                                        <p className="text-gray-600">
+                                            Become part of the Digital Risk Academy professional network
+                                        </p>
+                                    </div>
 
-  </div>
+                                </div>
 
-  <p className="text-gray-600 text-lg leading-relaxed">
-    This certificate represents your commitment to
-    <span className="font-semibold text-gray-800"> TRUST, RESILIENCE, and INNOVATION </span>
-    in the evolving digital risk landscape.
-  </p>
+                                <p className="text-gray-600 text-lg leading-relaxed">
+                                    This certificate represents your commitment to
+                                    <span className="font-semibold text-gray-800"> TRUST, RESILIENCE, and INNOVATION </span>
+                                    in the evolving digital risk landscape.
+                                </p>
 
-</div>
+                            </div>
 
                             {/* RIGHT CERTIFICATE */}
 
@@ -792,10 +820,10 @@ export default function InvestmentBankingProgram() {
                             </div>
                         </div>
                     </section>
-
-
                 </div>
             </section>
+
+            {/* APPLICATION DETAILS */}
             <section className="w-full bg-[#f5f6f8] py-8">
                 <div className="max-w-4xl mx-auto px-6 text-center">
 
@@ -808,7 +836,7 @@ export default function InvestmentBankingProgram() {
                     <p className="text-gray-600 text-lg mb-10">
                         The current tuition fee benefit is available as displayed below.
                         The full programme fee is{" "}
-                        <span className="font-semibold">£500</span> as of the start date.
+                        <span className="font-semibold">£360</span> as of the start date.
                     </p>
 
                     {/* CARD */}
@@ -827,13 +855,13 @@ export default function InvestmentBankingProgram() {
                             </p>
 
                             <p className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                                £375
+                                £270
                             </p>
 
                             <p className="text-gray-600 text-base">
                                 Pay by{" "}
                                 <span className="font-medium text-gray-800">
-                                    10 May 2026
+                                    20 June 2026
                                 </span>{" "}
                                 at 11:59 PM
                             </p>

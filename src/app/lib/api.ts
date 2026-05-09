@@ -1,6 +1,4 @@
-import { SetStateAction } from "react";
-
-export const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/hwf8nukfxk365tketghab9de3js5bd5p";
+export const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz8WO5yyb7y5pNQErgV98VY4snqXUxrnk-PkhtPdWpvNNSUdXx0_rKtMjGQ-nsPNX0C/exec";
 
 export const COURSE_DETAILS: Record<
   string,
@@ -17,15 +15,15 @@ export const COURSE_DETAILS: Record<
 > = {
   "investment-banking": {
     label: "Investment Banking Programme",
-    price: "£375",
-    amount: 375,
+    price: "£270",
+    amount: 270,
     currency: "GBP",
     noCodeLink: "https://buy.stripe.com/eVqcN4auagKEfRt12qcV201",
     paypalLink: "https://www.paypal.com/ncp/payment/3JEJ3YC3ZV5AS",
-    inrPrice: "₹40,000",
+    inrPrice: "35,000",
     inrNoCodeLink: "",
   },
-  "digital-risk-fundamentals": {
+  "grc-fundamentals": {
     label: "Digital Risk Fundamentals",
     price: "£150",
     amount: 150,
@@ -36,7 +34,7 @@ export const COURSE_DETAILS: Record<
     inrNoCodeLink: "",
   },
   "cyber-risk": {
-    label: "Cyber Resilience Practitioner",
+    label: "Cyber Resilience Practitioner ",
     price: "£200",
     amount: 200,
     currency: "GBP",
@@ -45,7 +43,7 @@ export const COURSE_DETAILS: Record<
     inrPrice: "₹21,000",
     inrNoCodeLink: "",
   },
-  "data-privacy-basics": {
+  "Data Privacy Basics": {
     label: "AI Risk Governance",
     price: "£150",
     amount: 150,
@@ -67,10 +65,10 @@ export const COURSE_DETAILS: Record<
   },
 };
 
-async function callPowerAutomate<T>(action: string, payload: object): Promise<T> {
-  const res = await fetch(MAKE_WEBHOOK_URL, {
+async function callAppsScript<T>(action: string, payload: object): Promise<T> {
+  const res = await fetch(APPS_SCRIPT_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
     body: JSON.stringify({ action, ...payload }),
   });
   if (!res.ok) throw new Error("network_error");
@@ -84,30 +82,22 @@ export interface SignupRequest {
   email: string;
   phone: string;
   organization?: string;
+  course?: string;
 }
 
 export async function signupUser(body: SignupRequest): Promise<{ ok: true }> {
-  return callPowerAutomate<{ ok: true }>("signup", body);
+  return callAppsScript<{ ok: true }>("signup", body);
 }
 
 export interface LoginResponse {
   ok: true;
   user: {
-    course: SetStateAction<string>; name: string; email: string; phone: string; organization: string 
+    course: any; name: string; email: string; phone: string; organization: string 
 };
 }
 
 export async function loginUser(email: string): Promise<LoginResponse> {
-  try {
-    const stored = localStorage.getItem("dra_session");
-    if (stored) {
-      const user = JSON.parse(stored) as LoginResponse["user"];
-      if (user.email?.toLowerCase() === email.trim().toLowerCase()) {
-        return { ok: true, user };
-      }
-    }
-  } catch { /* ignore corrupted localStorage */ }
-  throw new Error("not_found");
+  return callAppsScript<LoginResponse>("login", { email });
 }
 
 export type PaymentStatus = "done" | "failed";
@@ -125,7 +115,7 @@ export interface LogPaymentRequest {
 }
 
 export async function logPayment(body: LogPaymentRequest): Promise<{ ok: true }> {
-  return callPowerAutomate<{ ok: true }>("payment", body);
+  return callAppsScript<{ ok: true }>("payment", body);
 }
 
 export interface RegisterInterestRequest {
@@ -137,7 +127,7 @@ export interface RegisterInterestRequest {
 }
 
 export async function registerInterest(body: RegisterInterestRequest): Promise<{ ok: true }> {
-  return callPowerAutomate<{ ok: true }>("register_interest", body);
+  return callAppsScript<{ ok: true }>("register_interest", body);
 }
 
 export interface RegisterBrochureRequest {
@@ -150,7 +140,7 @@ export interface RegisterBrochureRequest {
 }
 
 export async function registerBrochure(body: RegisterBrochureRequest): Promise<{ ok: true }> {
-  return callPowerAutomate<{ ok: true }>("register", body);
+  return callAppsScript<{ ok: true }>("register", body);
 }
 
 export interface RssItem {

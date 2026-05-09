@@ -1,10 +1,19 @@
+import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function StudentProgram() {
   return (
     <section className="min-h-screen bg-slate-950 pt-32 pb-16">
       <div className="container mx-auto px-6">
-
+        <div className="absolute top-6 left-4 z-50">
+          <Link
+            to="/"
+            className="flex items-center justify-center w-10 h-10 bg-slate-900/50 backdrop-blur-md border border-slate-800 text-slate-300 rounded-full hover:text-white hover:border-slate-700 transition-all shadow-lg"
+            aria-label="Back to Academy"
+          >
+            <ArrowLeft className="w-5 h-5" />
+          </Link>
+        </div>
         <div className="text-center mb-14">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Programs for Students
