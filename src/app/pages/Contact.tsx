@@ -190,8 +190,8 @@ export function Contact() {
                     <Mail className="w-5 h-5 text-blue-500 mt-1 shrink-0" />
                     <div className="min-w-0">
                       <div className="font-medium">Email</div>
-                      <a href="mailto:contact@digitalrisklabs.com" className="text-slate-400 hover:text-blue-500 text-sm break-all">
-                        contact@digitalrisklabs.com
+                      <a href="mailto:info@digitalrisk.com" className="text-slate-400 hover:text-blue-500 text-sm break-all">
+                        info@digitalriskbs.com
                       </a>
                     </div>
                   </div>
@@ -245,23 +245,7 @@ export function Contact() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 bg-slate-900/50">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Prefer to Schedule a Call?</h2>
-            <p className="text-base sm:text-lg text-slate-300 mb-6 sm:mb-8">
-              Book a consultation directly with our advisory team.
-            </p>
-            <a
-              href="mailto:contact@digitalrisklabs.com?subject=Consultation%20Request"
-              className="inline-flex items-center gap-2 min-h-[52px] px-6 sm:px-8 py-3.5 sm:py-4 bg-white/5 border border-white/10 text-white rounded-lg font-semibold hover:bg-white/10 active:scale-[0.99] transition-all"
-            >
-              <Mail className="w-5 h-5" />
-              <span>Schedule a Consultation</span>
-            </a>
-          </div>
-        </div>
-      </section>
+     
     </div>
   );
 }

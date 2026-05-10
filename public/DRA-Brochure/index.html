@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Digital Risk Academy brochure â€” practitioner-led, employer-aligned education for the next generation of digital risk talent." />
+  <meta property="og:title" content="Digital Risk Academy" />
+  <meta property="og:description"
+    content="A premium brochure for a purpose-led academy building future digital risk capability." />
+  <title>Digital Risk Academy Brochure</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root,
+    [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+      --color-bg: #f3efe8;
+      --color-surface: #f8f4ee;
+      --color-surface-2: #fcfaf6;
+      --color-surface-offset: #e8e0d5;
+      --color-border: rgba(44, 34, 24, 0.14);
+      --color-divider: #d7ccbe;
+      --color-text: #221b14;
+      --color-text-muted: #6a5f54;
+      --color-text-faint: #a49789;
+      --color-text-inverse: #fbf7f2;
+      --color-primary: #123c3a;
+      --color-primary-hover: #0e2f2d;
+      --color-primary-highlight: #e0d3bf;
+      --shadow-sm: 0 2px 6px rgba(33, 24, 17, 0.06);
+      --shadow-md: 0 18px 50px rgba(33, 24, 17, 0.10);
+      --radius-sm: 0.375rem;
+      --radius-md: 0.75rem;
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
+      --content: 1180px;
+      --font-display: 'Boska', Georgia, serif;
+      --font-body: 'Satoshi', Inter, sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #14110f;
+      --color-surface: #1b1714;
+      --color-surface-2: #231e1a;
+      --color-surface-offset: #2d2620;
+      --color-border: rgba(240, 231, 221, 0.12);
+      --color-divider: #3d342c;
+      --color-text: #ede4d8;
+      --color-text-muted: #c2b5a7;
+      --color-text-faint: #85786b;
+      --color-text-inverse: #171310;
+      --color-primary: #b59667;
+      --color-primary-hover: #d0ae79;
+      --color-primary-highlight: rgba(181, 150, 103, 0.14);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.28);
+      --shadow-md: 0 24px 56px rgba(0, 0, 0, 0.34);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-text);
+      background:
+        radial-gradient(circle at top left, rgba(181, 150, 103, 0.08), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(18, 60, 58, 0.07), transparent 30%),
+        var(--color-bg);
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+    }
+
+    .skip-link:focus {
+      left: var(--space-4);
+      top: var(--space-4);
+      z-index: 100;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-sm);
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--content));
+      margin: 0 auto;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid transparent;
+    }
+
+    .header.scrolled {
+      border-color: var(--color-border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: var(--space-4) 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-6);
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: var(--color-surface-2);
+    }
+
+    .back-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+.back-icon {
+  width: 18px;
+  height: 18px;
+  color: #1e293b; /* slate-800 */
+  transition: all 0.3s ease;
+}
+
+/* ✨ Hover */
+.back-btn:hover {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  border-color: transparent;
+  box-shadow: 
+    0 8px 20px rgba(37, 99, 235, 0.35),
+    0 0 0 4px rgba(37, 99, 235, 0.1);
+  transform: translateY(-2px);
+}
+
+.back-btn:hover .back-icon {
+  color: #fff;
+  transform: translateX(-4px) scale(1.05);
+}
+
+/* 🔘 Click */
+.back-btn:active {
+  transform: scale(0.9);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* ✨ Optional subtle pulse on hover */
+.back-btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.back-btn:hover::after {
+  opacity: 1;
+}
+
+    .hero {
+      padding: clamp(var(--space-16), 10vw, 8rem) 0 var(--space-16);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.9fr;
+      gap: var(--space-8);
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-panel,
+    .card,
+    .quote-panel,
+    .impact-panel {
+      background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-copy {
+      padding: clamp(var(--space-8), 5vw, var(--space-16));
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      background: var(--color-primary-highlight);
+      color: var(--color-primary);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-6);
+    }
+
+    h1,
+    h2 {
+      font-family: var(--font-display);
+      line-height: 1.06;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: var(--text-2xl);
+      max-width: 12ch;
+      margin-bottom: var(--space-5);
+    }
+
+    .lead {
+      color: var(--color-text-muted);
+      max-width: 58ch;
+      margin-bottom: var(--space-8);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    .button {
+      min-height: 44px;
+      padding: 0.9rem 1.2rem;
+      border-radius: 999px;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .button.primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+    }
+
+    .button.secondary {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+    }
+
+    .hero-panel {
+      padding: clamp(var(--space-6), 4vw, var(--space-10));
+      display: grid;
+      gap: var(--space-4);
+      align-content: space-between;
+      background:
+        linear-gradient(180deg, color-mix(in srgb, var(--color-primary-highlight) 74%, var(--color-surface) 26%), var(--color-surface));
+    }
+
+    .stat {
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .stat:last-child {
+      border-bottom: 0;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: var(--text-xl);
+      font-family: var(--font-display);
+      font-weight: 500;
+    }
+
+    .stat span {
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .section {
+      padding: clamp(var(--space-12), 7vw, var(--space-20)) 0;
+    }
+
+    .section-head {
+      display: grid;
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+    }
+
+    .section-head h2 {
+      font-size: var(--text-xl);
+      max-width: 12ch;
+    }
+
+    .section-head p {
+      color: var(--color-text-muted);
+      max-width: 58ch;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+    }
+
+    .card {
+      padding: var(--space-6);
+      background: color-mix(in srgb, var(--color-surface-2) 88%, transparent);
+    }
+
+    .card h3 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-3);
+    }
+
+    .card p {
+      color: var(--color-text-muted);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: var(--space-8);
+      align-items: start;
+    }
+
+    .quote-panel,
+    .impact-panel {
+      padding: clamp(var(--space-6), 4vw, var(--space-10));
+    }
+
+    .quote-panel p {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 2vw, 2.2rem);
+      line-height: 1.15;
+    }
+
+    .quote-panel small {
+      display: block;
+      margin-top: var(--space-4);
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .impact-list {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .impact-item {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: var(--space-3);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .impact-item:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .impact-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: var(--color-primary-highlight);
+      color: var(--color-primary);
+      display: grid;
+      place-items: center;
+      font-size: var(--text-sm);
+      font-weight: 700;
+    }
+
+    .straplines {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+    }
+
+    .strapline {
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+    }
+
+    .footer {
+      padding: var(--space-10) 0 var(--space-16);
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+
+      .hero-grid,
+      .split,
+      .grid-3,
+      .straplines {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        max-width: 16ch;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-copy,
+      .hero-panel,
+      .card,
+      .quote-panel,
+      .impact-panel {
+        border-radius: var(--radius-lg);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        justify-content: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="header" id="top">
+    <div class="container nav">
+
+      <button class="back-btn" onclick="window.location.href='/about'" aria-label="Go back">
+        <svg viewBox="0 0 24 24" class="back-icon">
+          <path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+
+      <a href="#top" class="brand" aria-label="Digital Risk Academy home">
+        <img src="DR Logo.png" alt="Digital Risk Logo" class="brand-mark">
+
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#challenge">Challenge</a>
+        <a href="#model">Model</a>
+        <a href="#impact">Impact</a>
+      </nav>
+
+
+
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <article class="hero-copy reveal">
+          <div class="eyebrow">Purpose-led. Practitioner-built. Employer-aligned.</div>
+          <h1>Building the future of digital risk talent.</h1>
+          <p class="lead">Digital Risk Academy is a non-profit institution designed to strengthen digital risk
+            capability across financial services by closing the gap between academic learning and workplace readiness.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#model">Explore the model</a>
+            <a class="button secondary" href="#impact">See the impact</a>
+          </div>
+        </article>
+        <aside class="hero-panel reveal" aria-label="Key outcomes">
+          <div>
+            <div class="eyebrow">Why it matters</div>
+            <p class="lead" style="margin-bottom:0; max-width: 34ch;">A premium capability model for a sector facing
+              rising regulatory complexity, fast-evolving digital risk, and persistent talent shortages.</p>
+          </div>
+          <div>
+            <div class="stat"><strong>Practical</strong><span>Job-ready skills in regulatory, cyber, digital, and
+                technology risk.</span></div>
+            <div class="stat"><strong>Aligned</strong><span>Programmes shaped by practitioner insight and employer
+                demand.</span></div>
+            <div class="stat"><strong>Inclusive</strong><span>Scholarships and accessible pathways designed for wider
+                social impact.</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="challenge">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">The challenge</div>
+          <h2>Complexity is rising faster than capability.</h2>
+          <p>Financial institutions need talent with applied experience, commercial awareness, and leadership readiness.
+            Traditional academic pathways often do not produce that combination at the pace the market now requires.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card reveal">
+            <h3>Regulatory pressure</h3>
+            <p>Institutions must respond to more complex and more closely scrutinised regulatory expectations.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Digital disruption</h3>
+            <p>Technology, cyber, and operational risk are evolving faster than many conventional learning pathways can
+              support.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Talent shortage</h3>
+            <p>Employers are under-resourced while many graduates remain under-prepared for real operational
+              environments.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="model">
+      <div class="container split">
+        <article class="quote-panel reveal">
+          <div class="eyebrow">The proposition</div>
+          <p>Education should not end with a qualification. It should lead to capability, income, and long-term career
+            progression.</p>
+          <small>Digital Risk Academy is designed around outcomes, not credentials alone.</small>
+        </article>
+        <article class="impact-panel reveal">
+          <div class="section-head" style="margin-bottom: var(--space-6);">
+            <div class="eyebrow">The DRA model</div>
+            <h2>Industry-led learning with real-world relevance.</h2>
+          </div>
+          <div class="impact-list">
+            <div class="impact-item">
+              <div class="impact-dot">1</div>
+              <div><strong>Practitioner-led delivery</strong><br><span style="color:var(--color-text-muted)">Programmes
+                  are designed and delivered by active senior practitioners and board-level advisers.</span></div>
+            </div>
+            <div class="impact-item">
+              <div class="impact-dot">2</div>
+              <div><strong>Academic rigour plus live projects</strong><br><span
+                  style="color:var(--color-text-muted)">Learners combine structured learning with real industry exposure
+                  and applied work.</span></div>
+            </div>
+            <div class="impact-item">
+              <div class="impact-dot">3</div>
+              <div><strong>Employer participation</strong><br><span style="color:var(--color-text-muted)">Employers help
+                  shape the talent pipeline by influencing programme relevance and capability outcomes.</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="impact">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Impact</div>
+          <h2>Value for learners, employers, and the sector.</h2>
+          <p>DRA is positioned to strengthen employability, improve organisational resilience, and broaden access to
+            high-quality digital risk education through a purpose-driven model.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card reveal">
+            <h3>For learners</h3>
+            <p>Clearer pathways into employment, stronger earning potential, and practical confidence in high-demand
+              digital risk disciplines.</p>
+          </article>
+          <article class="card reveal">
+            <h3>For employers</h3>
+            <p>Access to better-prepared talent shaped around real operational, regulatory, and resilience challenges.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>For society</h3>
+            <p>Scholarships, inclusive partnerships, and accessible learning models that widen participation and support
+              social mobility.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Brand language</div>
+          <h2>Brochure-ready messaging.</h2>
+          <p>Use these lines across a landing page, PDF brochure, investor overview, or partnership pack.</p>
+        </div>
+        <div class="straplines">
+          <div class="strapline reveal">Where digital risk talent becomes business-ready.</div>
+          <div class="strapline reveal">Practitioner-led education for the next generation of risk leaders.</div>
+          <div class="strapline reveal">Closing the gap between learning and leadership in digital risk.</div>
+          <div class="strapline reveal">Real-world digital risk capability for modern financial services.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <strong style="display:block; margin-bottom: 0.35rem;">Digital Risk Academy</strong>
+        <span>Purpose-led education for future-ready capability.</span>
+      </div>
+      <div>
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+
+      const setIcon = () => {
+        toggle.innerHTML = theme === 'dark'
+          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>'
+          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+      };
+      setIcon();
+      toggle.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        setIcon();
+      });
+
+      const header = document.querySelector('.header');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 8);
+      }, { passive: true });
+    })();
+  </script>
+</body>
+
+</html>

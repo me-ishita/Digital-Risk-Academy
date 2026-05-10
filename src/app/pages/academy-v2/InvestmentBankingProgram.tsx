@@ -861,7 +861,7 @@ export default function InvestmentBankingProgram() {
                             <p className="text-gray-600 text-base">
                                 Pay by{" "}
                                 <span className="font-medium text-gray-800">
-                                    20 June 2026
+                                    31 Junly 2026
                                 </span>{" "}
                                 at 11:59 PM
                             </p>

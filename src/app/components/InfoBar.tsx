@@ -18,7 +18,7 @@ export default function InfoBar() {
                             Starts On
                         </p>
                         <p className="text-lg font-semibold">
-                            25 June 2026
+                            3 August 2026
                         </p>
                     </div>
 

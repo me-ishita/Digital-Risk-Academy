@@ -494,12 +494,11 @@ export function AcademyPrograms() {
             <p className="text-slate-300 text-sm sm:text-base mb-6 sm:mb-8">
               Our advisors can help you select the right programme for your goals and experience level.
             </p>
-            <a
-              href="mailto:info@digitalriskacademy.com"
-              className="inline-flex items-center justify-center px-8 py-3 bg-white text-orange-600 rounded-full font-bold text-sm sm:text-base hover:bg-slate-100 transition-all duration-300 shadow-lg shadow-white/5"
-            >
-              Contact an Advisor
-            </a>
+            <Link to="/contact">
+              <button className="inline-flex items-center justify-center px-8 py-3 bg-white text-orange-600 rounded-full font-bold text-sm sm:text-base hover:bg-slate-100 transition-all duration-300 shadow-lg shadow-white/5">
+                Contact an Advisor
+              </button>
+            </Link>
           </motion.div>
         </div>
       </section>

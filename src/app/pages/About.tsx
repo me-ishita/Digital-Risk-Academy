@@ -89,6 +89,8 @@ export function About() {
         return () => clearInterval(interval);
     }, [slides.length]);
 
+
+
     return (
         <div className="min-h-screen pt-20">
 
@@ -191,16 +193,13 @@ export function About() {
                     {/* BOTTOM ROW (NEW) */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 items-center mt-8">
 
-                        {/* LEFT → Button */}
                         <div className="flex justify-start -mt-4 lg:-mt-6">
-                            <a
-                                href="https://dra-brochure.vercel.app/"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <button
+                                onClick={() => window.location.href = "/DRA-Brochure/index.html"}
                                 className="px-5 py-2.5 bg-amber-400 hover:bg-amber-500 text-white rounded-full font-medium transition-all shadow-md"
                             >
                                 Download Brochure
-                            </a>
+                            </button>
                         </div>
 
                         {/* RIGHT → Dots aligned with card */}
@@ -211,8 +210,8 @@ export function About() {
                                         key={index}
                                         onClick={() => setActiveSlide(index)}
                                         className={`h-1.5 rounded-full transition-all ${index === activeSlide
-                                                ? 'w-8 bg-amber-400'
-                                                : 'w-1.5 bg-gray-400/60'
+                                            ? 'w-8 bg-amber-400'
+                                            : 'w-1.5 bg-gray-400/60'
                                             }`}
                                     />
                                 ))}
@@ -549,7 +548,7 @@ export function About() {
                                 </button>
                             </Link>
 
-                            <Link to="/register">
+                            <Link to="/contact">
                                 <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-10 py-4 rounded-full transition-all border border-white/30 hover:border-white/50 inline-flex items-center justify-center gap-2">
                                     <Users size={24} />
                                     Contact Us
