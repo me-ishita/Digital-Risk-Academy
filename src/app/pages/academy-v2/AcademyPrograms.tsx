@@ -56,7 +56,7 @@ export function AcademyPrograms() {
 
                 {/* Badge */}
                 <span className="inline-block mb-3 sm:mb-4 px-3 sm:px-4 py-1 bg-orange-500/20 text-orange-400 text-[11px] sm:text-xs font-semibold rounded-full border border-orange-500/30">
-                  New Launch • June Cohort
+                  New Launch • August Cohort
                 </span>
 
                 {/* Title */}

@@ -59,7 +59,7 @@ export default function BrochureModal({ isOpen, onClose }: Props) {
         if (!validate()) return;
 
         // proceed download
-        window.open("/brochure/index.html", "_blank");
+        window.open("/brochure/index.html");
     };
 
     return (

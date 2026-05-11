@@ -134,7 +134,7 @@ export default function InvestmentBankingProgram() {
                         {/* Left Column - Content */}
                         <div className="max-w-2xl">
                             <span className="text-orange-400 text-xs sm:text-sm tracking-widest uppercase">
-                                Digital Risk Academy • June Cohort
+                                Digital Risk Academy • August Cohort
                             </span>
 
                             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-3 sm:mt-4 mb-4 sm:mb-6 leading-tight">

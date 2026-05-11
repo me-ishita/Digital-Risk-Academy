@@ -976,7 +976,7 @@ export function AcademyHome() {
                   >
                     <div className="flex flex-col items-center text-center gap-4">
                       <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-orange-300 bg-orange-500/15 border border-orange-400/40 px-3 py-1 rounded-full">
-                        Launching This June
+                        Launching This August
                       </span>
                       <h3 className="text-2xl font-extrabold text-white leading-tight">
                         Investment Banking Programme
@@ -1012,7 +1012,7 @@ export function AcademyHome() {
                 >
                   <div className="flex flex-col items-center text-center gap-4 lg:gap-5">
                     <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-orange-300 bg-orange-500/15 border border-orange-400/40 px-3 py-1 rounded-full">
-                      Launching This June
+                      Launching This August
                     </span>
                     <h3 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white leading-tight">
                       Investment Banking Programme
@@ -1222,7 +1222,7 @@ export function AcademyHome() {
               audience="Students, Early-Career Professionals"
               image="https://images.unsplash.com/photo-1630464373688-fb6a37ce89ed?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGludmVzdG1lbnQlMjBiYW5raW5nfGVufDB8fDB8fHww"
               to="/programs/investment-banking"
-              badge="Launching This JUNE • Enroll Now"
+              badge="Launching This AUGUST • Enroll Now"
             />
             <TrackCard
               index={1}
