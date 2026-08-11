@@ -7,7 +7,7 @@ export default function AIRiskGovernance() {
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
         <div className="absolute top-6 left-4 z-50">
                 <Link
-                    to="/programs"
+                    to="/programmes"
                     className="flex items-center justify-center w-10 h-10 bg-slate-900/50 backdrop-blur-md border border-slate-800 text-slate-300 rounded-full hover:text-white hover:border-slate-700 transition-all shadow-lg"
                     aria-label="Back to Academy"
                 >

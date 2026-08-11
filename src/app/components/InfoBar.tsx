@@ -12,13 +12,16 @@ export default function InfoBar() {
 
                 <div className="max-w-7xl mx-auto px-10 py-8 grid grid-cols-2 md:grid-cols-5 gap-10 items-center text-white">
 
-                    {/* START */}
+                    {/* DELIVERY */}
                     <div className="md:border-r border-white/20 pr-10">
                         <p className="text-sm tracking-widest uppercase mb-1 text-white/70">
-                            Starts On
+                            Delivery
                         </p>
                         <p className="text-lg font-semibold">
-                            3 August 2026
+                            Live Online
+                        </p>
+                        <p className="text-xs text-white/60">
+                            Practitioner-led
                         </p>
                     </div>
 

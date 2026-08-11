@@ -34,7 +34,7 @@ function handleSignup(body) {
   var name         = (body.name         || "").trim();
   var email        = (body.email        || "").trim().toLowerCase();
   var phone        = (body.phone        || "").trim();
-  var organization = (body.organization || "").trim();
+  var organisation = (body.organisation || "").trim();
 
   if (!name || !email || !phone) return { ok: false, error: "invalid_input" };
 
@@ -43,7 +43,7 @@ function handleSignup(body) {
 
   // Ensure header row
   if (data.length === 0) {
-    sheet.appendRow(["TimeStamp", "Name", "Email", "Phone", "Organization"]);
+    sheet.appendRow(["TimeStamp", "Name", "Email", "Phone", "Organisation"]);
     data = [];
   }
 
@@ -54,7 +54,7 @@ function handleSignup(body) {
     }
   }
 
-  sheet.appendRow([new Date(), name, email, phone, organization]);
+  sheet.appendRow([new Date(), name, email, phone, organisation]);
   return { ok: true };
 }
 
@@ -66,7 +66,7 @@ function handleLogin(body) {
   var sheet = getOrCreateSheet(USERS_SHEET);
   var data  = sheet.getDataRange().getValues();
 
-  // Columns: 0=TimeStamp, 1=Name, 2=Email, 3=Phone, 4=Organization
+  // Columns: 0=TimeStamp, 1=Name, 2=Email, 3=Phone, 4=Organisation
   for (var i = 1; i < data.length; i++) {
     if (String(data[i][2]).toLowerCase() === email) {
       return {
@@ -75,7 +75,7 @@ function handleLogin(body) {
           name:         String(data[i][1] || ""),
           email:        String(data[i][2] || ""),
           phone:        String(data[i][3] || ""),
-          organization: String(data[i][4] || ""),
+          organisation: String(data[i][4] || ""),
         }
       };
     }
@@ -93,7 +93,7 @@ function handlePayment(body) {
   if (data.length === 0) {
     sheet.appendRow([
       "TimeStamp", "Name", "Email", "Phone",
-      "Organization", "Course", "Amount", "Currency", "OrderId", "Status"
+      "Organisation", "Course", "Amount", "Currency", "OrderId", "Status"
     ]);
   }
 
@@ -102,7 +102,7 @@ function handlePayment(body) {
     body.name         || "",
     body.email        || "",
     body.phone        || "",
-    body.organization || "",
+    body.organisation || "",
     body.course       || "",
     body.amount       || "",
     body.currency     || "",

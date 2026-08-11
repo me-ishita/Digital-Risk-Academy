@@ -25,7 +25,7 @@ export function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [organization, setOrganization] = useState("");
+  const [organisation, setOrganisation] = useState("");
   const [selectedCourse, setSelectedCourse] = useState<string>(initialCourse);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -43,7 +43,7 @@ export function Register() {
           setName(asText(parsed.name));
           setEmail(asText(parsed.email));
           setPhone(asText(parsed.phone));
-          setOrganization(asText(parsed.organization));
+          setOrganisation(asText(parsed.organisation));
           if (parsed.course && COURSE_DETAILS[parsed.course]) {
             setSelectedCourse(parsed.course);
           }
@@ -85,13 +85,13 @@ export function Register() {
         name: name.trim(),
         email: email.trim(),
         phone: phone.trim(),
-        organization: organization.trim() || undefined,
+        organisation: organisation.trim() || undefined,
       });
       localStorage.setItem("dra_session", JSON.stringify({
         name: name.trim(),
         email: email.trim(),
         phone: phone.trim(),
-        organization: organization.trim(),
+        organisation: organisation .trim(),
         course: selectedCourse,
       }));
       setStage("pay");
@@ -114,7 +114,7 @@ export function Register() {
       setName(asText(result.user.name));
       setEmail(asText(result.user.email));
       setPhone(asText(result.user.phone));
-      setOrganization(asText(result.user.organization));
+      setOrganisation(asText(result.user.organisation));
       const userCourse = typeof result.user.course === "string" ? result.user.course : "";
       if (userCourse && COURSE_DETAILS[userCourse]) {
         setSelectedCourse(userCourse);
@@ -135,7 +135,7 @@ export function Register() {
     setName("");
     setEmail("");
     setPhone("");
-    setOrganization("");
+    setOrganisation("");
     setSelectedCourse(initialCourse);
     setErrorMsg(null);
     setPayingWith(null);
@@ -176,7 +176,7 @@ export function Register() {
     <div className="pt-32 relative">
       <div className="absolute top-6 left-4 z-50">
         <Link
-          to="/programs"
+          to="/programmes"
           className="flex items-center justify-center w-10 h-10 bg-slate-900/50 backdrop-blur-md border border-slate-800 text-slate-300 rounded-full hover:text-white hover:border-slate-700 transition-all shadow-lg"
           aria-label="Back to Academy"
         >
@@ -239,9 +239,9 @@ export function Register() {
                               value={phone} onChange={(e) => setPhone(e.target.value)} className={inputBase} placeholder="+91 98765 43210" />
                           </div>
                           <div>
-                            <label htmlFor="organization" className="block text-sm font-medium mb-2">Organization / University</label>
-                            <input id="organization" name="organization" autoComplete="organization" type="text"
-                              value={organization} onChange={(e) => setOrganization(e.target.value)} className={inputBase} placeholder="Your organization" />
+                            <label htmlFor="organisation" className="block text-sm font-medium mb-2">Organisation / University</label>
+                            <input id="organisation" name="organisation" autoComplete="organisation" type="text"
+                              value={organisation} onChange={(e) => setOrganisation(e.target.value)} className={inputBase} placeholder="Your organisation" />
                           </div>
                         </div>
 

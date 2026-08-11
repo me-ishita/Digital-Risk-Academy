@@ -81,7 +81,7 @@ export interface SignupRequest {
   name: string;
   email: string;
   phone: string;
-  organization?: string;
+  organisation?: string;
   course?: string;
 }
 
@@ -92,7 +92,7 @@ export async function signupUser(body: SignupRequest): Promise<{ ok: true }> {
 export interface LoginResponse {
   ok: true;
   user: {
-    course: any; name: string; email: string; phone: string; organization: string 
+    course: any; name: string; email: string; phone: string; organisation: string 
 };
 }
 
@@ -106,7 +106,7 @@ export interface LogPaymentRequest {
   name: string;
   email: string;
   phone?: string;
-  organization?: string;
+  organisation?: string;
   course: string;
   amount: number;
   currency: string;
@@ -122,7 +122,7 @@ export interface RegisterInterestRequest {
   name: string;
   email: string;
   phone?: string;
-  organization?: string;
+  organisation?: string;
   course: string;
 }
 
@@ -136,7 +136,7 @@ export interface RegisterBrochureRequest {
   email: string;
   phone: string;
   workExperience: string;
-  organization?: string;
+  organisation?: string;
 }
 
 export async function registerBrochure(body: RegisterBrochureRequest): Promise<{ ok: true }> {

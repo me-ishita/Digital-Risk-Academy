@@ -19,7 +19,7 @@ export default function OrganisationProgram() {
                         Programs for Organisations
                     </h1>
                     <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                        Build secure, aware, and resilient teams across your organization.
+                        Build secure, aware, and resilient teams across your organisation.
                     </p>
                 </div>
 
@@ -75,7 +75,7 @@ export default function OrganisationProgram() {
                                 Mid-to-Senior Professionals, Finance Leaders
                             </p>
                             <Link
-                                to="/programs/executive-leadership"
+                                to="/programmes/executive-leadership"
                                 className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                             >
                                 View Course
@@ -95,10 +95,10 @@ export default function OrganisationProgram() {
                         <div className="px-8 mt-8 flex flex-col flex-grow">
                             <h3 className="text-[26px] font-bold mb-5 text-black">Phishing Simulation & Awareness</h3>
                             <p className="text-slate-500 text-[16px] mb-6 flex-grow leading-relaxed">
-                                Simulate phishing attacks and train employees to recognize and respond to threats, reducing human-related security risks.
+                                Simulate phishing attacks and train employees to recognise and respond to threats, reducing human-related security risks.
                             </p>
                             <p className="text-slate-900 font-medium text-[15px] mb-8">
-                                Organizations, HR Teams, Security Leaders
+                                Organisations, HR Teams, Security Leaders
                             </p>
                             <button
                                 type="button"

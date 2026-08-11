@@ -119,7 +119,7 @@ export function Resources() {
               Explore our full catalogue of programmes and resources.
             </p>
             <Link
-              to="/programs"
+              to="/programmes"
               className="inline-flex items-center gap-2 min-h-[52px] px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-orange-600 rounded-lg font-semibold hover:bg-slate-100 active:scale-[0.99] transition-all"
             >
               <span>Browse Programmes</span>

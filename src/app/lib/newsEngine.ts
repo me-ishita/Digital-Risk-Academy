@@ -157,7 +157,7 @@ const FALLBACK_NEWS: NewsArticle[] = [
   },
   {
     id: "fallback-news-3",
-    title: "Operational resilience programs move closer to board reporting",
+    title: "Operational resilience programmes move closer to board reporting",
     source: "Digital Risk Academy",
     sourceUrl: "https://example.com/news/fallback-news-3",
     category: "Digital Risk",

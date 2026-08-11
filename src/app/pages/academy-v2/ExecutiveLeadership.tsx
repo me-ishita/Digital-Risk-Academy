@@ -8,7 +8,7 @@ export default function ExecutiveLeadership() {
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
         <div className="absolute top-6 left-4 z-50">
           <Link
-            to="/programs"
+            to="/programmes"
             className="flex items-center justify-center w-10 h-10 bg-slate-900/50 backdrop-blur-md border border-slate-800 text-slate-300 rounded-full hover:text-white hover:border-slate-700 transition-all shadow-lg"
             aria-label="Back to Academy"
           >
@@ -76,7 +76,7 @@ export default function ExecutiveLeadership() {
               <h2 className="text-3xl font-bold mb-12">Programme Overview</h2>
               <div className="text-slate-600 space-y-5 leading-relaxed text-lg">
                 <p>
-                  The Executive Leadership Programme equips professionals with essential leadership skills to drive strategic decisions, lead teams effectively, and manage organizational change. The programme emphasizes practical leadership, executive communication, and ethical decision-making to help participants lead with confidence and impact.
+                  The Executive Leadership Programme equips professionals with essential leadership skills to drive strategic decisions, lead teams effectively, and manage organisational change. The programme emphasises practical leadership, executive communication, and ethical decision-making to help participants lead with confidence and impact.
                 </p>
               </div>
             </div>

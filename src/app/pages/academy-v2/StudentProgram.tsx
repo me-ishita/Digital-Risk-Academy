@@ -16,7 +16,7 @@ export default function StudentProgram() {
         </div>
         <div className="text-center mb-14">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Programs for Students
+            Programmes for Students
           </h1>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
             Launch your digital risk career with industry-ready skills and real-world experience.
@@ -43,7 +43,7 @@ export default function StudentProgram() {
                 Final-Year Students, Recent Graduates
               </p>
               <Link
-                to="/programs/investment-banking"
+                to="/programmes/investment-banking"
                 className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
               >
                 View Course
@@ -69,7 +69,7 @@ export default function StudentProgram() {
                 Undergraduates, Bootcamp Graduates
               </p>
               <Link
-                to="/programs/digital-risk-fundamentals"
+                to="/programmes/digital-risk-fundamentals"
                 className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
               >
                 View Course

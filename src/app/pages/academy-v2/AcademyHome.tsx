@@ -107,7 +107,7 @@ const academyImpactSlides = [
   {
     image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGludmVzdG1lbnR8ZW58MHx8MHx8fDA%3D",
     heading: "Scholarship & Support",
-    body: "We provide opportunities through scholarships and inclusive programs, ensuring that motivated learners can access high-quality digital risk education regardless of their background."
+    body: "We provide opportunities through scholarships and inclusive programmes, ensuring that motivated learners can access high-quality digital risk education regardless of their background."
   },
   {
     image: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGludmVzdG1lbnR8ZW58MHx8MHx8fDA%3D",
@@ -618,7 +618,7 @@ export default function InvestmentBankingCard() {
 
           {/* CTA */}
           <Link
-            to="/programs/investment-banking"
+            to="/programmes/investment-banking"
             className="px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300"
           >
             Apply Now →
@@ -802,7 +802,7 @@ export function AcademyHome() {
       name: str(user.name),
       email: str(user.email),
       phone: str(user.phone),
-      organization: str(user.organization),
+      organisation: str(user.organisation),
       course: courseKey,
       amount: conf.amount,
       currency: conf.currency,
@@ -966,8 +966,8 @@ export function AcademyHome() {
                   </div>
                 </div>
 
-                <div className="mt-2 md:mt-auto flex w-full flex-col items-center gap-6 md:gap-8">
-                  {/* Mobile launching card */}
+                {/* <div className="mt-2 md:mt-auto flex w-full flex-col items-center gap-6 md:gap-8">
+                   
                   <motion.aside
                     className="block md:hidden w-[calc(100%-2rem)] max-w-lg mx-4 rounded-2xl border border-orange-300/35 bg-black/40 backdrop-blur-md p-6 sm:p-8"
                     initial={false}
@@ -985,7 +985,7 @@ export function AcademyHome() {
                         A 4-week practitioner-led programme designed to bridge the gap between academic learning and real-world investment banking and risk roles.
                       </p>
                       <Link
-                        to="/programs/investment-banking"
+                        to="/programmes/investment-banking"
                         className="group inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold text-sm hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300"
                       >
                         <span>Details</span>
@@ -1021,14 +1021,14 @@ export function AcademyHome() {
                       A 4-week practitioner-led programme designed to bridge the gap between academic learning and real-world investment banking and risk roles.
                     </p>
                     <Link
-                      to="/programs/investment-banking"
+                      to="/programmes/investment-banking"
                       className="group inline-flex items-center justify-center gap-2 lg:w-auto lg:px-10 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold text-base hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300"
                     >
                       <span>Details</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
-                </motion.aside>
+                </motion.aside> */}
               </div>
             </div>
 
@@ -1100,7 +1100,7 @@ export function AcademyHome() {
               title="For Students"
               image="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=55&w=720&auto=format&fit=crop"
               description="Launch your digital risk career with industry-ready skills"
-              link="/programs/students"
+              link="/programmes/students"
               color="orange"
             />
 
@@ -1108,8 +1108,8 @@ export function AcademyHome() {
               icon={<Briefcase className="w-10 h-10" />}
               title="For Early Career Professionals"
               image="https://images.unsplash.com/photo-1552664730-d307ca884978?q=55&w=720&auto=format&fit=crop"
-              description="Advance your career with specialized risk expertise"
-              link="/programs/early-career"
+              description="Advance your career with specialised risk expertise"
+              link="/programmes/early-career"
               color="blue"
             />
 
@@ -1118,7 +1118,7 @@ export function AcademyHome() {
               title="For Experienced Professionals"
               image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=55&w=720&auto=format&fit=crop"
               description="Build team capability through corporate training"
-              link="/programs/experienced"
+              link="/programmes/experienced"
               color="orange"
             />
 
@@ -1126,8 +1126,8 @@ export function AcademyHome() {
               icon={<School className="w-10 h-10" />}
               title="For Organisations"
               image="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=55&w=720&auto=format&fit=crop"
-              description="Partner with us to enhance academic programs"
-              link="/programs/organisation"
+              description="Partner with us to enhance academic programmes"
+              link="/programmes/organisation"
               color="blue"
             />
           </motion.div>
@@ -1221,7 +1221,7 @@ export function AcademyHome() {
               description="A 4-week practitioner-led programme designed to bridge the gap between academic learning and real-world investment banking and risk roles."
               audience="Students, Early-Career Professionals"
               image="https://images.unsplash.com/photo-1630464373688-fb6a37ce89ed?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGludmVzdG1lbnQlMjBiYW5raW5nfGVufDB8fDB8fHww"
-              to="/programs/investment-banking"
+              to="/programmes/investment-banking"
               badge="Launching This AUGUST • Enroll Now"
             />
             <TrackCard
@@ -1230,7 +1230,7 @@ export function AcademyHome() {
               description="Strategic AI deployment and governance frameworks for executive decision-makers navigating regulatory compliance and risk management."
               audience="C-Suite, Board Members, Risk Leaders"
               image="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800"
-              to="/programs/ai-risk-governance"
+              to="/programmes/ai-risk-governance"
             />
             <TrackCard
               index={2}
@@ -1238,7 +1238,7 @@ export function AcademyHome() {
               description="CISO-in-a-Box training covering crisis management, board communication, and legal defensibility for cyber leadership roles."
               audience="Mid-to-Senior Professionals, Finance Leaders"
               image="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800"
-              to="/programs/executive-leadership"
+              to="/programmes/executive-leadership"
             />
           </div>
 
@@ -1249,7 +1249,7 @@ export function AcademyHome() {
             viewport={{ once: true }}
           >
             <Link
-              to="/programs"
+              to="/programmes"
               className="inline-flex items-center space-x-2 text-orange-500 hover:text-orange-400 font-semibold group text-lg"
             >
               <span>View All Programmes</span>
@@ -1315,7 +1315,7 @@ export function AcademyHome() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto">
               <Link
-                to="/programs"
+                to="/programmes"
                 className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-orange-600 rounded-lg font-semibold text-sm sm:text-base hover:bg-slate-100 transition-all duration-300 text-center"
               >
                 Browse All Programmes

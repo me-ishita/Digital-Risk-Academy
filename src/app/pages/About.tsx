@@ -33,7 +33,7 @@ export function About() {
 
     const educationalApproach = [
         {
-            step: 'Industry-Led Programs',
+            step: 'Industry-Led Programmes',
             description: 'Curriculum designed by practitioners and thought leaders',
             icon: Briefcase,
         },
@@ -79,7 +79,7 @@ export function About() {
         {
             image: 'https://images.unsplash.com/photo-1758691737182-d42aefd6dee8?...',
             title: 'Professional Development',
-            description: 'Build career-ready skills with structured programs focused on leadership, compliance, and digital risk strategy.'
+            description: 'Build career-ready skills with structured programmes focused on leadership, compliance, and digital risk strategy.'
         },
     ];
     useEffect(() => {
@@ -258,7 +258,7 @@ export function About() {
                                     Our approach is grounded in excellence, accessibility, and real-world relevance—bridging the gap between academic learning and professional execution.
                                 </p>
                                 <p>
-                                    Through industry-led programs, expert mentorship, and globally aligned frameworks, Digital Risk Academy empowers individuals to develop the competencies demanded by leading financial institutions, regulatory bodies, and multinational enterprises.
+                                    Through industry-led programmes, expert mentorship, and globally aligned frameworks, Digital Risk Academy empowers individuals to develop the competencies demanded by leading financial institutions, regulatory bodies, and multinational enterprises.
                                 </p>
                             </div>
                         </motion.div>
@@ -418,7 +418,7 @@ export function About() {
 
                             <div className="mt-8 space-y-4">
                                 {[
-                                    'Industry-recognized certifications',
+                                    'Industry-recognised certifications',
                                     'Lifetime access to learning resources',
                                     'Global alumni network',
                                     'Career support and placement assistance',
@@ -541,7 +541,7 @@ export function About() {
                             Join a community of professionals committed to excellence in digital risk and financial governance
                         </p>
                         <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                            <Link to="/programs">
+                            <Link to="/programmes">
                                 <button className="bg-amber-500 hover:bg-amber-600 text-white px-10 py-4 rounded-full transition-all shadow-xl hover:shadow-2xl hover:scale-105 inline-flex items-center justify-center gap-2">
                                     <BookOpen size={24} />
                                     Explore Programmes

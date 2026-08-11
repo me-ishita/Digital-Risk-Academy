@@ -15,10 +15,10 @@ export default function ExperiencedProgram() {
             </div>
         <div className="text-center mb-14">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Programs for Experienced Professionals
+            Programmes for Experienced Professionals
           </h1>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            Strategic programs for leadership, governance, and enterprise risk.
+            Strategic programmes for leadership, governance, and enterprise risk.
           </p>
         </div>
 
@@ -45,7 +45,7 @@ export default function ExperiencedProgram() {
                     C-Suite, Board Members, Risk Leaders
                   </p>
                   <Link
-                    to="/programs/ai-risk-governance"
+                    to="/programmes/ai-risk-governance"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
@@ -73,7 +73,7 @@ export default function ExperiencedProgram() {
                     Data Officers, Compliance Teams, IT Directors
                   </p>
                   <Link
-                    to="/programs/data-risk-enterprise"
+                    to="/programmes/data-risk-enterprise"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
@@ -103,7 +103,7 @@ export default function ExperiencedProgram() {
                     Government Professionals, CNI Operators
                   </p>
                   <Link
-                    to="/programs/cniscc"
+                    to="/programmes/cniscc"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course

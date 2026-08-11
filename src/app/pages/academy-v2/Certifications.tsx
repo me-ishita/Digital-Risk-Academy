@@ -37,7 +37,7 @@ export function Certifications() {
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">Certifications & Recognition</h1>
             <p className="text-base sm:text-lg md:text-xl text-slate-300">
-              Validate your digital risk expertise with industry-recognized credentials
+              Validate your digital risk expertise with industry-recognised credentials
             </p>
           </motion.div>
         </div>
@@ -66,7 +66,7 @@ export function Certifications() {
                 "Strong financial modelling foundation",
                 "High-impact career opportunities",
               ]}
-              link="/programs/investment-banking"
+              link="/programmes/investment-banking"
               image="https://images.unsplash.com/photo-1707761918029-1295034aa31e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODZ8fGludmVzdG1lbnR8ZW58MHx8MHx8fDA%3D"
             />
 
@@ -83,7 +83,7 @@ export function Certifications() {
                 "Understanding of modern threat landscape",
                 "Career entry into GRC roles",
               ]}
-              link="/programs/digital-risk-fundamentals"
+              link="/programmes/digital-risk-fundamentals"
               image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200"
             />
 
@@ -100,7 +100,7 @@ export function Certifications() {
                 "Real-world cyber attack simulations",
                 "Job-ready from Day 1",
               ]}
-              link="/programs/cyber-resilience-practitioner"
+              link="/programmes/cyber-resilience-practitioner"
               image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200"
             />
 
@@ -117,7 +117,7 @@ export function Certifications() {
                 "Regulatory & compliance readiness",
                 "Strategic decision-making edge",
               ]}
-              link="/programs/ai-risk-governance"
+              link="/programmes/ai-risk-governance"
               image="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200"
             />
 

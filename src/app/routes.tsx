@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
       { index: true, element: <AcademyHome /> },
 
       {
-        path: "programs",
+        path: "programmes",
         children: [
           { index: true, element: <AcademyPrograms /> },
 
@@ -65,8 +65,8 @@ export const router = createBrowserRouter([
 
       // Redirects
       { path: "academy", element: <Navigate to="/" replace /> },
-      { path: "academy/programs", element: <Navigate to="/programs" replace /> },
-      { path: "academy/programs/investment-banking", element: <Navigate to="/programs/investment-banking" replace /> },
+      { path: "academy/programmes", element: <Navigate to="/programmes" replace /> },
+      { path: "academy/programmes/investment-banking", element: <Navigate to="/programmes/investment-banking" replace /> },
       { path: "academy/certifications", element: <Navigate to="/certifications" replace /> },
       { path: "academy/resources", element: <Navigate to="/resources" replace /> },
 

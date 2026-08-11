@@ -20,13 +20,13 @@ export function AcademyPrograms() {
                       </Link>
                   </div>
       {/* Hero */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white to-slate-100 relative">
+      <section className="hidden">
         <div className="container mx-auto px-4 sm:px-6">
 
           {/* Section Heading */}
           <div className="mb-8 sm:mb-12 text-center">
             <h2 className="logo-shine inline-block text-3xl sm:text-4xl md:text-5xl font-black tracking-wide uppercase leading-tight">
-              Elite Programme
+              Investment Banking Programme
             </h2>
             <p className="text-slate-800 text-base sm:text-lg mt-2">
               Newly launched flagship programme from Digital Risk Academy
@@ -56,7 +56,7 @@ export function AcademyPrograms() {
 
                 {/* Badge */}
                 <span className="inline-block mb-3 sm:mb-4 px-3 sm:px-4 py-1 bg-orange-500/20 text-orange-400 text-[11px] sm:text-xs font-semibold rounded-full border border-orange-500/30">
-                  New Launch • August Cohort
+                  Practitioner-Led Programme
                 </span>
 
                 {/* Title */}
@@ -99,7 +99,7 @@ export function AcademyPrograms() {
 
                 {/* CTA */}
                 <Link
-                  to="/programs/investment-banking"
+                  to="/programmes/investment-banking"
                   className="inline-flex items-center min-h-[48px] px-5 py-3 mt-5 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-orange-500/40 active:scale-[0.99] transition"
                 >
                   Enroll Now →
@@ -111,11 +111,48 @@ export function AcademyPrograms() {
         </div>
       </section>
 
-      {/* Featured Single Programme Section */}
       <section className="py-12 sm:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-8">
+            <div className="mb-8 sm:mb-12 text-center">
+              <h2 className="logo-shine inline-block text-3xl sm:text-4xl md:text-5xl font-black tracking-wide uppercase leading-tight">
+                All Programmes
+              </h2>
+              <p className="text-slate-800 text-base sm:text-lg mt-2">
+                Explore Digital Risk Academy programmes designed for practical career growth.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+
+              {/* INVESTMENT BANKING PROGRAMME CARD */}
+              <div className="bg-white rounded-[24px] border border-orange-200/80 shadow-[0_8px_30px_rgb(234,88,12,0.08)] flex flex-col overflow-hidden pb-8 transition-transform hover:-translate-y-1 hover:shadow-[0_12px_40px_rgb(234,88,12,0.12)]">
+                {/* Image */}
+                <div className="w-full">
+                  <img
+                    src="https://images.unsplash.com/photo-1630464373688-fb6a37ce89ed?w=800&auto=format&fit=crop&q=80"
+                    alt="Investment Banking Programme"
+                    className="w-full h-[220px] object-cover"
+                  />
+                </div>
+                {/* Content */}
+                <div className="px-8 mt-8 flex flex-col flex-grow">
+
+                  <h3 className="text-[26px] font-bold mb-5 text-black">Investment Banking Programme</h3>
+                  <p className="text-slate-500 text-[16px] mb-6 flex-grow leading-relaxed">
+                    Practitioner-led training covering investment banking fundamentals, valuation, deal workflows, governance, and digital risk in modern financial services.
+                  </p>
+                  <p className="text-slate-900 font-medium text-[15px] mb-8">
+                    Students, Graduates, Early-Career Professionals
+                  </p>
+                  <Link
+                    to="/programmes/investment-banking"
+                    className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
+                  >
+                    View Course
+                  </Link>
+                </div>
+              </div>
 
               {/* DIGITAL RISK FUNDAMENTALS CARD */}
               <div id="corporate-bespoke-training" className="bg-white rounded-[24px] border border-orange-200/80 shadow-[0_8px_30px_rgb(234,88,12,0.08)] flex flex-col overflow-hidden pb-8 transition-transform hover:-translate-y-1 hover:shadow-[0_12px_40px_rgb(234,88,12,0.12)]">
@@ -138,7 +175,7 @@ export function AcademyPrograms() {
                     New Professionals, Risk Managers, Board Members
                   </p>
                   <Link
-                    to="/programs/digital-risk-fundamentals"
+                    to="/programmes/digital-risk-fundamentals"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
@@ -167,7 +204,7 @@ export function AcademyPrograms() {
                     High-potential Graduates, Career Switchers
                   </p>
                   <Link
-                    to="/programs/cyber-resilience-practitioner"
+                    to="/programmes/cyber-resilience-practitioner"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
@@ -196,7 +233,7 @@ export function AcademyPrograms() {
                     C-Suite, Board Members, Risk Leaders
                   </p>
                   <Link
-                    to="/programs/ai-risk-governance"
+                    to="/programmes/ai-risk-governance"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
@@ -224,7 +261,7 @@ export function AcademyPrograms() {
                     Mid-to-Senior Professionals, Finance Leaders
                   </p>
                   <Link
-                    to="/programs/executive-leadership"
+                    to="/programmes/executive-leadership"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
@@ -252,41 +289,13 @@ export function AcademyPrograms() {
                     Government Professionals, CNI Operators
                   </p>
                   <Link
-                    to="/programs/cniscc"
+                    to="/programmes/cniscc"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
                   </Link>
                 </div>
               </div>
-              {/* DATA RISK FOR MODERN ENTERPRISE CARD */}
-              <div className="bg-white rounded-[24px] border border-orange-200/80 shadow-[0_8px_30px_rgb(234,88,12,0.08)] flex flex-col overflow-hidden pb-8 transition-transform hover:-translate-y-1 hover:shadow-[0_12px_40px_rgb(234,88,12,0.12)]">
-                {/* Image */}
-                <div className="w-full">
-                  <img
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800"
-                    alt="Data Risk Dashboard"
-                    className="w-full h-[220px] object-cover"
-                  />
-                </div>
-                {/* Content */}
-                <div className="px-8 mt-8 flex flex-col flex-grow">
-                  <h3 className="text-[26px] font-bold mb-5 text-black">Data Risk for Modern Enterprise</h3>
-                  <p className="text-slate-500 text-[16px] mb-6 flex-grow leading-relaxed">
-                    Comprehensive data governance, privacy protection, and regulatory compliance framework for enterprises managing complex data ecosystems.
-                  </p>
-                  <p className="text-slate-900 font-medium text-[15px] mb-8">
-                    Data Officers, Compliance Teams, IT Directors
-                  </p>
-                  <Link
-                    to="/programs/data-risk-enterprise"
-                    className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
-                  >
-                    View Course
-                  </Link>
-                </div>
-              </div>
-
               {/* CORPORATE BESPOKE TRAINING CARD */}
               <div className="bg-white rounded-[24px] border border-orange-200/80 shadow-[0_8px_30px_rgb(234,88,12,0.08)] flex flex-col overflow-hidden pb-8 transition-transform hover:-translate-y-1 hover:shadow-[0_12px_40px_rgb(234,88,12,0.12)]">
                 {/* Image */}
@@ -364,7 +373,7 @@ export function AcademyPrograms() {
                 <div className="px-8 mt-8 flex flex-col flex-grow">
                   <h3 className="text-[26px] font-bold mb-5 text-black">Introduction to Ethical Hacking</h3>
                   <p className="text-slate-500 text-[16px] mb-6 flex-grow leading-relaxed">
-                    Explore hacking fundamentals, tools, and techniques used to identify system vulnerabilities and strengthen cybersecurity defenses.
+                    Explore hacking fundamentals, tools, and techniques used to identify system vulnerabilities and strengthen cybersecurity defences.
                   </p>
                   <p className="text-slate-900 font-medium text-[15px] mb-8">
                     Students, Tech Beginners, Security Aspirants
@@ -457,10 +466,10 @@ export function AcademyPrograms() {
                 <div className="px-8 mt-8 flex flex-col flex-grow">
                   <h3 className="text-[26px] font-bold mb-5 text-black">Phishing Simulation & Awareness</h3>
                   <p className="text-slate-500 text-[16px] mb-6 flex-grow leading-relaxed">
-                    Simulate phishing attacks and train employees to recognize and respond to threats, reducing human-related security risks.
+                    Simulate phishing attacks and train employees to recognise and respond to threats, reducing human-related security risks.
                   </p>
                   <p className="text-slate-900 font-medium text-[15px] mb-8">
-                    Organizations, HR Teams, Security Leaders
+                    Organisations, HR Teams, Security Leaders
                   </p>
                   <button
                     type="button"

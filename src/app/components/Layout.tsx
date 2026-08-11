@@ -8,7 +8,7 @@ export function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const isProgramPage = location.pathname.startsWith("/programs");
+  const isProgramPage = location.pathname.startsWith("/programmes");
   const brandName = "Digital Risk Academy";
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export function Layout() {
                 </button>
                 <div className="absolute top-full left-0 mt-2 w-52 bg-slate-900 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-slate-800 overflow-hidden">
                   <Link to="/" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Academy Home</Link>
-                  <Link to="/programs" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">All Programmes</Link>
+                  <Link to="/programmes" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">All Programmes</Link>
                   <Link to="/certifications" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Certifications</Link>
                 </div>
               </div>
@@ -93,8 +93,8 @@ export function Layout() {
                 Research
               </Link>
 
-              <Link to="/register" className="px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full transition-all duration-300 shadow-md hover:shadow-orange-500/40">
-                Register
+              <Link to="/contact" className="px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full transition-all duration-300 shadow-md hover:shadow-orange-500/40">
+                Contact Us
               </Link>
             </div>
 
@@ -127,7 +127,7 @@ export function Layout() {
                   Academy Home
                 </Link>
                 <Link
-                  to="/programs"
+                  to="/programmes"
                   className="block py-2 pl-4 text-sm text-slate-400 hover:text-orange-500"
                 >
                   Programmes
@@ -159,10 +159,10 @@ export function Layout() {
                   Research
                 </Link>
                 <Link
-                  to="/register"
+                  to="/contact"
                   className="block mt-4 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl text-center font-semibold"
                 >
-                  Register
+                  Contact Us
                 </Link>
               </motion.div>
             )}
@@ -217,7 +217,7 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/programs" className="text-slate-400 hover:text-white transition-colors">
+                <Link to="/programmes" className="text-slate-400 hover:text-white transition-colors">
                   Programmes
                 </Link>
               </li>
@@ -250,6 +250,11 @@ function Footer() {
               <li>
                 <Link to="/register" className="text-slate-400 hover:text-white transition-colors">
                   Register
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-slate-400 hover:text-white transition-colors">
+                  Contact Us
                 </Link>
               </li>
             </ul>

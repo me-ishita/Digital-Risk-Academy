@@ -131,7 +131,7 @@ export function ProgramDetail() {
             <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Why This Matters</h2>
             <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 sm:p-8">
               <p className="text-slate-300 text-base sm:text-lg mb-4">
-                GRC professionals are in high demand across all industries. Organizations need skilled practitioners who can navigate complex regulatory environments, build effective governance frameworks, and manage risk strategically.
+                GRC professionals are in high demand across all industries. Organisations need skilled practitioners who can navigate complex regulatory environments, build effective governance frameworks, and manage risk strategically.
               </p>
               <p className="text-slate-300 text-base sm:text-lg">
                 This program provides the practical, hands-on experience needed to succeed in GRC roles, with real-world projects that build a portfolio you can showcase to employers.

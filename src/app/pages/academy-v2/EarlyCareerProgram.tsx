@@ -15,7 +15,7 @@ export default function EarlyCareerProgram() {
             </div>
         <div className="text-center mb-14">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Programs for Early Career Professionals
+            Programmes for Early Career Professionals
           </h1>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
             Advance your career with specialised risk expertise and hands-on practitioner training.
@@ -42,7 +42,7 @@ export default function EarlyCareerProgram() {
                 Junior Analysts, Associate-Level Professionals
               </p>
               <Link
-                to="/programs/investment-banking"
+                to="/programmes/investment-banking"
                 className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
               >
                 View Course
@@ -68,7 +68,7 @@ export default function EarlyCareerProgram() {
                 Security Analysts, IT Professionals (1–4 yrs)
               </p>
               <Link
-                to="/programs/cyber-resilience-practitioner"
+                to="/programmes/cyber-resilience-practitioner"
                 className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
               >
                 View Course
@@ -94,7 +94,7 @@ export default function EarlyCareerProgram() {
                 Risk Coordinators, Compliance Associates
               </p>
               <Link
-                to="/programs/digital-risk-fundamentals"
+                to="/programmes/digital-risk-fundamentals"
                 className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
               >
                 View Course
