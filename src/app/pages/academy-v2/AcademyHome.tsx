@@ -5,6 +5,10 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { COURSE_DETAILS, logPayment } from "../../lib/api";
 import { FlippingCards } from "@/app/components/FlippingCards";
+import deveshMehtaImage from "../../../assets/Devesh Mehta.jpeg";
+import manuSharmaImage from "../../../assets/Manu Sharma.jpeg";
+import melissaDembroskyImage from "../../../assets/Melissa Dembrosky.jpeg";
+import rishiSharmaImage from "../../../assets/Rishi Sharma.jpeg";
 import {
   ChevronLeft,
   ChevronRight,
@@ -38,6 +42,7 @@ const staggerContainer = {
 
 
 const ACADEMY_SLIDE_DURATION = 4000;
+const ADVISOR_SLIDE_DURATION = 5200;
 const HERO_PIN_HEIGHT_CLASS = "h-auto md:h-[150vh]";
 const HERO_WORD_DURATION_MS = 380;
 const HERO_WORD_STAGGER_MS = 70;
@@ -116,28 +121,45 @@ const academyImpactSlides = [
   },
 ];
 
-const validatedOutcomes = [
+const advisoryTeam = [
   {
-    title: "Career Progression",
-    value: "92%",
-    detail: "of graduates achieve career advancement within 12 months",
+    name: "Rishi Sharma",
+    intro: "AI & Digital Transformation Leader",
+    role: "Chief Operating Officer (COO) of Global Credit Technology at Citadel",
+    description:
+      "Driving innovation through technology, AI, and strategic transformation to help organisations build sustainable, future-focused business models.",
+    image: rishiSharmaImage,
+    imageClassName: "",
   },
   {
-    title: "Salary Increase",
-    value: "35%",
-    detail: "average salary uplift for programme completers",
+    name: "Manu Sharma",
+    intro: "Business Strategy & Cybersecurity Expert",
+    role: "Partner at Grant Thornton UK LLP, Head of Cybersecurity, Technology Advisory, and Assurance",
+    description:
+      "Helping organisations navigate growth, leadership challenges, and organisational transformation through strategic thinking and practical execution.",
+    image: manuSharmaImage,
+    imageClassName: "",
   },
   {
-    title: "Incident Reduction",
-    value: "40%",
-    detail: "decrease in security incidents for corporate partners",
+    name: "Devesh Mehta",
+    intro: "Risk & Financial Services Specialist",
+    role: "CEO and Co-Founder at Levrara Consulting Group Ltd, Ex-EMEA CFO & CAO, Nomura International",
+    description:
+      "Bringing extensive experience in risk management, governance, and financial services to strengthen resilience and support informed decision-making.",
+    image: deveshMehtaImage,
+    imageClassName: "",
   },
   {
-    title: "Satisfaction Rate",
-    value: "95%",
-    detail: "would recommend Academy programmes to colleagues",
+    name: "Melissa Dembrosky",
+    intro: "Leadership & Organisational Development Specialist",
+    role: "Senior FS Technology Executive (ex-JP Morgan, Citi, HSBC, LSEG)",
+    description:
+      "Supporting leaders and organisations in developing high-performing teams, strengthening governance, and building long-term organisational capability.",
+    image: melissaDembroskyImage,
+    imageClassName: "",
   },
 ];
+
 
 const storyExpandItems = [
   {
@@ -1259,7 +1281,7 @@ export function AcademyHome() {
         </div>
       </section>
 
-      {/* Validated Outcomes */}
+      {/* Leadership & Advisory Team */}
       <section className="py-16 sm:py-20 md:py-24 bg-white text-slate-900">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
@@ -1268,31 +1290,13 @@ export function AcademyHome() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Validated Outcomes</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">The Minds Behind the Academy</h2>
             <p className="text-base sm:text-lg text-slate-500 max-w-3xl mx-auto px-2">
-              Our rigorous approach to capability development delivers measurable outcomes across learner and enterprise cohorts.
+              Learn from accomplished professionals with real-world experience across technology, governance, cybersecurity, risk, and business transformation.
             </p>
           </motion.div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            {validatedOutcomes.map((item) => (
-              <motion.div
-                key={item.title}
-                variants={fadeInUp}
-                className="rounded-2xl border border-orange-200/70 shadow-md shadow-orange-100 p-6 text-center bg-white"
-              >
-                <p className="text-sm font-semibold uppercase tracking-[0.1em] text-orange-500 mb-2">{item.value}</p>
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{item.detail}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+          <AdvisorSlideshow />
         </div>
       </section>
 
@@ -1507,6 +1511,113 @@ function TrackCard({
           {/* Text */}
           <span className="relative z-10">View Course</span>
         </Link>
+      </div>
+    </motion.div>
+  );
+}
+
+function AdvisorSlideshow() {
+  const [current, setCurrent] = useState(0);
+  const total = advisoryTeam.length;
+  const advisor = advisoryTeam[current];
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrent((c) => (c + 1) % total);
+    }, ADVISOR_SLIDE_DURATION);
+
+    return () => clearInterval(id);
+  }, [total]);
+
+  return (
+    <motion.div
+      className="relative max-w-5xl mx-auto"
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div className="relative overflow-hidden rounded-lg border border-slate-200 bg-slate-950 shadow-[0_16px_42px_rgba(15,23,42,0.12)]">
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(15,23,42,0.97),rgba(30,41,59,0.94)_56%,rgba(88,28,12,0.86))]" />
+        <div className="relative grid min-h-[420px] grid-cols-1 overflow-hidden md:min-h-[360px] lg:grid-cols-[0.72fr_1.28fr]">
+          <div className="relative flex min-h-[240px] items-center justify-center overflow-hidden border-b border-white/10 p-5 md:min-h-[280px] md:p-7 lg:min-h-full lg:border-b-0 lg:border-r">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={advisor.name}
+                initial={{ opacity: 0, scale: 1.04 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.75, ease: "easeInOut" }}
+                className="relative z-10 h-[210px] w-[210px] overflow-hidden rounded-lg border border-white/25 bg-white/8 p-2 shadow-[0_12px_30px_rgba(0,0,0,0.18)] sm:h-[230px] sm:w-[230px] md:h-[250px] md:w-[250px] lg:h-[270px] lg:w-[270px]"
+              >
+                <img
+                  src={advisor.image}
+                  alt={advisor.name}
+                  className={`h-full w-full rounded-md object-contain ${advisor.imageClassName}`}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </motion.div>
+            </AnimatePresence>
+            <div className="absolute inset-0 bg-slate-950/20" />
+          </div>
+
+          <div className="relative flex items-center px-5 py-7 sm:px-7 md:px-10 lg:px-12">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`${advisor.name}-content`}
+                initial={{ opacity: 0, x: 28 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="max-w-2xl"
+              >
+                <p className="mb-3 inline-flex max-w-full rounded-full border border-orange-300/20 bg-orange-300/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-orange-200">
+                  {advisor.intro}
+                </p>
+                <h3 className="text-2xl font-extrabold leading-tight text-white sm:text-3xl md:text-4xl">
+                  {advisor.name}
+                </h3>
+                <p className="mt-4 inline-flex max-w-xl py-2 text-sm font-semibold leading-6 text-orange-100 sm:text-[15px]">
+                  {advisor.role}
+                </p>
+                <div className="my-5 h-px w-20 bg-gradient-to-r from-orange-400 to-blue-300" />
+                <p className="text-sm leading-7 text-slate-200 sm:text-base">
+                  {advisor.description}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-5 flex items-center justify-center gap-3">
+        <button
+          onClick={() => setCurrent((current - 1 + total) % total)}
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-600 transition-colors hover:border-orange-400 hover:text-orange-500"
+          aria-label="Previous advisor"
+        >
+          <ChevronLeft className="h-4 w-4" />
+        </button>
+
+        <div className="flex items-center gap-2">
+          {advisoryTeam.map((member, i) => (
+            <button
+              key={member.name}
+              onClick={() => setCurrent(i)}
+              className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? "w-7 bg-orange-500" : "w-1.5 bg-slate-300 hover:bg-slate-400"}`}
+              aria-label={`Show ${member.name}`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={() => setCurrent((current + 1) % total)}
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-600 transition-colors hover:border-orange-400 hover:text-orange-500"
+          aria-label="Next advisor"
+        >
+          <ChevronRight className="h-4 w-4" />
+        </button>
       </div>
     </motion.div>
   );

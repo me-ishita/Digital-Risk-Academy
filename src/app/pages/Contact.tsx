@@ -471,7 +471,7 @@ export function Contact() {
 
       {/* =====================================================
           CONSULTATION
-      ===================================================== */}
+      ===================================================== 
       <section className="py-12 sm:py-16 md:py-20 bg-[#0D0D0D] border-t border-[#211E18]">
 
         <div className="container mx-auto px-4 sm:px-6">
@@ -487,7 +487,7 @@ export function Contact() {
             </p>
 
             <a
-              href="mailto:info@digitalrisklabs.com?subject=Consultation%20Request"
+              href="mailto:info@digitalrisklabs.com?subject=Schedule%20a%20Consultation&body=Hello%20Digital%20Risk%20Academy%20team%2C%0A%0AI%20would%20like%20to%20schedule%20a%20consultation.%0A%0AThank%20you."
               className="inline-flex items-center gap-2 min-h-13 px-6 sm:px-8 py-3.5 sm:py-4 bg-orange-500 text-[#0D0D0D] rounded-md font-semibold hover:bg-orange-600 active:scale-[0.99] transition-all"
             >
               <Mail className="w-5 h-5" />
@@ -498,7 +498,7 @@ export function Contact() {
 
         </div>
 
-      </section>
+      </section>*/}
 
     </div>
   );
