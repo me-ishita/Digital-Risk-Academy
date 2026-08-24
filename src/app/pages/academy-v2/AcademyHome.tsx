@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { COURSE_DETAILS, logPayment } from "../../lib/api";
 import { FlippingCards } from "@/app/components/FlippingCards";
 import deveshMehtaImage from "../../../assets/Devesh Mehta.jpeg";
+import jonHoldenImage from "../../../assets/Jon-Holden.webp";
 import manuSharmaImage from "../../../assets/Manu Sharma.jpeg";
 import melissaDembroskyImage from "../../../assets/Melissa Dembrosky.jpeg";
 import rishiSharmaImage from "../../../assets/Rishi Sharma.jpeg";
@@ -151,11 +152,20 @@ const advisoryTeam = [
   },
   {
     name: "Melissa Dembrosky",
-    intro: "Leadership & Organisational Development Specialist",
+    intro: "Senior Investment Banking Technology Leader",
     role: "Senior FS Technology Executive (ex-JP Morgan, Citi, HSBC, LSEG)",
     description:
-      "Supporting leaders and organisations in developing high-performing teams, strengthening governance, and building long-term organisational capability.",
+      "A senior technology leader with 25+ years of experience across financial services, including JP Morgan, Lloyds Banking Group, HSBC and Citibank. She turns complex AI, cyber and data risks into clear board-level insight, strengthening governance and confident technology adoption.",
     image: melissaDembroskyImage,
+    imageClassName: "",
+  },
+  {
+    name: "Jon Holden",
+    intro: "Cybersecurity & Digital Resilience Leader",
+    role: "CEO of CyberNorth, Former CISO at Atom Bank",
+    description:
+      "A seasoned cybersecurity executive with 30+ years across global banking, financial technology and digital security. As CEO of CyberNorth, he champions regional and national cyber resilience while supporting a growing ecosystem across fintech, space, maritime and defence.",
+    image: jonHoldenImage,
     imageClassName: "",
   },
 ];
