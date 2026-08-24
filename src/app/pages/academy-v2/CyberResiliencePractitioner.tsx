@@ -263,7 +263,7 @@ export default function CyberResiliencePractitioner() {
                 <Calendar className="w-8 h-8" />
               </div>
               <h4 className="font-bold text-lg mb-1">Next Cohort</h4>
-              <p className="text-[#cd5c30] font-medium text-sm mb-4">September 2025</p>
+              <p className="text-[#cd5c30] font-medium text-sm mb-4">September 2027</p>
               <p className="text-slate-500 text-sm">Applications close 15 August</p>
             </div>
 
@@ -272,7 +272,7 @@ export default function CyberResiliencePractitioner() {
                 <span className="text-3xl font-bold">£</span>
               </div>
               <h4 className="font-bold text-lg mb-1">Programme Fee</h4>
-              <p className="text-[#cd5c30] font-medium text-sm mb-4">£12,500</p>
+              <p className="text-[#cd5c30] font-medium text-sm mb-4">£200</p>
               <p className="text-slate-500 text-sm">Payment plans available</p>
             </div>
 

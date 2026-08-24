@@ -47,13 +47,13 @@ export default function AIRiskGovernance() {
                 <div>
                   <div className="font-bold text-slate-900">Next Cohort</div>
                   <div className="text-slate-500 text-sm mt-1 flex flex-col gap-1">
-                    <span>Start Date : 15 March 2025</span>
-                    <span>Application Deadline : 28 February 2025</span>
+                    <span>Start Date : 15 March 2026</span>
+                    <span>Application Deadline : 28 February 2026</span>
                   </div>
                 </div>
                 <div>
                   <div className="font-bold text-slate-900">Availability</div>
-                  <div className="text-slate-500 text-sm mt-1">6 seats remaining</div>
+                  <div className="text-slate-500 text-sm mt-1">50 seats remaining</div>
                 </div>
               </div>
 
