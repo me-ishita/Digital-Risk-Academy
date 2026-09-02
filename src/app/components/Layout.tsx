@@ -50,12 +50,12 @@ export function Layout() {
                 className="h-9 w-9 sm:h-11 sm:w-11 object-contain rounded-sm shrink-0"
               />
               <div className="flex flex-col leading-none min-w-0">
-                <span className="font-display text-lg sm:text-2xl md:text-3xl font-bold tracking-tight truncate">
+                <span className="font-display text-lg sm:text-xl md:text-2xl font-bold tracking-tight truncate">
                   <span className="logo-shine">
                     {brandName}
                   </span>
                 </span>
-                <span className="hidden sm:block text-[11px] font-bold tracking-[0.28em] text-slate-200 uppercase mt-1">
+                <span className="hidden sm:block text-[9px] font-bold tracking-[0.28em] text-slate-200 uppercase mt-1">
                   Trust · Resilience · Innovation
                 </span>
               </div>

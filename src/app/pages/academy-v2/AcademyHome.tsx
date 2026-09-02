@@ -4,12 +4,13 @@ import { Link } from "react-router";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { COURSE_DETAILS, logPayment } from "../../lib/api";
-import { FlippingCards } from "@/app/components/FlippingCards";
-import deveshMehtaImage from "../../../assets/Devesh Mehta.jpeg";
-import jonHoldenImage from "../../../assets/Jon-Holden.webp";
-import manuSharmaImage from "../../../assets/Manu Sharma.jpeg";
-import melissaDembroskyImage from "../../../assets/Melissa Dembrosky.jpeg";
-import rishiSharmaImage from "../../../assets/Rishi Sharma.jpeg";
+import deveshMehtaImage from "../../../assets/Devesh Mehta.png";
+import jonHoldenImage from "../../../assets/Jon-Holden.png";
+import manuSharmaImage from "../../../assets/Manu Sharma.png";
+import melissaDembroskyImage from "../../../assets/Melissa Dembrosky.png";
+import rishiSharmaImage from "../../../assets/Rishi Sharma.png";
+import linkedinCircleIcon from "../../../assets/linkedin.png";
+
 import {
   ChevronLeft,
   ChevronRight,
@@ -24,6 +25,9 @@ import {
   BookOpen,
   TrendingUp,
   Landmark,
+  Linkedin,
+  MapPin,
+  X,
 } from "lucide-react";
 
 const fadeInUp = {
@@ -40,10 +44,6 @@ const staggerContainer = {
   },
 };
 
-
-
-const ACADEMY_SLIDE_DURATION = 4000;
-const ADVISOR_SLIDE_DURATION = 5200;
 const HERO_PIN_HEIGHT_CLASS = "h-auto md:h-[150vh]";
 const HERO_WORD_DURATION_MS = 380;
 const HERO_WORD_STAGGER_MS = 70;
@@ -79,92 +79,127 @@ function WordRevealLine({
   );
 }
 
-const academyStorySlides = [
-  {
-    heading: "Where It Began",
-    body: "Digital Risk Academy was founded on a simple conviction: that world-class digital risk education should be accessible, practical, and built for the realities of today's threat landscape — not yesterday's textbooks.",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=55&w=720&auto=format&fit=crop",
-  },
-  {
-    heading: "The Gap We Saw",
-    body: "Organisations were hiring talent with credentials but not capability. Professionals had theoretical knowledge but struggled with real-world application. We built the Academy to bridge that gap — from classroom to boardroom.",
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=55&w=720&auto=format&fit=crop",
-  },
-  {
-    heading: "Built for Practitioners",
-    body: "Every programme is designed by practitioners who have led risk functions, responded to incidents, and advised boards. This is education with real-world DNA — built to produce professionals who are ready from day one.",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=55&w=720&auto=format&fit=crop",
-  },
-];
-
-const academyVisionSlides = [
-  {
-    heading: "Our Global Vision",
-    body: "To become the leading global academy for digital risk capability — equipping the next generation of cyber, AI risk, and governance professionals to lead with clarity, confidence, and integrity.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=55&w=720&auto=format&fit=crop",
-  },
-  {
-    heading: "Future We're Building",
-    body: "We envision a world where digital risk is understood at every level of an organisation — where security awareness is cultural, governance is embedded, and emerging technologies are adopted with wisdom. That starts with education.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=55&w=720&auto=format&fit=crop",
-  },
-];
-const academyImpactSlides = [
-  {
-    image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGludmVzdG1lbnR8ZW58MHx8MHx8fDA%3D",
-    heading: "Scholarship & Support",
-    body: "We provide opportunities through scholarships and inclusive programmes, ensuring that motivated learners can access high-quality digital risk education regardless of their background."
-  },
-  {
-    image: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGludmVzdG1lbnR8ZW58MHx8MHx8fDA%3D",
-    heading: "Accessible Learning",
-    body: "Beyond learning, we support your journey with practical exposure, mentorship, and industry-aligned training to help you confidently step into high-impact roles."
-  },
-];
-
 const advisoryTeam = [
   {
-    name: "Rishi Sharma",
-    intro: "AI & Digital Transformation Leader",
-    role: "Chief Operating Officer (COO) of Global Credit Technology at Citadel",
-    description:
-      "Driving innovation through technology, AI, and strategic transformation to help organisations build sustainable, future-focused business models.",
-    image: rishiSharmaImage,
-    imageClassName: "",
-  },
-  {
     name: "Manu Sharma",
-    intro: "Business Strategy & Cybersecurity Expert",
-    role: "Partner at Grant Thornton UK LLP, Head of Cybersecurity, Technology Advisory, and Assurance",
+    intro: "Cybersecurity & Digital Resilience Expert",
+    role: "Visiting Professor, Imperial College London · Partner, Grant Thornton UK LLP",
+    summary: "Cybersecurity · Digital Resilience · Technology Risk",
     description:
-      "Helping organisations navigate growth, leadership challenges, and organisational transformation through strategic thinking and practical execution.",
+      "Manu brings a distinctive blend of academic and industry experience across cybersecurity, technology risk and digital resilience.",
+    profile:
+      "Manu Sharma is an experienced cybersecurity and technology risk leader with a strong track record across professional services, digital resilience and advisory. Alongside his industry leadership, he brings an academic perspective through his role as Visiting Professor at Imperial College London. His experience spans cybersecurity strategy, technology risk, digital resilience and helping organisations navigate complex technology and business challenges.",
+    areas: [
+      "Cybersecurity",
+      "Digital Resilience",
+      "Technology Risk",
+      "Cyber Risk Advisory",
+      "Technology Strategy",
+    ],
+    industryPerspective:
+      "Manu brings together academic insight and practical industry experience, offering a perspective on how organisations can strengthen resilience, manage technology risk and respond to an increasingly complex digital environment.",
+    location: "London, United Kingdom",
+    linkedin: "https://www.linkedin.com/in/manusharmauk/",
     image: manuSharmaImage,
     imageClassName: "",
   },
   {
     name: "Devesh Mehta",
     intro: "Risk & Financial Services Specialist",
-    role: "CEO and Co-Founder at Levrara Consulting Group Ltd, Ex-EMEA CFO & CAO, Nomura International",
+    role: "CEO & Co-Founder, Levrara Consulting Group",
+    secondaryRole: "Financial Services Strategy & Transformation Leader",
+    summary: "Financial Services · Risk & Finance · Transformation · Strategic Advisory",
     description:
-      "Bringing extensive experience in risk management, governance, and financial services to strengthen resilience and support informed decision-making.",
+      "Devesh brings extensive experience across financial services leadership, consulting and complex business transformation.",
+    profile:
+      "Devesh Mehta is a financial services executive, entrepreneur and strategic advisor with extensive experience across consulting, risk, finance and business transformation. He has held senior leadership roles at Nomura and Grant Thornton before founding Levrara Consulting Group, where he advises financial institutions and high-growth organisations on risk, transformation and strategic change.",
+    areas: [
+      "Financial Services Strategy",
+      "Risk & Finance Transformation",
+      "Business & Operating Model Change",
+      "Strategic Advisory",
+      "Governance & Controls",
+      "Financial Services Consulting",
+    ],
+    industryPerspective:
+      "Devesh brings a combination of senior financial-services leadership, consulting expertise and entrepreneurial experience. His perspective spans both the strategic decisions organisations need to make and the practical execution required to deliver complex transformation. His experience across banking, professional services and entrepreneurship provides a valuable perspective on how organisations can navigate change while strengthening governance, efficiency and resilience.",
+    location: "Greater London, England, United Kingdom",
+    linkedin: "https://www.linkedin.com/in/devesh-mehta-86672a88/",
     image: deveshMehtaImage,
     imageClassName: "",
   },
   {
-    name: "Melissa Dembrosky",
-    intro: "Senior Investment Banking Technology Leader",
-    role: "Senior FS Technology Executive (ex-JP Morgan, Citi, HSBC, LSEG)",
+    name: "Rishi Sharma",
+    intro: "Technology & Capital Markets Leader",
+    role: "Ex COO, Global Credit Technology — Citadel",
+    secondaryRole: "Technology & Capital Markets Leader",
+    summary: "Technology · Capital Markets · Quantitative Strategies",
     description:
-      "A senior technology leader with 25+ years of experience across financial services, including JP Morgan, Lloyds Banking Group, HSBC and Citibank. She turns complex AI, cyber and data risks into clear board-level insight, strengthening governance and confident technology adoption.",
+      "Rishi is a technology and capital markets leader with experience spanning global credit technology, quantitative strategies, trading and enterprise risk analytics.",
+    profile:
+      "Rishi Sharma is a technology and capital markets leader with extensive experience building and scaling technology-driven businesses within global financial markets. During his tenure at Citadel, Rishi served as Chief Operating Officer of Global Credit Technology, following leadership roles spanning quantitative strategies and trading, product management, and enterprise risk and analytics. His experience sits at the intersection of investment, technology and capital markets, with a strong focus on translating complex financial and technology challenges into scalable business and technology solutions.",
+    areas: [
+      "Capital Markets",
+      "Financial Technology",
+      "Quantitative Strategies & Trading",
+      "Technology Leadership",
+      "Risk & Analytics",
+      "Product Strategy",
+    ],
+    industryPerspective:
+      "Rishi brings a practitioner-led perspective on how technology can enable innovation, scalability and better decision-making across complex financial markets. His experience spans both technology leadership and the business challenges of modern investment and trading environments.",
+    location: "New York, United States",
+    linkedin: "https://www.linkedin.com/in/sharmarishi/",
+    image: rishiSharmaImage,
+    imageClassName: "",
+  },
+  {
+    name: "Melissia Dembrosky",
+    intro: "Senior Investment Banking Technology Expert",
+    role: "Senior FS Technology Executive (ex- JP Morgan, Citi, HSBC, LSEG)",
+    secondaryRole: "Senior Investment Banking Technology Executive",
+    summary: "Technology Transformation · Digital Assets · AI · Capital Markets",
+    description:
+      "Melissia brings extensive experience leading technology transformation across global financial markets and financial-services organisations.",
+    profile:
+      "Melissia is a senior technology leader with 25+ years experience in strategy, transformation and emerging technology across financial services, including JP Morgan, Lloyds Banking Group, HSBC and Citibank. She builds technology and turns complex AI and cyber risks into clear, board-relevant insights, strengthening governance and enabling informed decisions on AI adoption, data protection and cyber resilience.",
+    areas: [
+      "Technology Transformation",
+      "Digital Assets & Emerging Technology",
+      "Artificial Intelligence",
+      "Financial & Capital Markets",
+      "Trade Finance",
+      "Technology Strategy",
+    ],
+    industryPerspective:
+      "Melissia brings a strong understanding of how technology, financial markets and emerging innovation intersect. Her experience in large-scale transformation provides a practical perspective on navigating technology change within complex, highly regulated financial environments.",
+    location: "United Kingdom",
+    linkedin: "https://www.linkedin.com/in/melissiadembrosky/",
     image: melissaDembroskyImage,
     imageClassName: "",
   },
   {
     name: "Jon Holden",
-    intro: "Cybersecurity & Digital Resilience Leader",
-    role: "CEO of CyberNorth, Former CISO at Atom Bank",
+    intro: "Cybersecurity Leader & Industry Mentor",
+    role: "CEO, CyberNorth · Co-Founder, MOTHER · ​Chief Information Security Officer, Atom Bank",
+    secondaryRole: "Cybersecurity Leader & Industry Mentor",
+    summary: "Cybersecurity · AI · Leadership · Resilience",
     description:
-      "A seasoned cybersecurity executive with 30+ years across global banking, financial technology and digital security. As CEO of CyberNorth, he champions regional and national cyber resilience while supporting a growing ecosystem across fintech, space, maritime and defence.",
+      "Jon is a cybersecurity leader, advisor and mentor with extensive experience helping organisations navigate security, resilience, technology and leadership challenges.",
+    profile:
+      "Jon Holden is a Seasoned cybersecurity executive and strategic leader with over 30 years of experience spanning global banking, financial technology, and digital security. Recognized for driving regional and national digital resilience. Currently serving as CEO of CyberNorth, championing North East England’s cyber security cluster. Jon also Directs the strategic growth and regional/national impact of CyberNorth, supporting over 100 member businesses and 2,000+ professionals across fintech, space, maritime, and defence sectors. ​Chief Information Security Officer (CISO) | Atom Bank ",
+    areas: [
+      "Cybersecurity",
+      "Cyber Resilience",
+      "Security Leadership",
+      "AI & Emerging Technology",
+      "Risk & Security Strategy",
+      "Executive Advisory",
+    ],
+    industryPerspective:
+      "Jon brings a practitioner-first perspective to cybersecurity, focusing on the intersection of people, technology, leadership and resilience. His experience working with organisations and the wider cyber community provides a practical view of how security needs to evolve alongside emerging technologies.",
+    location: "Durham, England, United Kingdom",
+    linkedin: "https://www.linkedin.com/in/jonholden/",
     image: jonHoldenImage,
     imageClassName: "",
   },
@@ -284,60 +319,6 @@ function ExpandableList({
     </ul>
   );
 }
-
-const storyCycleItems = [
-  {
-    heading: "Where It Began",
-    body: "Digital Risk Academy was founded on a simple conviction: that world-class digital risk education should be accessible, practical, and built for the realities of today's threat landscape — not yesterday's textbooks.",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=70&w=900&auto=format&fit=crop",
-  },
-  {
-    heading: "The Gap We Saw",
-    body: "Organisations were hiring talent with credentials but not capability. Professionals had theoretical knowledge but struggled with real-world application. We built the Academy to bridge that gap — from classroom to boardroom.",
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=70&w=900&auto=format&fit=crop",
-  },
-  {
-    heading: "Built by Practitioners",
-    body: "Every programme is designed by practitioners who have led risk functions, responded to incidents, and advised boards. This is education with real-world DNA — built to produce professionals who are ready from day one.",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=70&w=900&auto=format&fit=crop",
-  },
-];
-
-const visionCycleItems = [
-  {
-    heading: "Our Global Vision",
-    body: "To become the leading global academy for digital risk capability — equipping the next generation of cyber, AI risk, and governance professionals to lead with clarity, confidence, and integrity.",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=70&w=900&auto=format&fit=crop",
-  },
-  {
-    heading: "Future We're Building",
-    body: "We envision a world where digital risk is understood at every level of an organisation — where security awareness is cultural, governance is embedded, and emerging technologies are adopted with wisdom. That starts with education.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=70&w=900&auto=format&fit=crop",
-  },
-  {
-    heading: "Bridging the Gap",
-    body: "Industry-aligned skills designed for real-world impact to make the candidates job ready.",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=70&w=900&auto=format&fit=crop",
-  },
-];
-
-const socialCycleItems = [
-  {
-    heading: "Accessible Learning for All",
-    body: "Breaking barriers so every learner can access high-quality education — regardless of geography, background, or prior credentials.",
-    image: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=70&w=900&auto=format&fit=crop",
-  },
-  {
-    heading: "Scholarships & Support",
-    body: "Ensuring financial limitations never stop talent from growing. Scholarships, mentorship, and inclusive pathways for motivated learners.",
-    image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?q=70&w=900&auto=format&fit=crop",
-  },
-  {
-    heading: "Global Community",
-    body: "A diverse ecosystem of learners, mentors, and innovators worldwide — shaping the future of digital risk together.",
-    image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=70&w=900&auto=format&fit=crop",
-  },
-];
 
 function DropdownList({
   items,
@@ -491,278 +472,6 @@ const leaderQuotes = [
     role: "Industry Working Group",
   },
 ];
-
-
-/*function StoryVisionImpactSection() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => prev + 1);
-    }, 3500);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const story = academyStorySlides[index % academyStorySlides.length];
-  const vision = academyVisionSlides[index % academyVisionSlides.length];
-  const impact = academyImpactSlides[index % academyImpactSlides.length];
-
-  const cards = [
-    { title: "Our Story", data: story, icon: BookOpen },
-    { title: "Our Vision", data: vision, icon: Target },
-    { title: "Social Impact", data: impact, icon: Users },
-  ];
-
-  return (
-    <section className="py-28 bg-black text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 120 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-10"
-        >
-          {cards.map((card, i) => {
-            const Icon = card.icon;
-
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 150, rotateY: 90 }}
-                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-                transition={{ delay: i * 0.2, duration: 0.8 }}
-                viewport={{ once: true }}
-                className="relative h-[420px] perspective"
-              >
-                <motion.div
-                  key={index}
-                  initial={{ rotateY: 90, opacity: 0 }}
-                  animate={{ rotateY: 0, opacity: 1 }}
-                  transition={{ duration: 0.7 }}
-                  className="absolute inset-0 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-xl"
-                >
-                  <img
-                    src={card.data.image}
-                    className="w-full h-40 object-cover"
-                  />
-
-                  <div className="p-6">
-                    <Icon className="w-8 h-8 mb-3 text-white/80" />
-
-                    <h3 className="text-lg font-semibold mb-2">
-                      {card.title}
-                    </h3>
-
-                    <h4 className="text-sm text-white/60 mb-2">
-                      {card.data.heading}
-                    </h4>
-
-                    <p className="text-sm text-white/70">
-                      {card.data.body}
-                    </p>
-                  </div>
-                </motion.div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </div>
-    </section>
-  );
-}*/
-
-
-export default function InvestmentBankingCard() {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.02, y: -6 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="relative z-10 w-full max-w-6xl mx-auto rounded-[32px] overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.25)] border border-white/10 min-h-[420px] md:min-h-[500px]"    >
-
-      {/* VIDEO BACKGROUND */}
-      <div className="absolute inset-0">
-        <video
-          src="/Investment Banking.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-110"
-        />
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]" />
-      </div>
-
-      {/* CONTENT */}
-      <div className="relative z-10 p-8 md:p-14 text-white flex flex-col gap-8">
-
-        {/* Title */}
-        <h2 className="leading-tight text-center md:text-left">
-          <span className="block logo-shine text-4xl md:text-6xl font-extrabold tracking-wide uppercase text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]">
-            Investment Banking Programme
-          </span>
-        </h2>
-
-        {/* Highlights */}
-        <div className="grid md:grid-cols-1 gap-y-3 sm:gap-y-4 gap-x-6">
-
-          <div className="flex items-center gap-3">
-            <Users className="w-5 h-5 text-orange-400 shrink-0" />
-            <span className="text-base md:text-lg font-semibold text-slate-100">
-              For students & early-career professionals
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Landmark className="w-5 h-5 text-orange-400 shrink-0" />
-            <span className="text-base md:text-lg font-semibold text-slate-100">
-              Real-world banking scenarios
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Briefcase className="w-5 h-5 text-orange-400 shrink-0" />
-            <span className="text-base md:text-lg font-semibold text-slate-100">
-              Career guidance & mentorship
-            </span>
-          </div>
-
-        </div>
-        {/* Pricing + CTA */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-4">
-
-          {/* Price */}
-          <div className="flex items-center gap-4">
-            <span className="text-white/40 line-through text-xl">
-              ₹50,000
-            </span>
-            <span className="text-3xl md:text-4xl font-bold text-orange-400">
-              ₹38,750
-            </span>
-            <span className="text-sm text-orange-300 bg-orange-500/20 px-3 py-1 rounded-full border border-orange-400/30">
-              Early Access
-            </span>
-          </div>
-
-          {/* CTA */}
-          <Link
-            to="/programmes/investment-banking"
-            className="px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300"
-          >
-            Apply Now →
-          </Link>
-
-        </div>
-      </div>
-
-    </motion.div>
-  );
-}
-
-function MobileStoryVisionImpact({ className = "" }: { className?: string }) {
-  const scrollerRef = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(0);
-
-  const cards: { title: string; items: { title: string; body: string }[]; accent: "orange" | "blue" | "emerald" }[] = [
-    { title: "Our Story", items: storyExpandItems, accent: "orange" },
-    { title: "Our Vision", items: visionExpandItems, accent: "blue" },
-    { title: "Social Impact", items: socialExpandItems, accent: "emerald" },
-  ];
-
-  useEffect(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    let frame: number | null = null;
-
-    const syncActiveCard = () => {
-      const cardNodes = Array.from(
-        el.querySelectorAll<HTMLElement>("[data-hero-mobile-card='true']")
-      );
-      if (!cardNodes.length) return;
-
-      const viewportCenter = el.scrollLeft + el.clientWidth / 2;
-      let nextActive = 0;
-      let closestDistance = Number.POSITIVE_INFINITY;
-
-      cardNodes.forEach((node, index) => {
-        const cardCenter = node.offsetLeft + node.offsetWidth / 2;
-        const distance = Math.abs(cardCenter - viewportCenter);
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          nextActive = index;
-        }
-      });
-
-      setActive((prev) => (prev === nextActive ? prev : nextActive));
-    };
-
-    const handleScroll = () => {
-      if (frame !== null) return;
-      frame = window.requestAnimationFrame(() => {
-        frame = null;
-        syncActiveCard();
-      });
-    };
-
-    syncActiveCard();
-    el.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
-    return () => {
-      el.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-      if (frame !== null) window.cancelAnimationFrame(frame);
-    };
-  }, [cards.length]);
-
-  const dotColor = (i: number, accent: "orange" | "blue" | "emerald") => {
-    if (i !== active) return "bg-white/25";
-    return accent === "orange" ? "bg-orange-400" : accent === "blue" ? "bg-blue-400" : "bg-emerald-400";
-  };
-
-  return (
-    <div className={`md:hidden relative w-full ${className}`.trim()}>
-      <div
-        ref={scrollerRef}
-        className="relative flex gap-4 overflow-x-auto snap-x snap-mandatory px-1 pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-      >
-        {cards.map((c) => (
-          <div
-            key={c.title}
-            data-hero-mobile-card="true"
-            className="w-[84vw] min-w-[17rem] max-w-sm shrink-0 snap-center first:ml-0 last:mr-1"
-          >
-            <HeroStaticCard title={c.title} items={c.items} accentColor={c.accent} show delay={0} />
-          </div>
-        ))}
-      </div>
-      <div className="relative flex justify-center gap-2 mt-4">
-        {cards.map((c, i) => (
-          <button
-            key={i}
-            type="button"
-            aria-label={`Show ${c.title}`}
-            onClick={() => {
-              const el = scrollerRef.current;
-              if (!el) return;
-              const cardNodes = Array.from(
-                el.querySelectorAll<HTMLElement>("[data-hero-mobile-card='true']")
-              );
-              const target = cardNodes[i];
-              if (!target) return;
-              const left = target.offsetLeft - Math.max((el.clientWidth - target.clientWidth) / 2, 0);
-              el.scrollTo({ left, behavior: "smooth" });
-            }}
-            className={`h-1.5 rounded-full transition-all duration-300 ${i === active ? "w-6" : "w-2"} ${dotColor(i, c.accent)}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export function AcademyHome() {
   const [showFirstHeroDetails, setShowFirstHeroDetails] = useState(false);
@@ -1254,7 +963,6 @@ export function AcademyHome() {
               audience="Students, Early-Career Professionals"
               image="https://images.unsplash.com/photo-1630464373688-fb6a37ce89ed?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGludmVzdG1lbnQlMjBiYW5raW5nfGVufDB8fDB8fHww"
               to="/programmes/investment-banking"
-              badge="Launching This AUGUST • Enroll Now"
             />
             <TrackCard
               index={1}
@@ -1342,89 +1050,7 @@ export function AcademyHome() {
   );
 }
 
-function AcademyStoryPanel({ slides, label, accent }: { slides: typeof academyStorySlides; label: string; accent: string }) {
-  const [current, setCurrent] = useState(0);
-  const total = slides.length;
 
-  useEffect(() => {
-    const slideId = setInterval(() => setCurrent((c: number) => (c + 1) % total), ACADEMY_SLIDE_DURATION);
-    return () => { clearInterval(slideId); };
-  }, [current, total]);
-
-  const slide = slides[current];
-
-  return (
-    <div className="relative h-[420px] md:h-[500px] lg:h-[540px] overflow-hidden rounded-2xl">
-      <AnimatePresence mode="sync">
-        <motion.img
-          key={current}
-          src={slide.image}
-          alt={slide.heading}
-          className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-110"
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-        />
-      </AnimatePresence>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/10" />
-
-      <div className="absolute top-6 left-6 z-10">
-        <span className={`text-xs font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full border ${accent}`}>
-          {label}
-        </span>
-      </div>
-
-      <div className="absolute bottom-[130px] left-6 right-6 z-10">
-        <AnimatePresence mode="wait">
-          <motion.h3
-            key={current + "-h"}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.4 }}
-            className="text-2xl md:text-3xl font-extrabold text-white leading-tight"
-          >
-            {slide.heading}
-          </motion.h3>
-        </AnimatePresence>
-      </div>
-
-      <div className="absolute bottom-[44px] left-6 right-6 h-[80px] z-10 overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={current + "-p"}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.4, delay: 0.05 }}
-            className="text-slate-200 text-sm leading-relaxed line-clamp-3"
-          >
-            {slide.body}
-          </motion.p>
-        </AnimatePresence>
-      </div>
-
-      <button onClick={() => setCurrent((current - 1 + total) % total)} className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 flex items-center justify-center text-white/50 hover:text-white transition-colors" aria-label="Previous">
-        <ChevronLeft className="w-5 h-5" strokeWidth={2} />
-      </button>
-      <button onClick={() => setCurrent((current + 1) % total)} className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 flex items-center justify-center text-white/50 hover:text-white transition-colors" aria-label="Next">
-        <ChevronRight className="w-5 h-5" strokeWidth={2} />
-      </button>
-
-      <div className="absolute bottom-4 left-0 right-0 z-20 flex flex-col items-center gap-1.5">
-        <div className="flex gap-2">
-          {slides.map((_: typeof slides[0], i: number) => (
-            <button key={i} onClick={() => setCurrent(i)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? "bg-orange-500 w-6" : "bg-white/30 w-2"}`}
-              aria-label={`Slide ${i + 1}`}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function AudienceCard({ title, description, link, image }: any) {
   return (
@@ -1528,112 +1154,246 @@ function TrackCard({
 
 function AdvisorSlideshow() {
   const [current, setCurrent] = useState(0);
+  const [selectedAdvisor, setSelectedAdvisor] = useState<(typeof advisoryTeam)[number] | null>(null);
+
   const total = advisoryTeam.length;
-  const advisor = advisoryTeam[current];
 
-  useEffect(() => {
-    const id = setInterval(() => {
-      setCurrent((c) => (c + 1) % total);
-    }, ADVISOR_SLIDE_DURATION);
+  const visibleAdvisors = [
+    advisoryTeam[current % total],
+    advisoryTeam[(current + 1) % total],
+  ];
 
-    return () => clearInterval(id);
-  }, [total]);
+  const goNext = () => setCurrent((prev) => (prev + 2) % total);
+  const goPrev = () => setCurrent((prev) => (prev - 2 + total) % total);
 
   return (
-    <motion.div
-      className="relative max-w-5xl mx-auto"
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <div className="relative overflow-hidden rounded-lg border border-slate-200 bg-slate-950 shadow-[0_16px_42px_rgba(15,23,42,0.12)]">
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(15,23,42,0.97),rgba(30,41,59,0.94)_56%,rgba(88,28,12,0.86))]" />
-        <div className="relative grid min-h-[420px] grid-cols-1 overflow-hidden md:min-h-[360px] lg:grid-cols-[0.72fr_1.28fr]">
-          <div className="relative flex min-h-[240px] items-center justify-center overflow-hidden border-b border-white/10 p-5 md:min-h-[280px] md:p-7 lg:min-h-full lg:border-b-0 lg:border-r">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={advisor.name}
-                initial={{ opacity: 0, scale: 1.04 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.75, ease: "easeInOut" }}
-                className="relative z-10 h-[210px] w-[210px] overflow-hidden rounded-lg border border-white/25 bg-white/8 p-2 shadow-[0_12px_30px_rgba(0,0,0,0.18)] sm:h-[230px] sm:w-[230px] md:h-[250px] md:w-[250px] lg:h-[270px] lg:w-[270px]"
-              >
-                <img
-                  src={advisor.image}
-                  alt={advisor.name}
-                  className={`h-full w-full rounded-md object-contain ${advisor.imageClassName}`}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </motion.div>
-            </AnimatePresence>
-            <div className="absolute inset-0 bg-slate-950/20" />
-          </div>
-
-          <div className="relative flex items-center px-5 py-7 sm:px-7 md:px-10 lg:px-12">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`${advisor.name}-content`}
-                initial={{ opacity: 0, x: 28 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="max-w-2xl"
-              >
-                <p className="mb-3 inline-flex max-w-full rounded-full border border-orange-300/20 bg-orange-300/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-orange-200">
-                  {advisor.intro}
-                </p>
-                <h3 className="text-2xl font-extrabold leading-tight text-white sm:text-3xl md:text-4xl">
-                  {advisor.name}
-                </h3>
-                <p className="mt-4 inline-flex max-w-xl py-2 text-sm font-semibold leading-6 text-orange-100 sm:text-[15px]">
-                  {advisor.role}
-                </p>
-                <div className="my-5 h-px w-20 bg-gradient-to-r from-orange-400 to-blue-300" />
-                <p className="text-sm leading-7 text-slate-200 sm:text-base">
-                  {advisor.description}
-                </p>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+    <>
+      <div className="relative mx-auto w-full max-w-[1280px]">
+        <div className="mb-5 flex items-center justify-between">
         </div>
-      </div>
 
-      <div className="mt-5 flex items-center justify-center gap-3">
-        <button
-          onClick={() => setCurrent((current - 1 + total) % total)}
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-600 transition-colors hover:border-orange-400 hover:text-orange-500"
-          aria-label="Previous advisor"
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </button>
+        <div className="grid gap-8 xl:grid-cols-2">
+          {visibleAdvisors.map((advisor, idx) => (
+            <motion.article
+              key={`${advisor.name}-${current}`}
+              initial={{ opacity: 0, x: idx === 0 ? -16 : 16, y: 12 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="group overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_12px_30px_rgba(15,23,42,0.06)]"
+            >
+              <div className="flex h-full min-h-[220px] flex-row">
+                <div className="flex w-[210px] shrink-0 items-center justify-center bg-slate-100 p-3 sm:w-[230px]">
+                  <div className="h-[175px] w-[175px] overflow-hidden rounded-[18px] bg-slate-200 sm:h-[185px] sm:w-[185px]">
+                    <img
+                      src={advisor.image}
+                      alt={advisor.name}
+                      className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
 
-        <div className="flex items-center gap-2">
-          {advisoryTeam.map((member, i) => (
-            <button
-              key={member.name}
-              onClick={() => setCurrent(i)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? "w-7 bg-orange-500" : "w-1.5 bg-slate-300 hover:bg-slate-400"}`}
-              aria-label={`Show ${member.name}`}
-            />
+                <div className="flex flex-1 flex-col justify-center px-4 py-4 sm:px-5 sm:py-5">
+                  <div>
+                    <span className="inline-flex rounded-full border border-orange-200 bg-orange-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-orange-700">
+                      {advisor.intro}
+                    </span>
+
+                    <h3 className="mt-3 text-[clamp(1.7rem,2vw,2.3rem)] font-extrabold leading-[1.08] text-slate-900">
+                      {advisor.name}
+                    </h3>
+
+                    <p className="mt-2 text-[14px] font-medium leading-relaxed text-slate-700">
+                      {advisor.role}
+                    </p>
+
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {advisor.summary.split("·").map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-slate-600"
+                        >
+                          {tag.trim()}
+                        </span>
+                      ))}
+                    </div>
+
+                    <p className="mt-3 max-w-[42ch] text-[14px] leading-7 text-slate-600">
+                      {advisor.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-4 flex justify-start">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedAdvisor(advisor)}
+                      className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3 py-2 text-[12px] font-semibold text-orange-700 transition-all duration-300 hover:border-orange-300 hover:bg-orange-500 hover:text-white"
+                    >
+                      <span>View profile</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </motion.article>
           ))}
         </div>
 
-        <button
-          onClick={() => setCurrent((current + 1) % total)}
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-600 transition-colors hover:border-orange-400 hover:text-orange-500"
-          aria-label="Next advisor"
-        >
-          <ChevronRight className="h-4 w-4" />
-        </button>
+        <div className="mt-6 flex items-center justify-center gap-3">
+          <button
+            type="button"
+            onClick={goPrev}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-orange-200 bg-orange-50 text-orange-700 transition-all duration-300 hover:border-orange-300 hover:bg-orange-500 hover:text-white"
+            aria-label="Previous advisors"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+
+          <div className="flex items-center justify-center gap-2">
+            {advisoryTeam.map((member, index) => (
+              <button
+                key={member.name}
+                type="button"
+                onClick={() => setCurrent(index)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${index === current ? "w-8 bg-orange-500" : "w-2 bg-slate-300 hover:bg-slate-400"
+                  }`}
+                aria-label={`Show ${member.name}`}
+              />
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={goNext}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-orange-200 bg-orange-50 text-orange-700 transition-all duration-300 hover:border-orange-300 hover:bg-orange-500 hover:text-white"
+            aria-label="Next advisors"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+        </div>
       </div>
-    </motion.div>
+
+      <AnimatePresence>
+        {selectedAdvisor && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/75 p-4 backdrop-blur-sm"
+            onClick={() => setSelectedAdvisor(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 16, scale: 0.98 }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(event) => event.stopPropagation()}
+              className="relative w-full max-w-5xl overflow-hidden rounded-[30px] border border-slate-700 bg-slate-950 shadow-[0_30px_120px_rgba(0,0,0,0.35)]"
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedAdvisor(null)}
+                className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-slate-600 bg-slate-900 text-slate-200 transition-colors hover:border-orange-400 hover:text-orange-300"
+                aria-label="Close profile"
+              >
+                <X className="h-4 w-4" />
+              </button>
+
+              <div className="grid lg:grid-cols-[0.8fr_1.4fr]">
+                <div className="border-b border-slate-700 bg-slate-900/80 p-6 md:p-8 lg:border-b-0 lg:border-r">
+                  <div className="mb-4 flex justify-center lg:justify-start">
+                    <span className="inline-flex items-center rounded-full text-[10px] font-bold uppercase tracking-[0.18em] text-orange-300">
+                      {selectedAdvisor.intro}
+                    </span>
+                  </div>
+
+
+                  <div className="mx-auto max-w-[260px] overflow-hidden rounded-[22px] border border-slate-600 bg-slate-800 p-2 shadow-xl">
+                    <img
+                      src={selectedAdvisor.image}
+                      alt={selectedAdvisor.name}
+                      className="h-[290px] w-full rounded-[18px] object-cover object-center md:h-[340px]"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  <div className="mt-6 text-center lg:text-left">
+                    <h3 className="text-2xl font-extrabold text-white md:text-3xl">
+                      {selectedAdvisor.name}
+                    </h3>
+
+                    <p className="mt-3 text-base font-semibold text-orange-200">
+                      {selectedAdvisor.role}
+                    </p>
+
+                    <div className="mt-4 flex items-center justify-center gap-2 text-sm text-slate-300 lg:justify-start">
+                      <MapPin className="h-4 w-4 text-slate-400" />
+                      <span>{selectedAdvisor.location}</span>
+                    </div>
+
+                    <a
+                      href={selectedAdvisor.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-5 inline-flex items-center gap-3 rounded-full border border-slate-600 bg-slate-800 px-4 py-2 text-sm font-medium text-slate-100 transition-colors hover:border-orange-400 hover:text-orange-300"
+                    >
+                      <img
+                        src={linkedinCircleIcon}
+                        alt="LinkedIn"
+                        className="h-7 w-7 rounded-full object-cover"
+                      />
+                      <span>LinkedIn</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="p-6 md:p-8 lg:p-10">
+                  <div className="space-y-7">
+                    <section className="border-l-2 border-orange-400/60 pl-4">
+                      <h4 className="text-lg font-bold uppercase tracking-[0.14em] text-orange-300">
+                        Profile
+                      </h4>
+                      <p className="mt-3 text-sm leading-7 text-slate-200 md:text-base">
+                        {selectedAdvisor.profile}
+                      </p>
+                    </section>
+
+                    <section className="border-l-2 border-blue-400/60 pl-4">
+                      <h4 className="text-lg font-bold uppercase tracking-[0.14em] text-blue-300">
+                        Area of Expertise
+                      </h4>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {selectedAdvisor.areas.map((area) => (
+                          <span
+                            key={area}
+                            className="rounded-full border border-slate-700 bg-slate-900 px-3 py-1.5 text-xs font-medium text-slate-200 md:text-sm"
+                          >
+                            {area}
+                          </span>
+                        ))}
+                      </div>
+                    </section>
+
+                    <section className="border-l-2 border-emerald-400/60 pl-4">
+                      <h4 className="text-lg font-bold uppercase tracking-[0.14em] text-emerald-300">
+                        Industry Perspective
+                      </h4>
+                      <p className="mt-3 text-sm leading-7 text-slate-200 md:text-base">
+                        {selectedAdvisor.industryPerspective}
+                      </p>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
-
-
 
 function QuoteSlideshowSection() {
   const [current, setCurrent] = useState(0);
@@ -1739,23 +1499,5 @@ function BenefitCard({ title, description, image }: any) {
   );
 }
 
-function TestimonialCard({ quote, author, role, outcome }: any) {
-  return (
-    <motion.div
-      variants={fadeInUp}
-      className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-8"
-    >
-      <div className="mb-6">
-        <span className="inline-block px-3 py-1 bg-orange-500/10 text-orange-400 text-xs font-semibold rounded-full">
-          {outcome}
-        </span>
-      </div>
-      <p className="text-slate-300 mb-6 italic">"{quote}"</p>
-      <div>
-        <div className="font-semibold">{author}</div>
-        <div className="text-sm text-slate-400">{role}</div>
-      </div>
-    </motion.div>
-  );
-}
+
 
